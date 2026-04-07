@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main_form</class>
+ <widget class="QWidget" name="main_form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>878</width>
+    <height>686</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Unima Vehicule Routing Problem</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_5">
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Unima - Vehicule Routing Problem&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="DataPage">
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <layout class="QFormLayout" name="formLayout">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>couche Point</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="cb_pt"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QCheckBox" name="chk_label">
+               <property name="text">
+                <string>Champ label</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="cb_label"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QCheckBox" name="chk_pt_selected_only">
+               <property name="text">
+                <string>Entité(s) séléctionnée(s) uniquement</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="label_pt_selected_only">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="Line" name="line_2">
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QLabel" name="label_4">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>1</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Choix du point
+de départ</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="cb_home">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>1</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>75</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <item>
+                <property name="text">
+                 <string>UNIMA</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="le_home">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>3</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pb_other_home">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>1</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Add Home</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="Line" name="line">
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <widget class="QLabel" name="label_3">
+               <property name="text">
+                <string>Choix Du Réseaux</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout">
+               <property name="leftMargin">
+                <number>25</number>
+               </property>
+               <item>
+                <widget class="QRadioButton" name="rb_harversine">
+                 <property name="text">
+                  <string>Harversine</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="rb_osmr">
+                 <property name="text">
+                  <string>OSMR</string>
+                 </property>
+                 <property name="checked">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="rb_qgis">
+                 <property name="text">
+                  <string>Qgis - Djikstra</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_qgis_reseau">
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <item>
+               <layout class="QFormLayout" name="formLayout_2">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_7">
+                  <property name="text">
+                   <string>Couche Réseaux</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QComboBox" name="cb_network"/>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_11">
+                  <property name="text">
+                   <string>Tolerance</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QSpinBox" name="sp_tolerance">
+                  <property name="suffix">
+                   <string> m</string>
+                  </property>
+                  <property name="maximum">
+                   <number>9999999</number>
+                  </property>
+                  <property name="value">
+                   <number>50</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QTextBrowser" name="textBrowser">
+           <property name="minimumSize">
+            <size>
+             <width>300</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>400</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="html">
+            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:9.75pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:8px; margin-bottom:8px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:8px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px; background-color:#eaf4fb;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:16pt; color:#1a1a1a; background-color:#eaf4fb;&quot;&gt;   &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:16pt; font-weight:600; color:#1a1a1a;&quot;&gt;Unima – Vehicle Routing Problem&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:16pt; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Ce plugin résout des problèmes d'itinéraire optimisé sur une couche de points QGIS.    Il calcule le ou les meilleurs trajets reliant un point de départ (&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-style:italic; color:#1a1a1a;&quot;&gt;Home&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;) à l'ensemble    des points à visiter, en minimisant la distance parcourue.    &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Le traitement s'effectue en trois étapes : &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; chargement des données,    &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; paramétrage du solveur, &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; export des résultats.    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 style=&quot; margin-top:10px; margin-bottom:2px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:10pt; font-weight:600; color:#1a5276;&quot;&gt;Couche de points&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h2&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Sélectionnez la &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;couche vecteur de type Point&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; contenant les lieux à visiter.  Seules les couches points du projet courant sont listées.  &lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:2px; margin-bottom:2px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Entités sélectionnées uniquement &lt;/span&gt;&lt;span style=&quot; font-style:italic; color:#888888;&quot;&gt;(optionnel)&lt;/span&gt; — cochez cette option pour ne traiter    que les entités actuellement sélectionnées dans la couche.    &lt;/li&gt;
+&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:0px; margin-bottom:4px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Champ label&lt;/span&gt; &lt;span style=&quot; font-style:italic; color:#888888;&quot;&gt;(optionnel)&lt;/span&gt; — choisissez un champ    attributaire à utiliser comme nom lisible pour chaque point dans les exports    (CSV, couche mémoire, logs). Sans sélection, les points sont nommés    &lt;span style=&quot; font-family:'Courier New';&quot;&gt;pt_&amp;lt;id&amp;gt;&lt;/span&gt;.    &lt;/li&gt;&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2 style=&quot; margin-top:10px; margin-bottom:2px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:10pt; font-weight:600; color:#1a5276;&quot;&gt;Point de départ (Home)&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h2&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Le point &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;Home&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; est le dépôt : le solveur part de ce point (ou y revient)  pour construire les itinéraires.  &lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:2px; margin-bottom:2px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Par défaut, Home est positionné aux coordonnées l'&lt;span style=&quot; font-weight:600;&quot;&gt;UNIMA&lt;/span&gt;    (EPSG:2154 — 383 970, 6 571 120).    &lt;/li&gt;
+&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:0px; margin-bottom:2px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Les coordonnées sont automatiquement converties dans le CRS du projet courant.    &lt;/li&gt;
+&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:0px; margin-bottom:4px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Utilisez le bouton &lt;span style=&quot; font-weight:600;&quot;&gt;Add Home&lt;/span&gt; pour définir un point de départ personnalisé.    &lt;/li&gt;&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2 style=&quot; margin-top:10px; margin-bottom:2px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:10pt; font-weight:600; color:#1a5276;&quot;&gt;Méthode de calcul de la matrice de distances&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h2&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Le solveur a besoin d'une matrice &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-style:italic; color:#1a1a1a;&quot;&gt;n × n&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; de distances entre tous les points.  Trois méthodes sont disponibles :  &lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:8px; margin-bottom:1px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1f618d;&quot;&gt;📐 Haversine &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1e8449; background-color:#d5f5e3;&quot;&gt;Recommandé&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Calcul de la &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;distance à vol d'oiseau&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; (formule Haversine, WGS84).  Rapide, sans connexion réseau, adapté aux estimations ou aux zones sans réseau routier structuré.  &lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:8px; margin-bottom:1px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1f618d;&quot;&gt;🌐 OSRM&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Calcul via l'&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;API publique OSRM&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; (Open Source Routing Machine).  Utilise le réseau routier réel pour estimer les distances de trajet.  &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-style:italic; color:#7d6608;&quot;&gt;⚠ Nécessite une connexion Internet. Limité à 99 points  par requête (quota du serveur public).&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:8px; margin-bottom:1px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1f618d;&quot;&gt;🗺 QGIS – Dijkstra&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Calcul sur une &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;couche réseau chargée dans QGIS&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; (ex. : polyline voirie).  Utilise l'algorithme de Dijkstra pour calculer les plus courts chemins réels sur le graphe.  &lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:2px; margin-bottom:2px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Couche réseau&lt;/span&gt; — sélectionnez la couche linéaire représentant le réseau.    &lt;/li&gt;
+&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:0px; margin-bottom:4px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Tolérance&lt;/span&gt; — distance maximale (en mètres) pour accrocher un point    au réseau. Augmentez cette valeur si des points sont signalés comme non snappés.  &lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QPushButton" name="pb_close">
+           <property name="text">
+            <string>Fermer</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pb_next">
+           <property name="text">
+            <string>Suivant</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="ParamsPage">
+      <layout class="QVBoxLayout" name="verticalLayout_11">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_10">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <item>
+              <widget class="QLabel" name="label_5">
+               <property name="text">
+                <string>Mode du solver</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_7">
+               <property name="leftMargin">
+                <number>25</number>
+               </property>
+               <item>
+                <widget class="QRadioButton" name="rb_tsp_path">
+                 <property name="text">
+                  <string>tsp-path</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="rb_tsp_loop">
+                 <property name="text">
+                  <string>tsp-loop</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="rb_vrp_dist">
+                 <property name="text">
+                  <string>vrp-dist</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="rb_vrp_loops">
+                 <property name="text">
+                  <string>vrp-loops</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="rb_vrp_maxpoints">
+                 <property name="text">
+                  <string>vrp-maxpoints</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="Line" name="line_4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_tsp_path">
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QRadioButton" name="rb_home_to_last">
+                <property name="text">
+                 <string>Home -&gt; Point le plus éloginé</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="rb_last_to_home">
+                <property name="text">
+                 <string>Point le plus éloginé -&gt; Home</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_vrp_dist">
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout" columnstretch="2,1,1">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_6">
+                <property name="text">
+                 <string>Distance max par trajet</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QSpinBox" name="sp_dist">
+                <property name="maximum">
+                 <number>99999</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QComboBox" name="cb_dist_unit">
+                <item>
+                 <property name="text">
+                  <string>m</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Km</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_vrp_loops">
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_11">
+              <item>
+               <widget class="QLabel" name="label_10">
+                <property name="text">
+                 <string>Nombre de boucle</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="sp_loop"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_vrp_maxpoints">
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>Nombre de points maximum par trajet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="sp_maxpoints"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_7">
+             <item>
+              <widget class="QLabel" name="label_9">
+               <property name="text">
+                <string>Temps de calcul</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="sp_duration">
+               <property name="suffix">
+                <string>s</string>
+               </property>
+               <property name="maximum">
+                <number>86400</number>
+               </property>
+               <property name="value">
+                <number>60</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="Line" name="line_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <widget class="QLineEdit" name="le_path"/>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pb_folder">
+               <property name="styleSheet">
+                <string notr="true">image: url(:/Icon/icon/folder.svg);</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_9">
+             <item>
+              <widget class="QCheckBox" name="chk_csv">
+               <property name="text">
+                <string>CSV</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="chk_memory_layer">
+               <property name="text">
+                <string>Memory Layer</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="chk_maps_txt">
+               <property name="text">
+                <string>Maps.txt</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="chk_logs">
+               <property name="text">
+                <string>Logs</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QTextBrowser" name="textBrowser2">
+           <property name="minimumSize">
+            <size>
+             <width>300</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>400</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="html">
+            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:9.75pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:8px; margin-bottom:8px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/p&gt;
+&lt;h2 style=&quot; margin-top:10px; margin-bottom:2px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:10pt; font-weight:600; color:#1a5276;&quot;&gt;Mode du solveur&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h2&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Choisissez la stratégie d'optimisation adaptée à votre besoin :  &lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:8px; margin-bottom:1px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1f618d;&quot;&gt;tsp-path &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#a04000; background-color:#fdf2e9;&quot;&gt;1 trajet&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Chemin unique, &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;sans retour&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; au point Home. Le départ est fixé au point  le plus éloigné de Home ; l'arrivée est Home. Idéal pour une tournée  en sens unique.  &lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:8px; margin-bottom:1px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1f618d;&quot;&gt;tsp-loop &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#a04000; background-color:#fdf2e9;&quot;&gt;1 boucle&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Boucle unique avec &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;retour au Home&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;. Le solveur trouve le circuit  le plus court passant par tous les points.  &lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:8px; margin-bottom:1px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1f618d;&quot;&gt;vrp-dist &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1e8449; background-color:#d5f5e3;&quot;&gt;Multi-boucles&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Plusieurs boucles avec une &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;distance maximale par boucle&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; (en km ou m).  Le nombre de boucles est déterminé automatiquement par le solveur.  &lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:2px; margin-bottom:4px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Paramètre requis : &lt;span style=&quot; font-weight:600;&quot;&gt;Distance max par trajet&lt;/span&gt;  &lt;/li&gt;&lt;/ul&gt;
+&lt;h3 style=&quot; margin-top:8px; margin-bottom:1px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1f618d;&quot;&gt;vrp-loops &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1e8449; background-color:#d5f5e3;&quot;&gt;Multi-boucles&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Plusieurs boucles avec un &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;nombre fixe de boucles&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;. Les points sont  répartis équitablement entre les boucles pour minimiser la distance totale.  &lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:2px; margin-bottom:4px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Paramètre requis : &lt;span style=&quot; font-weight:600;&quot;&gt;Nombre de boucles&lt;/span&gt;  &lt;/li&gt;&lt;/ul&gt;
+&lt;h3 style=&quot; margin-top:8px; margin-bottom:1px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1f618d;&quot;&gt;vrp-maxpoints &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1e8449; background-color:#d5f5e3;&quot;&gt;Multi-boucles&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Plusieurs boucles avec un &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;nombre maximum de points par boucle&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;.  Le nombre de boucles est calculé automatiquement.  &lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:2px; margin-bottom:4px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Paramètre requis : &lt;span style=&quot; font-weight:600;&quot;&gt;Nombre de points max par trajet&lt;/span&gt;  &lt;/li&gt;&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2 style=&quot; margin-top:10px; margin-bottom:2px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:10pt; font-weight:600; color:#1a5276;&quot;&gt;Temps de calcul&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h2&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Durée maximale allouée au solveur OR-Tools (en secondes).  Un temps plus long permet d'explorer davantage de solutions et d'obtenir  un résultat plus optimal. &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;60 s&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; est une valeur raisonnable pour la plupart des cas.  &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:5px; margin-bottom:5px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px; background-color:#fef9e7;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a; background-color:#fef9e7;&quot;&gt;    ⚠ Au-delà du temps imparti, OR-Tools retourne la meilleure solution trouvée    jusqu'alors — le calcul n'échoue pas.  &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 style=&quot; margin-top:10px; margin-bottom:2px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:10pt; font-weight:600; color:#1a5276;&quot;&gt;Sorties&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h2&gt;
+&lt;h2 style=&quot; margin-top:10px; margin-bottom:2px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/Icon/icon/folder.svg&quot; /&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:10pt; font-weight:600; color:#1a5276;&quot;&gt; Dossier de destination&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h2&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Tous les fichiers générés seront écrits dans ce dossier.  Utilisez le bouton &lt;/span&gt;&lt;img src=&quot;:/Icon/icon/folder.svg&quot; /&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; pour parcourir et sélectionner un répertoire.  &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:8px; margin-bottom:1px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1f618d;&quot;&gt;📄 CSV&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Conserve le fichier &lt;/span&gt;&lt;span style=&quot; font-family:'monospace'; font-size:8.5pt; color:#1a1a1a; background-color:#f0f0f0;&quot;&gt;result_&amp;lt;mode&amp;gt;.csv&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; dans le dossier de destination.  Contient pour chaque point : boucle, ordre de passage, coordonnées, distance depuis  le point précédent.  &lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:8px; margin-bottom:1px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1f618d;&quot;&gt;🗺 Memory Layer&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Crée une &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;couche mémoire QGIS&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; (LineString) visualisant les itinéraires,  directement ajoutée au projet courant. Une ligne par boucle.  &lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:8px; margin-bottom:1px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1f618d;&quot;&gt;🔗 Maps.txt&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Génère un fichier texte contenant une &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;URL Google Maps&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; par boucle,  permettant de visualiser ou partager chaque itinéraire directement dans un navigateur.  &lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:8px; margin-bottom:1px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:9pt; font-weight:600; color:#1f618d;&quot;&gt;📁 Logs (fichiers de traitement)&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;  &lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Conserve les fichiers intermédiaires dans le dossier de destination :  &lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:2px; margin-bottom:2px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'monospace'; background-color:#f0f0f0;&quot;&gt;points.csv&lt;/span&gt; — liste des points transmis au solveur    &lt;/li&gt;
+&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:0px; margin-bottom:2px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'monospace'; background-color:#f0f0f0;&quot;&gt;matrix.csv&lt;/span&gt; — matrice de distances &lt;span style=&quot; font-style:italic;&quot;&gt;n × n&lt;/span&gt;    &lt;/li&gt;
+&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:0px; margin-bottom:4px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'monospace'; background-color:#f0f0f0;&quot;&gt;status.json&lt;/span&gt; — statut de fin d'exécution (succès, distances, erreurs)    &lt;/li&gt;&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:0px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px; background-color:#eafaf1;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a; background-color:#eafaf1;&quot;&gt;    &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;▶ Ce qui se passe après avoir cliqué sur OK&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;    &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:4px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;Le traitement se lance en &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; font-weight:600; color:#1a1a1a;&quot;&gt;tâche de fond QGIS&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt; (thread séparé, interface non bloquée) :    &lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:2px; margin-bottom:2px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Chargement des points&lt;/span&gt; — extraction depuis la couche sélectionnée + reprojection en WGS84.      &lt;/li&gt;
+&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:0px; margin-bottom:2px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Génération de la matrice&lt;/span&gt; — calcul des distances entre tous les points selon la méthode choisie.      &lt;/li&gt;
+&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:0px; margin-bottom:2px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Export CSV temporaires&lt;/span&gt; — &lt;span style=&quot; font-family:'monospace'; background-color:#f0f0f0;&quot;&gt;points.csv&lt;/span&gt; et &lt;span style=&quot; font-family:'monospace'; background-color:#f0f0f0;&quot;&gt;matrix.csv&lt;/span&gt; écrits dans le dossier de destination.      &lt;/li&gt;
+&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:0px; margin-bottom:2px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Lancement du solveur&lt;/span&gt; — OR-Tools résout le problème et écrit &lt;span style=&quot; font-family:'monospace'; background-color:#f0f0f0;&quot;&gt;result_&amp;lt;mode&amp;gt;.csv&lt;/span&gt; + &lt;span style=&quot; font-family:'monospace'; background-color:#f0f0f0;&quot;&gt;status.json&lt;/span&gt;.      &lt;/li&gt;
+&lt;li style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot; style=&quot; margin-top:0px; margin-bottom:4px; margin-left:20px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Post-traitement&lt;/span&gt; — génération des sorties demandées (couche mémoire, Maps.txt…) et nettoyage des fichiers temporaires si les logs ne sont pas conservés.        &lt;/li&gt;&lt;/ul&gt;
+&lt;p style=&quot; margin-top:2px; margin-bottom:4px; margin-left:8px; margin-right:8px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI','Arial','sans-serif'; font-size:8.5pt; color:#1a1a1a;&quot;&gt;La progression et les messages s'affichent en temps réel dans le panneau de logs.  &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_8">
+         <item>
+          <widget class="QPushButton" name="pb_return">
+           <property name="text">
+            <string>Retour</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pb_run">
+           <property name="text">
+            <string>OK</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="LogsPage">
+      <layout class="QVBoxLayout" name="verticalLayout_13">
+       <item>
+        <widget class="QTextBrowser" name="tb_logs"/>
+       </item>
+       <item>
+        <widget class="QProgressBar" name="progressBar">
+         <property name="value">
+          <number>24</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_9">
+         <item>
+          <widget class="QPushButton" name="pb_return2">
+           <property name="text">
+            <string>Retour</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_5">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pb_cancel">
+           <property name="text">
+            <string>Annuler</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pb_finish">
+           <property name="text">
+            <string>OK</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="ResultPage"/>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="ressources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
