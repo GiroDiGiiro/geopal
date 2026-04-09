@@ -7,15 +7,15 @@
 # This file should be included when you package your plugin.# Mandatory items:
 
 [general]
-name= 
+name= GeoPal AddOn
 qgisMinimumVersion=2.6
 qgisMaximumVersion=3.99
-description=
-version=
+description= AddOn pour les missions avec le référentiel de Geopal
+version= 0.1
 author=Giro Di Giiro
 email=giro_di_giiro@gmail.com
 
-about= 
+about= Ce plugin permet de couvertir les données terrain en données bureau exploitable, de rempir automatiquement des champs et de mettre en forme au format de rendu tpe GeoPal
 
 tracker=github.com
 repository=github.com

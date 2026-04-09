@@ -2,6 +2,7 @@
 
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+from geopal.algs.TerrainToBureau import TerrainToBureau
 
 
 # from 'PluginName'.form.ui import ressources_rc
@@ -17,7 +18,7 @@ class GeoPalPlugin:
         # Ajouter les autres actions ici
 
         # Création menu du plugin pour ouvrir les dialogs
-        self.menu = QMenu(u"Menu_GeoPalPlugin")  # Ajouté Le nom du plugin
+        self.menu = QMenu(u"Unima - GeoPalPlugin")  # Ajouté Le nom du plugin
         self.menu.setIcon(QIcon(":/Icon/icon/icon.png"))
         self.menu.addAction(self.action1)
         # Ajouter les autres actions ou sous menu ici
@@ -33,10 +34,12 @@ class GeoPalPlugin:
         self.interface.mainWindow().menuBar().removeAction(self.menu.menuAction())
         self.interface.mainWindow().removeToolBar(self.toolbar)
 
-    # Ouverture de la classe Etape1_dialog depuis le fichier etape1_dialog
-    # def on_click_action1(self):
-    #     dlg = UMainForm(self.interface) # Class à importer
-    #     dlg.show()
-    #     result = dlg.exec_()
-    #     if result:
-    #         pass
+
+    def on_click_action1(self):
+        # dlg = UMainForm(self.interface) # Class à importer
+        # dlg.show()
+        # result = dlg.exec_()
+        # if result:
+        #     pass
+
+        TerrainToBureau.run()
