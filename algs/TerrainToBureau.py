@@ -1,25 +1,24 @@
 import os.path
 
-from qgis.core import QgsProject, QgsVectorLayer
-from geopal.utils.create_memory_layer import create_memory_layer
-from geopal.utils.get_by_expression import get_by_expression
+from geopal.algs.fill_code_insee import fill_code_insee
+from geopal.algs.fill_nom_rue import fill_nom_rue
+from geopal.algs.load_wfs import load_wfs_reference_layers
 from geopal.utils.add_features import add_features
+from geopal.utils.create_memory_layer import create_memory_layer
 from geopal.utils.export_layers_to_gpkg import export_layers_to_gpkg
+from geopal.utils.get_by_expression import get_by_expression
+from geopal.utils.get_layers_extend import get_layers_extent
 from geopal.utils.load_layers_from_gpkg import load_layers_from_gpkg
+from qgis.core import QgsProject, QgsVectorLayer
 
 
 class TerrainToBureau:
-
-
 
     def run():
         project_path = QgsProject.instance().absolutePath()
         pt_layer_terrain = QgsProject.instance().mapLayersByName("Ponctuels")[0]
         line_layer_terrain = QgsProject.instance().mapLayersByName("Linaires")[0]
         polygon_layer_terrain = QgsProject.instance().mapLayersByName("Polygones")[0]
-
-        communes_layer = QgsProject.instance().mapLayersByName("Communes")[0]
-        routes_layer = QgsProject.instance().mapLayersByName("Routes")[0]
 
         def create_custom_id(layer: QgsVectorLayer, prefix: str) -> bool:
             try:
@@ -73,7 +72,7 @@ class TerrainToBureau:
                 'exutoire': 'str',
                 'type_eau': 'int',
                 'source': 'str',
-                
+
             },
             'Regard': {
                 'id': 'str',
@@ -205,7 +204,7 @@ class TerrainToBureau:
                 'zone_inon': 'int',
                 'fiche_ouvr': 'str',
                 'source': 'str',
-                'equipement_id':'str',
+                'equipement_id': 'str',
             },
             'Equipement': {
                 'id': 'str',
@@ -257,7 +256,7 @@ class TerrainToBureau:
             'cl_resist': 'int',
             'profondeur_fe_amont ': 'int',
             'fil-eau_am': 'float',
-            'profondeur_fe_aval ':'int',
+            'profondeur_fe_aval ': 'int',
             'fil-eau_av': 'float',
             'type_reh': 'int',
             'date_reh': 'str',
@@ -317,29 +316,30 @@ class TerrainToBureau:
             'surface': 'float',
             'volume': 'float',
             'source': 'str',
-            
+
         }
 
-        layer_dict= {}
-        n=1
-        for layer_name,attributes_dict in pts_dict.items():
-            layer = create_memory_layer(layer_name,'PointZ',2154, attributes_dict, load_to_project=False)
+        layer_dict = {}
+        n = 1
+        for layer_name, attributes_dict in pts_dict.items():
+            layer = create_memory_layer(layer_name, 'PointZ', 2154, attributes_dict, load_to_project=False)
 
-            old_features = get_by_expression(pt_layer_terrain, f'"famille" = {n}')
-            layer_dict[layer] = get_by_expression(pt_layer_terrain, f'"famille" = {n}')
-            n+=1
+            if n != 4:
+                layer_dict[layer] = get_by_expression(pt_layer_terrain, f'"famille" = {n}')
+            else :
+                layer_dict[layer] = get_by_expression(pt_layer_terrain, f'"famille" = {n} or "have_equipement" = 1')
+            n += 1
 
-        layer = create_memory_layer('Canalisation','LineStringZ',2154, troncon_dict, load_to_project=False)
+        layer = create_memory_layer('Canalisation', 'LineStringZ', 2154, troncon_dict, load_to_project=False)
         layer_dict[layer] = line_layer_terrain.getFeatures()
 
-        layer = create_memory_layer('Bassin de Rétention','PolygonZ',2154,bassin_dict, load_to_project=False)
+        layer = create_memory_layer('Bassin de Rétention', 'PolygonZ', 2154, bassin_dict, load_to_project=False)
         layer_dict[layer] = polygon_layer_terrain.getFeatures()
 
         for layer, features in layer_dict.items():
-            succes = add_features(features, layer,True)
+            succes = add_features(features, layer, True)
             if not succes:
                 raise ValueError("Erreur lors de l'ajout des features aux couches temporaires")
-
 
         data_dir = os.path.join(project_path, '00_data')
         os.makedirs(data_dir, exist_ok=True)
@@ -360,12 +360,39 @@ class TerrainToBureau:
             return
 
         # print(layers_name) # ['Avaloir', 'Regard', 'Noeud', 'Ouvrage', 'Equipement', 'Canalisation', 'Bassin de Rétention']
-        prefix_list = ['AVA','REG','NOE','OUV','EQU','CAN','RET']
+        prefix_list = ['RET','CAN','EQU','OUV','NOE','REG','AVA'] # Inverser par apport à l'ordre des layers
         for i, layer in enumerate(layers):
-            # Création des ids personnalisés
+            layer.startEditing()
+
             for feature in layer.getFeatures():
-                feature['id'] = prefix_list[i]
+                # Création des ids personnalisés
+                feature['id'] = f'{prefix_list[i]}{feature.id()}'
+                # Ajout de la mention "eaux_pluviale"
+                feature['type_eau'] = 2
+                layer.updateFeature(feature)
+            layer.commitChanges()
 
-                
+        # Preparer les données pour remplir le code insee et le nom des rue (import + découpe)
+        # Charger les référentiels WFS sans les afficher
+        routes_layer, communes_layer = load_wfs_reference_layers(add_to_legend=False)
+        if not routes_layer or not communes_layer:
+            print("[Error] Impossible de charger les couches de référence WFS")
+            return
 
+        # Calauler l'extent total de toute les couches pour réduire le temps de traitement sur les couches importées
+        extent = get_layers_extent(layers)
 
+        # Remplir les champs spatiaux sur toutes les couches produites
+        succes = fill_code_insee(layers, communes_layer)
+        if succes:
+            print('code insee ajouté avec succes')
+
+        succes = fill_nom_rue(layers, routes_layer, extent)
+
+        if succes:
+            print('nom des rues ajouté avec succes')
+
+        # Nettoyage : supprimer les couches WFS du registre après usage
+        QgsProject.instance().removeMapLayer(routes_layer.id())
+        QgsProject.instance().removeMapLayer(communes_layer.id())
+        print("Couche wfs supprimé avec succes tout vas bien pour la méméoire de ton pc tkt")
