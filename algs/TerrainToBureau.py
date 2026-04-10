@@ -1,5 +1,5 @@
 import os.path
-
+import datetime
 
 from geopal.algs.fill_code_insee import fill_code_insee
 from geopal.algs.fill_nom_rue import fill_nom_rue
@@ -18,6 +18,8 @@ from qgis.core import QgsProject, QgsVectorLayer
 class TerrainToBureau:
 
     def run():
+        t0 = datetime.datetime.now()
+        print(f" start at {t0}")
         # ---------------------------------------------#
         # ------- Instanciation des variables --------#
         # ---------------------------------------------#
@@ -435,11 +437,12 @@ class TerrainToBureau:
             layer.startEditing()
             for feat in layer.getFeatures():
                 geom = feat.geometry()
-
-                feat["surface"] = geom.area()
-                feat["volume"] = feat["fond_calcule"] * geom.area()
+                depth = feat.attribute("fond_calcule")
+                area = geom.area()
+                feat["surface"] = area
+                if depth:
+                    feat["volume"] = depth * area
                 layer.updateFeature(feat)
-
             layer.commitChanges()
 
         # Preparer les données pour remplir le code insee et le nom des rue (import + découpe)
@@ -466,4 +469,9 @@ class TerrainToBureau:
         QgsProject.instance().removeMapLayer(routes_layer.id())
         QgsProject.instance().removeMapLayer(communes_layer.id())
         print("Couche wfs supprimé avec succes tout vas bien pour la méméoire de ton pc tkt")
-        print("fini")
+
+
+        t1 = datetime.datetime.now()
+        time = t1 - t0
+        print(f"End at {t1}")
+        print(f"Completion in {time}")
