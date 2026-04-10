@@ -13,44 +13,44 @@ def map_field_type(attr_type: str) -> QVariant.Type:
 
     attr_type = attr_type.lower().strip()
 
-    # 1. Essayer avec Qt directement
+    # 1. Fallback avec dictionnaire custom
     type_map = {
         # Numériques
-        "int": QVariant.Int,
-        "integer": QVariant.Int,
-        "long": QVariant.LongLong,
-        "bigint": QVariant.LongLong,
-        "double": QVariant.Double,
-        "float": QVariant.Double,
+        "int": 2,  # int
+        "integer": 2,  # int
+        "long": 4,  # LongLong
+        "bigint": 4,  # LongLong
+        "double": 6,  # double
+        "float": 6,  # double
 
         # Chaînes
-        "string": QVariant.String,
-        "text": QVariant.String,
-        "varchar": QVariant.String,
-        "json": QVariant.String,
+        "string": 10,  # string
+        "text": 10,  # string
+        "varchar": 10,  # string
+        "json": 10,  # string
 
         # Booléens
-        "bool": QVariant.Bool,
-        "boolean": QVariant.Bool,
+        "bool": 1,  # bool
+        "boolean": 1,
 
         # Dates & temps
-        "date": QVariant.Date,
-        "time": QVariant.Time,
-        "datetime": QVariant.DateTime,
+        "date": 14,  # date
+        "time": 15,  # time
+        "datetime": 16,  # datetime
 
         # Données binaires
-        "binary": QVariant.ByteArray,
-        "blob": QVariant.ByteArray,
+        "binary": 12,  # QByteArray
+        "blob": 12,  # QByteArray
     }
 
     if attr_type in type_map:
         return type_map[attr_type]
 
-    # 2. Fallback avec dictionnaire custom
+    # 2.  Essayer avec Qt directement
+
     qt_type = QVariant.nameToType(attr_type)
     if qt_type != QVariant.Invalid:
         return qt_type
-
 
     # 3. Dernier recours : string
     return 10

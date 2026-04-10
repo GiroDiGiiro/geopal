@@ -1,5 +1,6 @@
 import os.path
 
+
 from geopal.algs.fill_code_insee import fill_code_insee
 from geopal.algs.fill_nom_rue import fill_nom_rue
 from geopal.algs.load_wfs import load_wfs_reference_layers
@@ -9,26 +10,26 @@ from geopal.utils.export_layers_to_gpkg import export_layers_to_gpkg
 from geopal.utils.get_by_expression import get_by_expression
 from geopal.utils.get_layers_extend import get_layers_extent
 from geopal.utils.load_layers_from_gpkg import load_layers_from_gpkg
+from geopal.utils.SlopeCalculator import SlopeCalculator
+from geopal.utils.get_qgis_feature_from_point import build_indexes,get_qgis_feature_from_point_in_layers
 from qgis.core import QgsProject, QgsVectorLayer
 
 
 class TerrainToBureau:
 
     def run():
+        # ---------------------------------------------#
+        # ------- Instanciation des variables --------#
+        # ---------------------------------------------#
+
         project_path = QgsProject.instance().absolutePath()
         pt_layer_terrain = QgsProject.instance().mapLayersByName("Ponctuels")[0]
         line_layer_terrain = QgsProject.instance().mapLayersByName("Linaires")[0]
         polygon_layer_terrain = QgsProject.instance().mapLayersByName("Polygones")[0]
 
-        def create_custom_id(layer: QgsVectorLayer, prefix: str) -> bool:
-            try:
-                for i, f in enumerate(layer.getFeatures()):
-                    f["id"] = f"{(prefix.upper())}{i}"
-                layer.commitChanges()
-                return True
-            except Exception as e:
-                print(e)
-                return False
+        # ---------------------------------------------#
+        # ------- Création des dictionnaires des champs --------#
+        # ---------------------------------------------#
 
         pts_dict = {
             'Avaloir': {
@@ -288,7 +289,9 @@ class TerrainToBureau:
             'long_cal': 'float',
             'pent_moy': 'float',
             'cont_pent': 'float',
+            'radier_amont_id' : 'str',
             'cot-r_am': 'float',
+            'radier_aval_id': 'str',
             'cot-r_av': 'float',
             'lien_num': 'str',
             'source': 'str',
@@ -319,6 +322,11 @@ class TerrainToBureau:
 
         }
 
+        # ---------------------------------------------#
+        # ------- Création des couhces mémoires --------#
+        # ------- Et insert des features triées --------#
+        # ---------------------------------------------#
+
         layer_dict = {}
         n = 1
         for layer_name, attributes_dict in pts_dict.items():
@@ -341,23 +349,41 @@ class TerrainToBureau:
             if not succes:
                 raise ValueError("Erreur lors de l'ajout des features aux couches temporaires")
 
+        # ---------------------------------------------#
+        # ------- Export vers couches sauvegarder localement en GPKG --------#
+        # ---------------------------------------------#
+
+        # Création du dossier d'export
         data_dir = os.path.join(project_path, '00_data')
         os.makedirs(data_dir, exist_ok=True)
 
         data_path = os.path.join(data_dir, 'data.gpkg')
 
+        # Export des layers en gpkg
         succes = export_layers_to_gpkg(layer_dict.keys(), data_path)
         if not succes:
             print("[Error] Erreur lors de l'exports des couches mémoire en gpkg")
             return
 
+        #supression des couches mémoires
         layers_name = [layer.name() for layer in layer_dict.keys()]
         QgsProject.instance().removeMapLayers(layers_name)
+
+        # Chargement des couches sauvegarder en gpkg
         reversedlist = reversed(list(layers_name))
         layers = load_layers_from_gpkg(data_path, reversedlist)
         if not layers:
             print("[Error] Erreur lors de l'import des couches créée en gpkg")
             return
+
+        # Tri des couches pour usage futur
+        pt_layers = [layer  for layer in layers if layer.geometryType() == 0]
+        line_layers = [layer  for layer in layers if  layer.geometryType() == 1]
+        polygon_layers = [layer  for layer in layers if layer.geometryType() == 2]
+
+        # ---------------------------------------------#
+        # ------- Ajout des Champs Automatique --------#
+        # ---------------------------------------------#
 
         # print(layers_name) # ['Avaloir', 'Regard', 'Noeud', 'Ouvrage', 'Equipement', 'Canalisation', 'Bassin de Rétention']
         prefix_list = ['RET','CAN','EQU','OUV','NOE','REG','AVA'] # Inverser par apport à l'ordre des layers
@@ -370,6 +396,50 @@ class TerrainToBureau:
                 # Ajout de la mention "eaux_pluviale"
                 feature['type_eau'] = 2
                 layer.updateFeature(feature)
+            layer.commitChanges()
+
+        # Spécificité pour la couche canalisation
+        for layer in line_layers:
+            layer.startEditing()
+            for feat in layer.getFeatures():
+                geom = feat.geometry()
+                if geom is None or geom.isEmpty():
+                    raise AttributeError('This feature need a geometry ')
+
+                feat['long_cal'] = geom.length()
+
+                line = geom.constGet()
+                vertices = list(line.vertices())
+                pente = SlopeCalculator(vertices[0], vertices[-1]).slope_percent()
+                feat['pent_moy'] = pente
+                if pente > 0:
+                    feat['cont_pent'] = True
+
+                result = get_qgis_feature_from_point_in_layers(vertices[0], pt_layers)
+                if result :
+
+                    feat['radier_amont_id'] = result[0].attribute('id')
+                    feat['cot-r_am'] = result[0].geometry().constGet().z()
+
+                result = get_qgis_feature_from_point_in_layers(vertices[-1], pt_layers)
+                if result :
+
+                    feat['radier_aval_id'] = result[0].attribute('id')
+                    feat['cot-r_av'] = result[0].geometry().constGet().z()
+                layer.updateFeature(feat)
+            layer.commitChanges()
+
+        # Spécificité pour la couche Bassin de rétention
+
+        for layer in polygon_layers:
+            layer.startEditing()
+            for feat in layer.getFeatures():
+                geom = feat.geometry()
+
+                feat["surface"] = geom.area()
+                feat["volume"] = feat["fond_calcule"] * geom.area()
+                layer.updateFeature(feat)
+
             layer.commitChanges()
 
         # Preparer les données pour remplir le code insee et le nom des rue (import + découpe)
@@ -396,3 +466,4 @@ class TerrainToBureau:
         QgsProject.instance().removeMapLayer(routes_layer.id())
         QgsProject.instance().removeMapLayer(communes_layer.id())
         print("Couche wfs supprimé avec succes tout vas bien pour la méméoire de ton pc tkt")
+        print("fini")
