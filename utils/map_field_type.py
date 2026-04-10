@@ -9,16 +9,11 @@ def map_field_type(attr_type: str) -> QVariant.Type:
     :return: QVariant.Type
     """
     if not attr_type:
-        return QVariant.String
+        return 10
 
     attr_type = attr_type.lower().strip()
 
     # 1. Essayer avec Qt directement
-    qt_type = QVariant.nameToType(attr_type)
-    if qt_type != QVariant.Invalid:
-        return qt_type
-
-    # 2. Fallback avec dictionnaire custom
     type_map = {
         # Numériques
         "int": QVariant.Int,
@@ -51,5 +46,11 @@ def map_field_type(attr_type: str) -> QVariant.Type:
     if attr_type in type_map:
         return type_map[attr_type]
 
+    # 2. Fallback avec dictionnaire custom
+    qt_type = QVariant.nameToType(attr_type)
+    if qt_type != QVariant.Invalid:
+        return qt_type
+
+
     # 3. Dernier recours : string
-    return QVariant.String
+    return 10

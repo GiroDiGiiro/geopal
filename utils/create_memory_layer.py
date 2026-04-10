@@ -35,7 +35,6 @@ def create_memory_layer(layer_name: str,geometry_name: str|int, epsg: int, attri
         if attributes:
             add_fields(mem_layer, attributes)
 
-
         # Charger dans le projet si demandé
         if load_to_project:
             QgsProject.instance().addMapLayer(mem_layer)

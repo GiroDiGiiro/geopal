@@ -30,22 +30,29 @@ def export_layers_to_gpkg(layers: list, export_path: str) -> bool:
             pk_indexes = layer.primaryKeyAttributes()
             print(f"PK détectée pour {layer.name()} : {pk_indexes}")
 
-            if not pk_indexes:
-                # Ajouter PK
-                layer.startEditing()
-                add_fields(layer, {'fid': 'int'})
-                layer.updateFields()
-
+            if pk_indexes:
+                pk_field_name = layer.fields()[pk_indexes[0]].name()
+            else:
+                # Vérifier si fid existe déjà (cas couche mémoire)
                 idx_fid = layer.fields().indexFromName("fid")
-                updates = {feat.id(): {idx_fid: i + 1} for i, feat in enumerate(layer.getFeatures())}
-                layer.dataProvider().changeAttributeValues(updates)
-                layer.commitChanges()
+
+                if idx_fid == -1:
+                    # fid vraiment absent → le créer
+                    layer.startEditing()
+                    add_fields(layer, {'fid': 'int'})
+                    layer.updateFields()
+                    idx_fid = layer.fields().indexFromName("fid")
+                    updates = {feat.id(): {idx_fid: i + 1} for i, feat in enumerate(layer.getFeatures())}
+                    layer.dataProvider().changeAttributeValues(updates)
+                    layer.commitChanges()
+                else:
+                    # fid existe déjà → juste remplir les valeurs si vides
+                    layer.startEditing()
+                    updates = {feat.id(): {idx_fid: i + 1} for i, feat in enumerate(layer.getFeatures())}
+                    layer.dataProvider().changeAttributeValues(updates)
+                    layer.commitChanges()
 
                 pk_field_name = "fid"
-            else:
-                # Récupération du nom du champ PK
-                pk_field_name = layer.fields()[pk_indexes[0]].name()
-                print(f"PK existante : {pk_field_name}")
 
             # Options d’export
             options.layerName = layer.name()
