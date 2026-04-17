@@ -12,7 +12,7 @@ from geopal.utils.get_layers_extend import get_layers_extent
 from geopal.utils.load_layers_from_gpkg import load_layers_from_gpkg
 from geopal.utils.SlopeCalculator import SlopeCalculator
 from geopal.utils.get_qgis_feature_from_point import build_indexes,get_qgis_feature_from_point_in_layers
-from qgis.core import QgsProject, QgsVectorLayer
+from qgis.core import QgsProject, QgsVectorLayer,QgsCoordinateReferenceSystem
 
 
 class TerrainToBureau:
@@ -26,7 +26,7 @@ class TerrainToBureau:
 
         project_path = QgsProject.instance().absolutePath()
         pt_layer_terrain = QgsProject.instance().mapLayersByName("Ponctuels")[0]
-        line_layer_terrain = QgsProject.instance().mapLayersByName("Linaires")[0]
+        line_layer_terrain = QgsProject.instance().mapLayersByName("Linéaires")[0]
         polygon_layer_terrain = QgsProject.instance().mapLayersByName("Polygones")[0]
 
         # ---------------------------------------------#
@@ -334,7 +334,7 @@ class TerrainToBureau:
         for layer_name, attributes_dict in pts_dict.items():
             layer = create_memory_layer(layer_name, 'PointZ', 2154, attributes_dict, load_to_project=False)
 
-            if n != 4:
+            if n != 5:
                 layer_dict[layer] = get_by_expression(pt_layer_terrain, f'"famille" = {n}')
             else :
                 layer_dict[layer] = get_by_expression(pt_layer_terrain, f'"famille" = {n} or "have_equipement" = 1')
@@ -367,9 +367,16 @@ class TerrainToBureau:
             print("[Error] Erreur lors de l'exports des couches mémoire en gpkg")
             return
 
-        #supression des couches mémoires
+        # ---------------------------------------------#
+        # ------- création d'un projet Qgis vierge  --------#
+        # ---------------------------------------------#
+
+        QgsProject.instance().clear()
+        QgsProject.instance().setCrs(QgsCoordinateReferenceSystem(2154))
+
+        # #supression des couches mémoires
         layers_name = [layer.name() for layer in layer_dict.keys()]
-        QgsProject.instance().removeMapLayers(layers_name)
+        # QgsProject.instance().removeMapLayers(layers_name)
 
         # Chargement des couches sauvegarder en gpkg
         reversedlist = reversed(list(layers_name))
