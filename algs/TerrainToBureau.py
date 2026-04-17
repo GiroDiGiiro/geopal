@@ -1,6 +1,7 @@
 import os.path
 import datetime
 
+from algs.lineaire_verifications import check_vertices_number, check_topologie
 from geopal.algs.fill_code_insee import fill_code_insee
 from geopal.algs.fill_nom_rue import fill_nom_rue
 from geopal.algs.load_wfs import load_wfs_reference_layers
@@ -11,7 +12,7 @@ from geopal.utils.get_by_expression import get_by_expression
 from geopal.utils.get_layers_extend import get_layers_extent
 from geopal.utils.load_layers_from_gpkg import load_layers_from_gpkg
 from geopal.utils.SlopeCalculator import SlopeCalculator
-from geopal.utils.get_qgis_feature_from_point import build_indexes,get_qgis_feature_from_point_in_layers
+from geopal.utils.get_qgis_feature_from_point import get_qgis_feature_from_point_in_layers
 from qgis.core import QgsProject, QgsVectorLayer,QgsCoordinateReferenceSystem
 
 
@@ -298,6 +299,8 @@ class TerrainToBureau:
             'lien_num': 'str',
             'source': 'str',
 
+            'error' : 'int'
+
         }
         bassin_dict = {
 
@@ -437,6 +440,13 @@ class TerrainToBureau:
                     feat['cot-r_av'] = result[0].geometry().constGet().z()
                 layer.updateFeature(feat)
             layer.commitChanges()
+            nb_vertices_error = check_vertices_number(layer)
+            if nb_vertices_error:
+                print(f"nombre de canalisation avec trop de vertices : {nb_vertices_error}")
+            nb_total_error = check_topologie(layer)
+            if nb_total_error:
+                print(f"nombre de canalisation avec au moins un point sans topologies : {nb_total_error}")
+
 
         # Spécificité pour la couche Bassin de rétention
 
