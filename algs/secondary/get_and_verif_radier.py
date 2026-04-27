@@ -17,9 +17,11 @@ def get_and_verif_radier(layer : QgsVectorLayer ,pt_layers : List[QgsVectorLayer
         line = geom.constGet()
         vertices = list(line.vertices())
 
+
         result = get_qgis_feature_from_point_in_layers(vertices[0], pt_layers)
         if result:
             feat['radier_amont_id'] = result[0].attribute('id')
+            feat['noeud_am'] = result[0].attribute('id')
             feat['cot-r_am'] = result[0].geometry().constGet().z()
         else:
             errors.append(feat)
@@ -27,6 +29,7 @@ def get_and_verif_radier(layer : QgsVectorLayer ,pt_layers : List[QgsVectorLayer
         result = get_qgis_feature_from_point_in_layers(vertices[-1], pt_layers)
         if result:
             feat['radier_aval_id'] = result[0].attribute('id')
+            feat['noeud_av'] = result[0].attribute('id')
             feat['cot-r_av'] = result[0].geometry().constGet().z()
         else:
             if feat not in errors:

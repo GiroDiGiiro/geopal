@@ -277,8 +277,8 @@ class TerrainToBureau:
             'service': 'int',
             'mod_gest': 'int',
 
-            'nœud_am': 'str',
-            'nœud_av': 'str',
+            'noeud_am': 'str',
+            'noeud_av': 'str',
             'code_insee': 'str',
             'rue': 'str',
             'rue2': 'str',
