@@ -1,4 +1,7 @@
 <RCC>
   <qresource prefix="img">
+    <file>img/geopal_to_unima.svg</file>
+    <file>img/icon.png</file>
+    <file>img/icon.svg</file>
   </qresource>
 </RCC>

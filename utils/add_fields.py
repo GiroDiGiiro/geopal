@@ -1,14 +1,13 @@
 from qgis.core import QgsField, QgsVectorLayer
-from .map_field_type import map_field_type
+from typing import List, Union
 
 
-def add_fields(layer: QgsVectorLayer | str, fields_dict: dict, float_precision = 10) -> bool:
+def add_fields(layer: Union[QgsVectorLayer,str], fields: List[QgsField]) -> bool:
     """
     Ajoute une liste de champs à une couche QGIS à partir d'un dictionnaire.
 
     :param layer: La couche QGIS (QgsVectorLayer) ou chemin d'accès de la couche (str).
-    :param fields_dict: Dictionnaire {nom_champ : type_champ} avec type_champ en str ('string', 'int', 'double', etc.).
-    :param float_precision: Precision des champs de type float/double/reel (int).
+    :param fields: Liste de QgsFields.
     :return: True si les champs sont ajoutés, False sinon.
     """
 
@@ -16,35 +15,16 @@ def add_fields(layer: QgsVectorLayer | str, fields_dict: dict, float_precision =
     if isinstance(layer, str):
         layer = QgsVectorLayer(layer, "Layer", "ogr")
         if not layer.isValid():
-            print("La couche spécifiée est invalide.")
-            return False
+            raise ValueError("Couche invalide")
 
-    try:
-        if not fields_dict:
-            print("Erreur : Aucun champ à ajouter.")
-            return False
+    if not fields:
+        raise ValueError("Aucun champ à ajouter")
 
-        fields = []
-        for name, type_str in fields_dict.items():
-            if name in layer.fields():
-                print(f'champ {name} déja existant dans {layer}')
-                continue
+    provider = layer.dataProvider()
 
-            qvariant_type =  map_field_type(type_str.lower())
-            if qvariant_type is None:
-                print(f"Erreur : Type '{type_str}' non reconnu pour le champ '{name}'.")
-                return False
+    ok = provider.addAttributes(fields)
+    if not ok:
+        raise RuntimeError("Échec de l'ajout des champs")
 
-            fields.append(QgsField(name, qvariant_type))
-
-        provider = layer.dataProvider()
-        if not provider.addAttributes(fields):
-            Logger.error("Erreur : L'ajout des champs a échoué.")
-            return False
-
-        layer.updateFields()
-        return True
-
-    except Exception as e:
-        print(f"Erreur lors de l'ajout des champs : {e}")
-        return False
+    layer.updateFields()
+    return True

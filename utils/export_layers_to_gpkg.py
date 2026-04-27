@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QApplication
 from qgis.core import QgsVectorFileWriter, QgsProject
 
 
-from .add_fields import add_fields
+from .add_fields_from_dict import add_fields_from_dict
 
 
 def export_layers_to_gpkg(layers: list, export_path: str) -> bool:
@@ -39,7 +39,7 @@ def export_layers_to_gpkg(layers: list, export_path: str) -> bool:
                 if idx_fid == -1:
                     # fid vraiment absent → le créer
                     layer.startEditing()
-                    add_fields(layer, {'fid': 'int'})
+                    add_fields_from_dict(layer, {'fid': 'int'})
                     layer.updateFields()
                     idx_fid = layer.fields().indexFromName("fid")
                     updates = {feat.id(): {idx_fid: i + 1} for i, feat in enumerate(layer.getFeatures())}

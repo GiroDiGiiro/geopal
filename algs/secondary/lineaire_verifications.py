@@ -1,4 +1,4 @@
-from qgis.core import QgsVectorLayer, QgsExpression
+from qgis.core import QgsVectorLayer
 
 
 def check_field_error(layer: QgsVectorLayer):
@@ -6,14 +6,20 @@ def check_field_error(layer: QgsVectorLayer):
         raise AttributeError("La couche doit posséder un champ 'error'")
 
 
-def check_vertices_number(layer: QgsVectorLayer, expression: QgsExpression = None) -> int:
+def check_vertices_number(layer: QgsVectorLayer, selected_only=False) -> int:
     check_field_error(layer)
 
     nb_error = 0
     layer.startEditing()
-    for f in layer.getFeatures(expression):
-        line = f.geometry().constGet()
-        error = 1 if len(line.vertices()) > 2 else None
+    for f in layer.selectedFeatures() if selected_only else layer.getFeatures():
+        geom = f.geometry()
+        if not geom:
+            continue
+
+        nb_vertices = sum(1 for _ in f.geometry().vertices())
+
+        error = 1 if nb_vertices > 2 else None
+
         if error:
             if not f['error']:
                 nb_error += 1
@@ -24,13 +30,13 @@ def check_vertices_number(layer: QgsVectorLayer, expression: QgsExpression = Non
     return nb_error
 
 
-def check_topologie(layer: QgsLayer, expression: QgsExpression = None) -> int:
+def check_topologie(layer: QgsVectorLayer, selected_only=False) -> int:
     check_field_error(layer)
     if layer.fields().indexOf('radier_amont_id') == -1 or layer.fields().indexOf('radier_aval_id') == -1:
         raise AttributeError("La couche doit posséder un champ 'radier_amont_id' et un champ 'radier_aval_id'")
     nb_error = 0
     layer.startEditing()
-    for f in layer.getFeatures(expression):
+    for f in layer.selectedFeatures() if selected_only else layer.getFeatures():
         # Pas de topologie sur les deux extrémité de la canalisation
         if not f['radier_amont_id'] and not f['radier_aval_id']:
             if not f['error']:

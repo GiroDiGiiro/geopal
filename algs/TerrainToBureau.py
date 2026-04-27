@@ -1,19 +1,18 @@
-import os.path
 import datetime
+import os.path
 
-from algs.lineaire_verifications import check_vertices_number, check_topologie
-from geopal.algs.fill_code_insee import fill_code_insee
-from geopal.algs.fill_nom_rue import fill_nom_rue
-from geopal.algs.load_wfs import load_wfs_reference_layers
+from geopal.algs.secondary.calculate_slope import calculate_slope
+from geopal.algs.secondary.fill_code_insee import fill_code_insee
+from geopal.algs.secondary.fill_nom_rue import fill_nom_rue
+from geopal.algs.secondary.get_and_verif_radier import get_and_verif_radier
+from geopal.algs.secondary.load_wfs import load_wfs_reference_layers
 from geopal.utils.add_features import add_features
 from geopal.utils.create_memory_layer import create_memory_layer
 from geopal.utils.export_layers_to_gpkg import export_layers_to_gpkg
 from geopal.utils.get_by_expression import get_by_expression
 from geopal.utils.get_layers_extend import get_layers_extent
 from geopal.utils.load_layers_from_gpkg import load_layers_from_gpkg
-from geopal.utils.SlopeCalculator import SlopeCalculator
-from geopal.utils.get_qgis_feature_from_point import get_qgis_feature_from_point_in_layers
-from qgis.core import QgsProject, QgsVectorLayer,QgsCoordinateReferenceSystem
+from qgis.core import QgsProject, QgsCoordinateReferenceSystem
 
 
 class TerrainToBureau:
@@ -292,14 +291,12 @@ class TerrainToBureau:
             'long_cal': 'float',
             'pent_moy': 'float',
             'cont_pent': 'float',
-            'radier_amont_id' : 'str',
+            'radier_amont_id': 'str',
             'cot-r_am': 'float',
             'radier_aval_id': 'str',
             'cot-r_av': 'float',
             'lien_num': 'str',
             'source': 'str',
-
-            'error' : 'int'
 
         }
         bassin_dict = {
@@ -339,7 +336,7 @@ class TerrainToBureau:
 
             if n != 5:
                 layer_dict[layer] = get_by_expression(pt_layer_terrain, f'"famille" = {n}')
-            else :
+            else:
                 layer_dict[layer] = get_by_expression(pt_layer_terrain, f'"famille" = {n} or "have_equipement" = 1')
             n += 1
 
@@ -389,16 +386,16 @@ class TerrainToBureau:
             return
 
         # Tri des couches pour usage futur
-        pt_layers = [layer  for layer in layers if layer.geometryType() == 0]
-        line_layers = [layer  for layer in layers if  layer.geometryType() == 1]
-        polygon_layers = [layer  for layer in layers if layer.geometryType() == 2]
+        pt_layers = [layer for layer in layers if layer.geometryType() == 0]
+        line_layers = [layer for layer in layers if layer.geometryType() == 1]
+        polygon_layers = [layer for layer in layers if layer.geometryType() == 2]
 
         # ---------------------------------------------#
         # ------- Ajout des Champs Automatique --------#
         # ---------------------------------------------#
 
         # print(layers_name) # ['Avaloir', 'Regard', 'Noeud', 'Ouvrage', 'Equipement', 'Canalisation', 'Bassin de Rétention']
-        prefix_list = ['RET','CAN','EQU','OUV','NOE','REG','AVA'] # Inverser par apport à l'ordre des layers
+        prefix_list = ['RET', 'CAN', 'EQU', 'OUV', 'NOE', 'REG', 'AVA']  # Inverser par apport à l'ordre des layers
         for i, layer in enumerate(layers):
             layer.startEditing()
 
@@ -417,36 +414,15 @@ class TerrainToBureau:
                 geom = feat.geometry()
                 if geom is None or geom.isEmpty():
                     raise AttributeError('This feature need a geometry ')
-
                 feat['long_cal'] = geom.length()
-
-                line = geom.constGet()
-                vertices = list(line.vertices())
-                pente = SlopeCalculator(vertices[0], vertices[-1]).slope_percent()
-                feat['pent_moy'] = pente
-                if pente > 0:
-                    feat['cont_pent'] = True
-
-                result = get_qgis_feature_from_point_in_layers(vertices[0], pt_layers)
-                if result :
-
-                    feat['radier_amont_id'] = result[0].attribute('id')
-                    feat['cot-r_am'] = result[0].geometry().constGet().z()
-
-                result = get_qgis_feature_from_point_in_layers(vertices[-1], pt_layers)
-                if result :
-
-                    feat['radier_aval_id'] = result[0].attribute('id')
-                    feat['cot-r_av'] = result[0].geometry().constGet().z()
                 layer.updateFeature(feat)
             layer.commitChanges()
-            nb_vertices_error = check_vertices_number(layer)
-            if nb_vertices_error:
-                print(f"nombre de canalisation avec trop de vertices : {nb_vertices_error}")
-            nb_total_error = check_topologie(layer)
-            if nb_total_error:
-                print(f"nombre de canalisation avec au moins un point sans topologies : {nb_total_error}")
 
+            # Vérification topologique
+            get_and_verif_radier(layer, pt_layers)
+
+            # Calcul de la pente
+            calculate_slope(layer)
 
         # Spécificité pour la couche Bassin de rétention
 
@@ -486,7 +462,6 @@ class TerrainToBureau:
         QgsProject.instance().removeMapLayer(routes_layer.id())
         QgsProject.instance().removeMapLayer(communes_layer.id())
         print("Couche wfs supprimé avec succes tout vas bien pour la méméoire de ton pc tkt")
-
 
         t1 = datetime.datetime.now()
         time = t1 - t0
