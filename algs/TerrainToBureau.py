@@ -4,7 +4,7 @@ import os.path
 from geopal.algs.secondary.calculate_slope import calculate_slope
 from geopal.algs.secondary.fill_code_insee import fill_code_insee
 from geopal.algs.secondary.fill_nom_rue import fill_nom_rue
-from geopal.algs.secondary.get_and_verif_radier import get_and_verif_radier
+from geopal.algs.secondary.get_and_verif_canalisation import get_and_verif_canalisation
 from geopal.algs.secondary.load_wfs import load_wfs_reference_layers
 from geopal.utils.add_features import add_features
 from geopal.utils.create_memory_layer import create_memory_layer
@@ -419,7 +419,7 @@ class TerrainToBureau:
             layer.commitChanges()
 
             # Vérification topologique
-            get_and_verif_radier(layer, pt_layers)
+            get_and_verif_canalisation(layer, pt_layers)
 
             # Calcul de la pente
             calculate_slope(layer)

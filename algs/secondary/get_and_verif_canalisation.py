@@ -6,7 +6,7 @@ from geopal.utils.create_memory_layer import create_memory_layer
 from geopal.utils.get_qgis_feature_from_point import get_qgis_feature_from_point_in_layers
 
 
-def get_and_verif_radier(layer : QgsVectorLayer ,pt_layers : List[QgsVectorLayer]):
+def get_and_verif_canalisation(layer : QgsVectorLayer, pt_layers : List[QgsVectorLayer]):
     errors = []
 
     layer.startEditing()
@@ -45,3 +45,5 @@ def get_and_verif_radier(layer : QgsVectorLayer ,pt_layers : List[QgsVectorLayer
     if errors:
         error_layer = create_memory_layer('errors_canalisation','LineStringZ',2154,feat.fields())
         add_features(errors, error_layer)
+
+    return errors
