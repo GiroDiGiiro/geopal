@@ -445,23 +445,30 @@ class TerrainToBureau:
             print("[Error] Impossible de charger les couches de référence WFS")
             return
 
-        # Calauler l'extent total de toute les couches pour réduire le temps de traitement sur les couches importées
-        extent = get_layers_extent(layers)
 
-        # Remplir les champs spatiaux sur toutes les couches produites
-        succes = fill_code_insee(layers, communes_layer)
-        if succes:
-            print('code insee ajouté avec succes')
+        # ---------------------------------------------#
+        # ------- Application du style pour la couche canalisation  --------#
+        # ---------------------------------------------#
 
-        succes = fill_nom_rue(layers, routes_layer, extent)
+        for layer in line_layers:
 
-        if succes:
-            print('nom des rues ajouté avec succes')
+            # Chargement du style
+            style_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            style_path = os.path.join(style_path, "style")
+            style_path = os.path.join(style_path, "style_canalisation_bureau.qml")
+            print(style_path)
+            # Vérification si le fichier de style existe
+            if os.path.exists(style_path):
+                result = layer.loadNamedStyle(style_path)
 
-        # Nettoyage : supprimer les couches WFS du registre après usage
-        QgsProject.instance().removeMapLayer(routes_layer.id())
-        QgsProject.instance().removeMapLayer(communes_layer.id())
-        print("Couche wfs supprimé avec succes tout vas bien pour la méméoire de ton pc tkt")
+                if not result:
+                    print(f"❌ Erreur lors du chargement du style depuis {style_path}")
+                    return False
+
+                print(f"✅ Style chargé depuis {style_path}")
+            else:
+                print(f"Style {style_path} n'existe pas")
+                return False
 
         t1 = datetime.datetime.now()
         time = t1 - t0
