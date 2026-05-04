@@ -37,6 +37,8 @@ class SlopeCalculator(QObject):
         return math.hypot(dx, dy)  # distance horizontale
 
     def slope_percent(self):
+        if self.dh() == 0:
+            return None
         return (self.dz() / self.dh()) * 100
 
     def slope_degree(self):
