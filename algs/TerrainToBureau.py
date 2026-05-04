@@ -481,6 +481,19 @@ class TerrainToBureau(QDialog, Ui_Form):
             print("[Error] Impossible de charger les couches de référence WFS")
             return
 
+        # Calauler l'extent total de toute les couches pour réduire le temps de traitement sur les couches importées
+        extent = get_layers_extent(layers)
+
+        # Remplir les champs spatiaux sur toutes les couches produites
+        succes = fill_code_insee(layers, communes_layer)
+        if succes:
+            print('code insee ajouté avec succes')
+        # ---------------------------------------------#
+        # ------- Application du style pour la couche canalisation  --------#
+        # ---------------------------------------------#
+
+        succes = fill_nom_rue(layers, routes_layer, extent)
+
         # ---------------------------------------------#
         # ------- Application du style pour la couche canalisation  --------#
         # ---------------------------------------------#
