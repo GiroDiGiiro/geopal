@@ -330,14 +330,15 @@ class TerrainToBureau:
         # ---------------------------------------------#
 
         layer_dict = {}
-
+        n = 1
         for layer_name, attributes_dict in pts_dict.items():
             layer = create_memory_layer(layer_name, 'PointZ', 2154, attributes_dict, load_to_project=False)
 
-            if layer_name == 'Equipement':
-                layer_dict[layer] = get_by_expression(pt_layer_terrain, f'"famille" = {n} or "have_equipement" = 1')
-            else:
+            if n != 5:
                 layer_dict[layer] = get_by_expression(pt_layer_terrain, f'"famille" = {n}')
+            else:
+                layer_dict[layer] = get_by_expression(pt_layer_terrain, f'"famille" = {n} or "have_equipement" = 1')
+            n += 1
 
         layer = create_memory_layer('Canalisation', 'LineStringZ', 2154, troncon_dict, load_to_project=False)
         layer_dict[layer] = line_layer_terrain.getFeatures()
