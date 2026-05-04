@@ -325,7 +325,7 @@ class TerrainToBureau:
         }
 
         # ---------------------------------------------#
-        # ------- Création des couhces mémoires --------#
+        # ------- Création des couches mémoires --------#
         # ------- Et insert des features triées --------#
         # ---------------------------------------------#
 

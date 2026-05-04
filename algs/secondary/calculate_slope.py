@@ -12,9 +12,10 @@ def calculate_slope(layer: QgsVectorLayer):
         vertices = list(line.vertices())
 
         pente = SlopeCalculator(vertices[0], vertices[-1]).slope_percent()
-        feat['pent_moy'] = pente
-        if pente > 0:
-            feat['cont_pent'] = True
+        if pente :
+            feat['pent_moy'] = pente
+            if pente > 0:
+                feat['cont_pent'] = True
 
         layer.updateFeature(feat)
     layer.commitChanges()
