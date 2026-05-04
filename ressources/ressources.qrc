@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="img">
+    <file>img/folder.svg</file>
+    <file>img/line_layer.svg</file>
+    <file>img/point_layer.svg</file>
+    <file>img/polygon_layer.svg</file>
     <file>img/geopal_to_unima.svg</file>
     <file>img/icon.png</file>
     <file>img/icon.svg</file>

@@ -10,8 +10,13 @@ def calculate_slope(layer: QgsVectorLayer):
             raise AttributeError('This feature need a geometry ')
         line = geom.constGet()
         vertices = list(line.vertices())
-
-        pente = SlopeCalculator(vertices[0], vertices[-1]).slope_percent()
+        x1,y1 = vertices[0].x(), vertices[0].y()
+        z1 = feat['fil-eau_am']
+        x2,y2 = vertices[-1].x(), vertices[-1].y()
+        z2 = feat['fil-eau_av']
+        if not z1 or not z2:
+            continue
+        pente = SlopeCalculator((x1,y1,z1), (x2,y2,z2)).slope_percent()
         if pente :
             feat['pent_moy'] = pente
             if pente > 0:
@@ -19,3 +24,4 @@ def calculate_slope(layer: QgsVectorLayer):
 
         layer.updateFeature(feat)
     layer.commitChanges()
+
