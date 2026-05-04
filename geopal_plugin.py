@@ -41,13 +41,12 @@ class GeoPalPlugin:
 
 
     def on_click_terrain_to_bureau(self):
-        # dlg = UMainForm(self.interface) # Class à importer
-        # dlg.show()
-        # result = dlg.exec_()
-        # if result:
-        #     pass
+        dlg = TerrainToBureau(self.interface) # Class à importer
+        dlg.show()
+        result = dlg.exec_()
+        if result:
+            pass
 
-        TerrainToBureau.run()
         
     def on_click_get_and_verif_canalisation(self):
         dlg = GetAndVerifCanalisation(self.interface) # Class à importer

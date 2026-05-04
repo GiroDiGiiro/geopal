@@ -1,23 +1,50 @@
 import datetime
 import os.path
 
+from PyQt5.QtWidgets import QDialog, QMessageBox
 from geopal.algs.secondary.calculate_slope import calculate_slope
-from geopal.algs.secondary.fill_code_insee import fill_code_insee
-from geopal.algs.secondary.fill_nom_rue import fill_nom_rue
 from geopal.algs.secondary.get_and_verif_canalisation import get_and_verif_canalisation
 from geopal.algs.secondary.load_wfs import load_wfs_reference_layers
+from geopal.form.ui.terrain_to_bureau import Ui_Form
 from geopal.utils.add_features import add_features
 from geopal.utils.create_memory_layer import create_memory_layer
 from geopal.utils.export_layers_to_gpkg import export_layers_to_gpkg
 from geopal.utils.get_by_expression import get_by_expression
-from geopal.utils.get_layers_extend import get_layers_extent
 from geopal.utils.load_layers_from_gpkg import load_layers_from_gpkg
-from qgis.core import QgsProject, QgsCoordinateReferenceSystem
+from qgis.core import QgsProject, QgsCoordinateReferenceSystem, QgsVectorLayer
 
 
-class TerrainToBureau:
+class TerrainToBureau(QDialog, Ui_Form):
 
-    def run():
+    def __init__(self, interface, parent=None):
+        super().__init__(parent)
+        self.setupUi(self)
+        self.interface = interface
+
+        self.finish_ui()
+
+        self.pb_ok.pressed.connect(self._on_ok)
+        self.pb_cancel.pressed.connect(self._on_cancel)
+
+    def finish_ui(self):
+        self.cb_point.clear()
+        self.cb_line.clear()
+        self.cb_polygon.clear()
+
+        for layer in QgsProject.instance().mapLayers().values():
+            if not isinstance(layer, QgsVectorLayer):
+                continue
+            if layer.geometryType() == 0:
+                self.cb_point.addItem(layer.name(), layer.id())
+            elif layer.geometryType() == 1:
+                self.cb_line.addItem(layer.name(), layer.id())
+            elif layer.geometryType() == 2:
+                self.cb_polygon.addItem(layer.name(), layer.id())
+
+    def _on_cancel(self):
+        self.close()
+
+    def _on_ok(self):
         t0 = datetime.datetime.now()
         print(f" start at {t0}")
         # ---------------------------------------------#
@@ -25,9 +52,17 @@ class TerrainToBureau:
         # ---------------------------------------------#
 
         project_path = QgsProject.instance().absolutePath()
-        pt_layer_terrain = QgsProject.instance().mapLayersByName("Ponctuels")[0]
-        line_layer_terrain = QgsProject.instance().mapLayersByName("Linéaires")[0]
-        polygon_layer_terrain = QgsProject.instance().mapLayersByName("Polygones")[0]
+        point_id = self.cb_point.currentData()
+        line_id = self.cb_line.currentData()
+        polygon_id = self.cb_polygon.currentData()
+
+        if not point_id or not line_id or not polygon_id:
+            QMessageBox.critical(self, "Error", "Il manque une couche.\nMerci d'utiliser un projet issus d'un Projet GEP QFieldCloud")
+            return
+
+        pt_layer_terrain = QgsProject.instance().mapLayer(point_id)
+        line_layer_terrain = QgsProject.instance().mapLayer(line_id)
+        polygon_layer_terrain = QgsProject.instance().mapLayer(polygon_id)
 
         # ---------------------------------------------#
         # ------- Création des dictionnaires des champs --------#
@@ -172,6 +207,7 @@ class TerrainToBureau:
                 'entre_reh': 'str',
                 'date_pos': 'str',
                 'entre_pos': 'str',
+                'prof_rad': 'float',
                 'cote_rad': 'float',
                 'cote_tamp': 'float',
                 'observat': 'int',
@@ -445,7 +481,6 @@ class TerrainToBureau:
             print("[Error] Impossible de charger les couches de référence WFS")
             return
 
-
         # ---------------------------------------------#
         # ------- Application du style pour la couche canalisation  --------#
         # ---------------------------------------------#
@@ -474,3 +509,4 @@ class TerrainToBureau:
         time = t1 - t0
         print(f"End at {t1}")
         print(f"Completion in {time}")
+        self.close()
