@@ -57,8 +57,8 @@ def create_memory_layer(
         else:
             raise ValueError(" 'attributes' ne peut être qu'un dictionnaire, un QgsFields, ou une liste de QgsField ")
 
-        # Charger dans le projet si demandé
-        if load_to_project:
-            QgsProject.instance().addMapLayer(layer)
+    # Charger dans le projet si demandé
+    if load_to_project:
+        QgsProject.instance().addMapLayer(layer)
 
-        return layer
+    return layer

@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="img">
+    <file>img/post_canoe.svg</file>
     <file>img/folder.svg</file>
     <file>img/line_layer.svg</file>
     <file>img/point_layer.svg</file>

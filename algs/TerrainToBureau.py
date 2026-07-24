@@ -11,6 +11,9 @@ from geopal.utils.create_memory_layer import create_memory_layer
 from geopal.utils.export_layers_to_gpkg import export_layers_to_gpkg
 from geopal.utils.get_by_expression import get_by_expression
 from geopal.utils.load_layers_from_gpkg import load_layers_from_gpkg
+from geopal.algs.secondary.fill_code_insee import fill_code_insee
+from geopal.algs.secondary.fill_nom_rue import fill_nom_rue
+from geopal.utils.get_layers_extend import get_layers_extent
 from qgis.core import QgsProject, QgsCoordinateReferenceSystem, QgsVectorLayer
 
 
@@ -488,9 +491,6 @@ class TerrainToBureau(QDialog, Ui_Form):
         succes = fill_code_insee(layers, communes_layer)
         if succes:
             print('code insee ajouté avec succes')
-        # ---------------------------------------------#
-        # ------- Application du style pour la couche canalisation  --------#
-        # ---------------------------------------------#
 
         succes = fill_nom_rue(layers, routes_layer, extent)
 
