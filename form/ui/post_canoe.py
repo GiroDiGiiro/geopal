@@ -157,4 +157,4 @@ class Ui_post_canoe_form_ui(object):
         self.rb_geom_canoe.setText(_translate("post_canoe_form_ui", "Couche sortie Canoë"))
         self.pb_cancel.setText(_translate("post_canoe_form_ui", "Cancel"))
         self.pb_ok.setText(_translate("post_canoe_form_ui", "OK"))
-from geopal.form.ui import ressources_rc
+from gep_sd.form.ui import ressources_rc

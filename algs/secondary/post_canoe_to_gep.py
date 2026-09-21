@@ -16,8 +16,8 @@ d'erreurs, afin de faciliter une vérification manuelle ultérieure.
 
 from typing import Dict, List
 
-from geopal.utils.add_features import add_features
-from geopal.utils.create_memory_layer import create_memory_layer
+from gep_sd.utils.add_features import add_features
+from gep_sd.utils.create_memory_layer import create_memory_layer
 from qgis.core import (
     QgsSpatialIndex,
     QgsFeature,

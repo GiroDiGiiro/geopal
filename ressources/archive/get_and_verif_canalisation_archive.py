@@ -6,12 +6,7 @@ from gep_sd.utils.create_memory_layer import create_memory_layer
 from gep_sd.utils.get_qgis_feature_from_point import get_qgis_feature_from_point_in_layers
 
 
-def get_and_verif_canalisation(layer: QgsVectorLayer, pt_layers: List[QgsVectorLayer], **kwargs) -> QgsVectorLayer:
-    idx_fid = kwargs.get('idx_fid')   # index du champ fid (dans les couches de regards)
-    idx_am = kwargs.get('idx_am')     # index du champ regard_amont_id (dans layer)
-    idx_av = kwargs.get('idx_av')     # index du champ regard_aval_id (dans layer)
-    show_error = kwargs.get('show_error')
-
+def get_and_verif_canalisation(layer : QgsVectorLayer, pt_layers : List[QgsVectorLayer]):
     errors = []
 
     layer.startEditing()
@@ -19,28 +14,35 @@ def get_and_verif_canalisation(layer: QgsVectorLayer, pt_layers: List[QgsVectorL
         geom = feat.geometry()
         if geom is None or geom.isEmpty():
             raise AttributeError('This feature need a geometry ')
-        vertices = list(geom.constGet().vertices())
+        line = geom.constGet()
+        vertices = list(line.vertices())
+
 
         result = get_qgis_feature_from_point_in_layers(vertices[0], pt_layers)
         if result:
-            feat[idx_am] = result[0].attribute(idx_fid)
+            feat['radier_amont_id'] = result[0].attribute('id')
+            feat['noeud_am'] = result[0].attribute('id')
+            feat['cot-r_am'] = result[0].geometry().constGet().z()
         else:
             errors.append(feat)
 
         result = get_qgis_feature_from_point_in_layers(vertices[-1], pt_layers)
         if result:
-            feat[idx_av] = result[0].attribute(idx_fid)
+            feat['radier_aval_id'] = result[0].attribute('id')
+            feat['noeud_av'] = result[0].attribute('id')
+            feat['cot-r_av'] = result[0].geometry().constGet().z()
         else:
             if feat not in errors:
                 errors.append(feat)
 
-        if len(vertices) > 2 and feat not in errors:
-            errors.append(feat)
+        if len(vertices) > 2 :
+            if feat not in errors:
+                errors.append(feat)
 
         layer.updateFeature(feat)
     layer.commitChanges()
 
-    if errors and show_error:
+    if errors:
         error_layer = create_memory_layer('errors_canalisation','LineStringZ',2154,feat.fields())
         add_features(errors, error_layer)
 

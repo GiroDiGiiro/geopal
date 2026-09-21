@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>get_and_verif_canalisation_form</class>
- <widget class="QWidget" name="get_and_verif_canalisation_form">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>776</width>
-    <height>306</height>
+    <width>757</width>
+    <height>356</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Trouver et vérifier les Noeud Amont et Aval des Canalisations</string>
+   <string>Générer les codes d'identifications</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -23,7 +23,7 @@
       </size>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Trouver et vérifier les Noeud Amont et Aval de la couche réseau&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Générer les codes d'identifications&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
@@ -32,7 +32,7 @@
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget_2">
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <spacer name="verticalSpacer_3">
@@ -72,6 +72,16 @@
            </property>
           </widget>
          </item>
+         <item row="2" column="1">
+          <widget class="QComboBox" name="cb_polygon_layer"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>Séléctionner la couche ouvrage polygonal</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
        <item>
@@ -98,48 +108,7 @@
          <property name="collapsed">
           <bool>true</bool>
          </property>
-         <layout class="QFormLayout" name="formLayout_2">
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Champ ID de la couche regard</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QComboBox" name="cb_regard_id"/>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_5">
-            <property name="text">
-             <string>Champ ID Amont de la couche reseau</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QComboBox" name="cb_reseau_am"/>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_6">
-            <property name="text">
-             <string>Champ ID Aval de la couche reseau</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QComboBox" name="cb_reseau_av"/>
-          </item>
-          <item row="3" column="0">
-           <widget class="QCheckBox" name="chk_add_errors">
-            <property name="text">
-             <string>Ajouter la couche des erreurs au projet</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <layout class="QVBoxLayout" name="verticalLayout_3"/>
         </widget>
        </item>
       </layout>

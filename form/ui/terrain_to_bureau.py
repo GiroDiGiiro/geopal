@@ -84,4 +84,4 @@ class Ui_Form(object):
         self.label.setText(_translate("Form", "Polygone"))
         self.pb_cancel.setText(_translate("Form", "Cancel"))
         self.pb_ok.setText(_translate("Form", "Ok"))
-from geopal.form.ui import ressources_rc
+from gep_sd.form.ui import ressources_rc

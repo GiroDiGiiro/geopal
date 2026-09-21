@@ -1,4 +1,4 @@
-from geopal.utils.SlopeCalculator import SlopeCalculator
+from gep_sd.utils.SlopeCalculator import SlopeCalculator
 from qgis.core import QgsVectorLayer
 
 

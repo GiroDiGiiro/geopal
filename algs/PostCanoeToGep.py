@@ -13,9 +13,9 @@ de sortie, puis de lancer l'une des deux méthodes de fusion définies dans
 from typing import Optional
 
 from PyQt5.QtWidgets import QDialog, QMessageBox, QButtonGroup
-from geopal.algs.secondary.post_canoe_to_gep import post_canoe_to_gep_localisation, post_canoe_to_gep_field_id
-from geopal.form.ui.post_canoe import Ui_post_canoe_form_ui
-from geopal.form.help_text.post_canoe_help_text import HELP_TEXT_POST_CANOE_TO_GEP
+from gep_sd.algs.secondary.post_canoe_to_gep import post_canoe_to_gep_localisation, post_canoe_to_gep_field_id
+from gep_sd.form.ui.post_canoe import Ui_post_canoe_form_ui
+from gep_sd.form.help_text.post_canoe_help_text import HELP_TEXT_POST_CANOE_TO_GEP
 from qgis.core import QgsProject, QgsVectorLayer
 
 
@@ -90,10 +90,14 @@ class PostCanoeToGep(QDialog, Ui_post_canoe_form_ui):
         # avec les champs des couches séléctionné
         self.cb_id_canoe.clear()
         self.cb_id_gep.clear()
-        for field in QgsProject.instance().mapLayer(self.cb_canoe_layer.currentData()).fields():
-            self.cb_id_canoe.addItem(field.name())
-        for field in QgsProject.instance().mapLayer(self.cb_gep_layer.currentData()).fields():
-            self.cb_id_gep.addItem(field.name())
+
+        if self.cb_canoe_layer.currentData():
+            for field in QgsProject.instance().mapLayer(self.cb_canoe_layer.currentData()).fields():
+                self.cb_id_canoe.addItem(field.name())
+
+        if self.cb_gep_layer.currentData():
+            for field in QgsProject.instance().mapLayer(self.cb_gep_layer.currentData()).fields():
+                self.cb_id_gep.addItem(field.name())
 
     def _controle_coherence(self) -> None:
         """Vérifie que les couches Canoë, GEP et sortie sont bien distinctes.

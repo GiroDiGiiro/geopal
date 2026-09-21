@@ -2,18 +2,18 @@ import datetime
 import os.path
 
 from PyQt5.QtWidgets import QDialog, QMessageBox
-from geopal.algs.secondary.calculate_slope import calculate_slope
-from geopal.algs.secondary.get_and_verif_canalisation import get_and_verif_canalisation
-from geopal.algs.secondary.load_wfs import load_wfs_reference_layers
-from geopal.form.ui.terrain_to_bureau import Ui_Form
-from geopal.utils.add_features import add_features
-from geopal.utils.create_memory_layer import create_memory_layer
-from geopal.utils.export_layers_to_gpkg import export_layers_to_gpkg
-from geopal.utils.get_by_expression import get_by_expression
-from geopal.utils.load_layers_from_gpkg import load_layers_from_gpkg
-from geopal.algs.secondary.fill_code_insee import fill_code_insee
-from geopal.algs.secondary.fill_nom_rue import fill_nom_rue
-from geopal.utils.get_layers_extend import get_layers_extent
+from gep_sd.algs.secondary.calculate_slope import calculate_slope
+from gep_sd.algs.secondary.get_and_verif_canalisation import get_and_verif_canalisation
+from gep_sd.algs.secondary.load_wfs import load_wfs_reference_layers
+from gep_sd.form.ui.terrain_to_bureau import Ui_Form
+from gep_sd.utils.add_features import add_features
+from gep_sd.utils.create_memory_layer import create_memory_layer
+from gep_sd.utils.export_layers_to_gpkg import export_layers_to_gpkg
+from gep_sd.utils.get_by_expression import get_by_expression
+from gep_sd.utils.load_layers_from_gpkg import load_layers_from_gpkg
+from gep_sd.algs.secondary.fill_code_insee import fill_code_insee
+from gep_sd.algs.secondary.fill_nom_rue import fill_nom_rue
+from gep_sd.utils.get_layers_extend import get_layers_extent
 from qgis.core import QgsProject, QgsCoordinateReferenceSystem, QgsVectorLayer
 
 
@@ -502,7 +502,7 @@ class TerrainToBureau(QDialog, Ui_Form):
 
             # Chargement du style
             style_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            style_path = os.path.join(style_path, "style")
+            style_path = os.path.join(style_path,'ressources', "style")
             style_path = os.path.join(style_path, "style_canalisation_bureau.qml")
             print(style_path)
             # Vérification si le fichier de style existe
