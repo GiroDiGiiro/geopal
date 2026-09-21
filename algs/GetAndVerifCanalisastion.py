@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QDialog, QListWidgetItem, QMessageBox
 from gep_sd.algs.secondary.get_and_verif_canalisation import get_and_verif_canalisation
 from gep_sd.form.ui.get_and_verif_canalisation_form import Ui_get_and_verif_canalisation_form
 from qgis.PyQt.QtCore import Qt
-from qgis.core import QgsProject, QgsVectorLayer, QgsWkbTypes
+from qgis.core import QgsProject, QgsVectorLayer
 
 
 class GetAndVerifCanalisation(QDialog, Ui_get_and_verif_canalisation_form):

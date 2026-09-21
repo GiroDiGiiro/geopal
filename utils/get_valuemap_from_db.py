@@ -1,8 +1,9 @@
 from typing import Tuple, Dict, List
-
+import psycopg2
+from psycopg2 import sql
 
 def get_valuemap_from_db(db_info: Dict[str, str], schema_name: str, tables_name: List[str], id_column_name: str,
-                         value_column_name: str) -> Dict[str, Dict[str, str]] | None:
+                         value_column_name: str) -> Dict[str, Dict[int, str]] | None:
     """
     Fonction permettant de récupérer des valuemap depuis une base de donnée Postgres
 
@@ -28,7 +29,13 @@ def get_valuemap_from_db(db_info: Dict[str, str], schema_name: str, tables_name:
         cursor = conn.cursor()
         for table_name in tables_name:
             result_dict = {}
-            cursor.execute(f"SELECT id, nom FROM {schema_name}.{table_name};")
+            query = sql.SQL("SELECT {id_col}, {val_col} FROM {schema}.{table}").format(
+                id_col=sql.Identifier(id_column_name),
+                val_col=sql.Identifier(value_column_name),
+                schema=sql.Identifier(schema_name),
+                table=sql.Identifier(table_name),
+            )
+            cursor.execute(query)
             field_valuemap_dict[table_name] = {id_val : nom_val for id_val, nom_val in cursor.fetchall()}
 
     except (Exception, psycopg2.Error) as error:

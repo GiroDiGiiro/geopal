@@ -2,6 +2,7 @@
 
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+from gep_sd.algs.GenerateCode import GenerateCode
 from gep_sd.algs.PostCanoeToGep import PostCanoeToGep
 from gep_sd.algs.GetAndVerifCanalisastion import GetAndVerifCanalisation
 from gep_sd.algs.TerrainToBureau import TerrainToBureau
@@ -19,11 +20,17 @@ class GepSDPlugin:
         # Création des actions
         self.create_sd = QAction(QIcon(":/img/img/icon.svg"), u"Créer un Schéma Directeur", self.interface.mainWindow())
         self.create_sd.triggered.connect(self.on_click_create_sd)
-        self.terrain_to_bureau = QAction(QIcon(":/img/img/icon.svg"), u"Tablette Vers Bureau", self.interface.mainWindow())
+        self.terrain_to_bureau = QAction(QIcon(":/img/img/icon.svg"), u"Tablette Vers Bureau",
+                                         self.interface.mainWindow())
         self.terrain_to_bureau.triggered.connect(self.on_click_terrain_to_bureau)
-        self.get_and_verif_canalisation = QAction(QIcon(":/img/img/icon.svg"), u"Vérifier les canalisations", self.interface.mainWindow())
+        self.generate_code = QAction(QIcon(":/img/img/icon.svg"), u"Générer les Codes d'identifications",
+                                     self.interface.mainWindow())
+        self.generate_code.triggered.connect(self.on_generate_code)
+        self.get_and_verif_canalisation = QAction(QIcon(":/img/img/icon.svg"), u"Vérifier les canalisations",
+                                                  self.interface.mainWindow())
         self.get_and_verif_canalisation.triggered.connect(self.on_click_get_and_verif_canalisation)
-        self.post_canoe = QAction(QIcon(":/img/img/post_canoe.svg"), u"Post Canoe -> Couche GEP", self.interface.mainWindow())
+        self.post_canoe = QAction(QIcon(":/img/img/post_canoe.svg"), u"Post Canoe -> Couche GEP",
+                                  self.interface.mainWindow())
         self.post_canoe.triggered.connect(self.on_click_post_canoe)
         # Ajouter les autres actions ici
 
@@ -32,6 +39,7 @@ class GepSDPlugin:
         self.menu.setIcon(QIcon(":/img/img/geopal_to_unima.svg"))
         self.menu.addAction(self.create_sd)
         self.menu.addAction(self.terrain_to_bureau)
+        self.menu.addAction(self.generate_code)
         self.menu.addAction(self.get_and_verif_canalisation)
         self.menu.addAction(self.post_canoe)
         # Ajouter les autres actions ou sous menu ici
@@ -49,16 +57,22 @@ class GepSDPlugin:
         self.interface.mainWindow().menuBar().removeAction(self.menu.menuAction())
         self.interface.mainWindow().removeToolBar(self.toolbar)
 
-
     def on_click_create_sd(self):
-        dlg = CreateSD(self.interface) # Class à importer
+        dlg = CreateSD(self.interface)  # Class à importer
         dlg.show()
         result = dlg.exec_()
         if result:
             pass
 
     def on_click_terrain_to_bureau(self):
-        dlg = TerrainToBureau(self.interface) # Class à importer
+        dlg = TerrainToBureau(self.interface)  # Class à importer
+        dlg.show()
+        result = dlg.exec_()
+        if result:
+            pass
+
+    def on_generate_code(self):
+        dlg = GenerateCode(self.interface)
         dlg.show()
         result = dlg.exec_()
         if result:
