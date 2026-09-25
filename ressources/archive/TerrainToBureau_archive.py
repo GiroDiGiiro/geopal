@@ -4,7 +4,7 @@ import os.path
 from PyQt5.QtWidgets import QDialog, QMessageBox
 from gep_sd.algs.secondary.calculate_slope import calculate_slope
 from gep_sd.algs.secondary.get_and_verif_canalisation import get_and_verif_canalisation
-from gep_sd.algs.secondary.load_wfs import load_wfs_reference_layers
+from gep_sd.utils.load_wfs import load_wfs_reference_layers
 from gep_sd.form.ui.terrain_to_bureau import Ui_Form
 from gep_sd.utils.add_features import add_features
 from gep_sd.utils.create_memory_layer import create_memory_layer

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>create_sd_form</class>
- <widget class="QWidget" name="create_sd_form">
+ <class>get_name_street_and_town</class>
+ <widget class="QWidget" name="get_name_street_and_town">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>751</width>
-    <height>368</height>
+    <width>834</width>
+    <height>401</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Outils d'aide à la création d'un Schéma Directeur</string>
+   <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -23,7 +23,7 @@
       </size>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Création d'un schémas directeur&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Récupérer les noms des rue et des villes&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
@@ -32,7 +32,7 @@
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <widget class="QWidget" name="layoutWidget">
+     <widget class="QWidget" name="">
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <spacer name="verticalSpacer_2">
@@ -51,8 +51,8 @@
         </spacer>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
+        <layout class="QFormLayout" name="formLayout_2">
+         <item row="1" column="0">
           <widget class="QLabel" name="label_2">
            <property name="minimumSize">
             <size>
@@ -67,46 +67,30 @@
             </size>
            </property>
            <property name="text">
-            <string>Nom du Projet</string>
+            <string>Couche réseau</string>
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QLineEdit" name="le_project_name"/>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="cb_line_layer"/>
          </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QLabel" name="label">
-           <property name="minimumSize">
-            <size>
-             <width>110</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>110</width>
-             <height>16777215</height>
-            </size>
-           </property>
+         <item row="2" column="1">
+          <widget class="QComboBox" name="cb_polygone_layer"/>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="cb_point_layer"/>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>Chemin de sauvegarde</string>
+            <string>Couche regard</string>
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QLineEdit" name="le_project_path"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pb_project_path">
-           <property name="styleSheet">
-            <string notr="true">image: url(:/img/img/folder.svg);</string>
-           </property>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_5">
            <property name="text">
-            <string/>
+            <string>Couche ouvrage polygonal</string>
            </property>
           </widget>
          </item>
@@ -120,7 +104,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>40</height>
+           <height>28</height>
           </size>
          </property>
         </spacer>
@@ -134,23 +118,53 @@
           <bool>false</bool>
          </property>
          <layout class="QFormLayout" name="formLayout">
-          <item row="1" column="1">
-           <widget class="QLineEdit" name="le_db_name"/>
-          </item>
           <item row="1" column="0">
-           <widget class="QLabel" name="label_4">
+           <widget class="QLabel" name="label">
             <property name="text">
-             <string>DataBase Name</string>
+             <string>URL route wfs </string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="le_route_url"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>URL commune wfs </string>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QLineEdit" name="le_schema_name"/>
+           <widget class="QLineEdit" name="le_commune_url"/>
           </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_5">
+          <item row="3" column="1">
+           <widget class="QComboBox" name="cb_field_rue"/>
+          </item>
+          <item row="4" column="1">
+           <widget class="QComboBox" name="cb_field_rue2"/>
+          </item>
+          <item row="5" column="1">
+           <widget class="QComboBox" name="cb_field_commune"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_7">
             <property name="text">
-             <string>Schema Name</string>
+             <string>Nom champ rue</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nom champ rue 2 &lt;span style=&quot; font-size:7pt; font-style:italic;&quot;&gt;(pour le reseau)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>Nom champ commune</string>
             </property>
            </widget>
           </item>
@@ -229,8 +243,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

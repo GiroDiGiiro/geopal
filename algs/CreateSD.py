@@ -8,6 +8,7 @@ from gep_sd.utils.is_local_path import is_local_path
 from gep_sd.algs.secondary.create_sd import create_sd
 
 DB_NAME = 'projets'
+SCHEMA_NAME = 'gep_ref'
 
 class CreateSD(QDialog, Ui_create_sd_form):
     """Boite de dialogue de configuration et de lancement de la création d'un schéma directeur GEP"""
@@ -23,6 +24,7 @@ class CreateSD(QDialog, Ui_create_sd_form):
     def finish_ui(self) -> None:
         """Termine la construction de l'UI."""
         self.le_db_name.setText(DB_NAME)
+        self.le_schema_name.setText(SCHEMA_NAME)
         pass
         # self.textBrowser.setHtml(HELP_TEXT_POST_CANOE_TO_GEP)
 
@@ -50,7 +52,7 @@ class CreateSD(QDialog, Ui_create_sd_form):
             return False
 
         if len(os.listdir(project_path)) > 0:
-            message = "Merci de choisir un nouveau dossier de sauvegarde vide pour votre projet. <br> Des fichiers ont été identifiés dans le dossier choisie"
+            message = "Merci de choisir un nouveau dossier de sauvegarde vide pour votre projet. <br> Des fichiers ont été identifiés dans le dossier choisi"
             QMessageBox.warning(self, "Warning", message)
             return False
 
@@ -66,10 +68,11 @@ class CreateSD(QDialog, Ui_create_sd_form):
         project_name = self.le_project_name.text()
         project_path = self.le_project_path.text()
         db_name = self.le_db_name.text()
+        schema_name =self.le_schema_name.text()
         if not self._verif(project_name, project_path):
             return
 
-        success = create_sd(project_name, project_path,db_name)
+        success = create_sd(project_name, project_path,db_name,schema_name)
 
         self.close()
 

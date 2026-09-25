@@ -1027,11 +1027,19 @@
       <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option name="map" type="Map">
-              <Option value="4" name="autre" type="int"/>
-              <Option value="3" name="fictif" type="int"/>
-              <Option value="2" name="ouvrage" type="int"/>
-              <Option value="1" name="regard" type="int"/>
+            <Option name="map" type="List">
+              <Option type="Map">
+                <Option value="4" name="autre" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="3" name="fictif" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="2" name="ouvrage" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="1" name="regard" type="QString"/>
+              </Option>
             </Option>
           </Option>
         </config>
@@ -1041,15 +1049,31 @@
       <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option name="map" type="Map">
-              <Option value="8" name="autre" type="int"/>
-              <Option value="5" name="buse" type="int"/>
-              <Option value="7" name="gargouille" type="int"/>
-              <Option value="6" name="gouttiere" type="int"/>
-              <Option value="4" name="piquage fictif" type="int"/>
-              <Option value="2" name="regard avaloir" type="int"/>
-              <Option value="1" name="regard de visite" type="int"/>
-              <Option value="3" name="regard ficitif" type="int"/>
+            <Option name="map" type="List">
+              <Option type="Map">
+                <Option value="8" name="autre" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="5" name="buse" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="7" name="gargouille" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="6" name="gouttiere" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="4" name="piquage fictif" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="2" name="regard avaloir" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="1" name="regard de visite" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="3" name="regard ficitif" type="QString"/>
+              </Option>
             </Option>
           </Option>
         </config>
@@ -1093,12 +1117,22 @@
       <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option name="map" type="Map">
-              <Option value="5" name="autre" type="int"/>
-              <Option value="2" name="clapet" type="int"/>
-              <Option value="3" name="regulateur de débit" type="int"/>
-              <Option value="1" name="tete de buse" type="int"/>
-              <Option value="4" name="vanne" type="int"/>
+            <Option name="map" type="List">
+              <Option type="Map">
+                <Option value="5" name="autre" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="2" name="clapet" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="3" name="regulateur de débit" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="1" name="tete de buse" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="4" name="vanne" type="QString"/>
+              </Option>
             </Option>
           </Option>
         </config>
@@ -1108,11 +1142,19 @@
       <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option name="map" type="Map">
-              <Option value="4" name="autre" type="int"/>
-              <Option value="1" name="puisard" type="int"/>
-              <Option value="3" name="station de pompage ep" type="int"/>
-              <Option value="2" name="séparateur à hydrocarbures" type="int"/>
+            <Option name="map" type="List">
+              <Option type="Map">
+                <Option value="4" name="autre" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="1" name="puisard" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="3" name="station de pompage ep" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="2" name="séparateur à hydrocarbures" type="QString"/>
+              </Option>
             </Option>
           </Option>
         </config>
@@ -1122,11 +1164,19 @@
       <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option name="map" type="Map">
-              <Option value="4" name="autre" type="int"/>
-              <Option value="2" name="carre" type="int"/>
-              <Option value="1" name="circulaire" type="int"/>
-              <Option value="3" name="rectangulaire" type="int"/>
+            <Option name="map" type="List">
+              <Option type="Map">
+                <Option value="4" name="autre" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="2" name="carre" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="1" name="circulaire" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="3" name="rectangulaire" type="QString"/>
+              </Option>
             </Option>
           </Option>
         </config>
@@ -1136,12 +1186,22 @@
       <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option name="map" type="Map">
-              <Option value="5" name="autre" type="int"/>
-              <Option value="2" name="grille" type="int"/>
-              <Option value="4" name="plaque beton" type="int"/>
-              <Option value="3" name="plaque metal" type="int"/>
-              <Option value="1" name="tampon fonte" type="int"/>
+            <Option name="map" type="List">
+              <Option type="Map">
+                <Option value="5" name="autre" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="2" name="grille" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="4" name="plaque beton" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="3" name="plaque metal" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="1" name="tampon fonte" type="QString"/>
+              </Option>
             </Option>
           </Option>
         </config>
@@ -1197,25 +1257,61 @@
       <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option name="map" type="Map">
-              <Option value="11" name=" Presence depots" type="int"/>
-              <Option value="18" name="Autre" type="int"/>
-              <Option value="15" name="Eau stagnante" type="int"/>
-              <Option value="1" name="Introuvable" type="int"/>
-              <Option value="9" name="Joints non etanches" type="int"/>
-              <Option value="16" name="Odeurs EU" type="int"/>
-              <Option value="6" name="Parois fissurees" type="int"/>
-              <Option value="13" name="Presence d'ecoulements" type="int"/>
-              <Option value="7" name="Presence de racines" type="int"/>
-              <Option value="12" name="Regard colmaté" type="int"/>
-              <Option value="8" name="Regard effondre" type="int"/>
-              <Option value="17" name="Suspiction EU" type="int"/>
-              <Option value="4" name="Tampon absent" type="int"/>
-              <Option value="5" name="Tampon affaise" type="int"/>
-              <Option value="2" name="Tampon bloque" type="int"/>
-              <Option value="3" name="Tampon casse" type="int"/>
-              <Option value="14" name="Trace de mise en charge" type="int"/>
-              <Option value="10" name="Tres degrade" type="int"/>
+            <Option name="map" type="List">
+              <Option type="Map">
+                <Option value="11" name=" Presence depots" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="18" name="Autre" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="15" name="Eau stagnante" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="1" name="Introuvable" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="9" name="Joints non etanches" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="16" name="Odeurs EU" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="6" name="Parois fissurees" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="13" name="Presence d'ecoulements" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="7" name="Presence de racines" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="12" name="Regard colmaté" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="8" name="Regard effondre" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="17" name="Suspiction EU" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="4" name="Tampon absent" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="5" name="Tampon affaise" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="2" name="Tampon bloque" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="3" name="Tampon casse" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="14" name="Trace de mise en charge" type="QString"/>
+              </Option>
+              <Option type="Map">
+                <Option value="10" name="Tres degrade" type="QString"/>
+              </Option>
             </Option>
           </Option>
         </config>
@@ -1283,23 +1379,68 @@
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="bv_id">
-      <editWidget type="Range">
+      <editWidget type="ValueRelation">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option value="false" name="AllowMulti" type="bool"/>
+            <Option value="true" name="AllowNull" type="bool"/>
+            <Option value="2" name="CompleterMatchFlags" type="int"/>
+            <Option name="Description" type="invalid"/>
+            <Option value="false" name="DisplayGroupName" type="bool"/>
+            <Option name="FilterExpression" type="invalid"/>
+            <Option name="Group" type="invalid"/>
+            <Option value="fid" name="Key" type="QString"/>
+            <Option value="bassin_versant_6ed31974_528c_41a2_96cb_5af807af5844" name="Layer" type="QString"/>
+            <Option value="bassin_versant" name="LayerName" type="QString"/>
+            <Option value="ogr" name="LayerProviderName" type="QString"/>
+            <Option value="C:/00_giraud_victor/96_application_metier/03_schema_directeur/02_traitement/test/test/test/test/data.gpkg|layername=bassin_versant" name="LayerSource" type="QString"/>
+            <Option value="1" name="NofColumns" type="int"/>
+            <Option value="false" name="OrderByDescending" type="bool"/>
+            <Option value="false" name="OrderByField" type="bool"/>
+            <Option value="fid" name="OrderByFieldName" type="QString"/>
+            <Option value="true" name="OrderByKey" type="bool"/>
+            <Option value="false" name="OrderByValue" type="bool"/>
+            <Option value="false" name="UseCompleter" type="bool"/>
+            <Option value="nom" name="Value" type="QString"/>
+          </Option>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="ssbv_id">
-      <editWidget type="Range">
+      <editWidget type="ValueRelation">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option value="false" name="AllowMulti" type="bool"/>
+            <Option value="true" name="AllowNull" type="bool"/>
+            <Option value="2" name="CompleterMatchFlags" type="int"/>
+            <Option name="Description" type="invalid"/>
+            <Option value="false" name="DisplayGroupName" type="bool"/>
+            <Option name="FilterExpression" type="invalid"/>
+            <Option name="Group" type="invalid"/>
+            <Option value="fid" name="Key" type="QString"/>
+            <Option value="sousbassin_versant_95bfe8dc_b77b_400b_9766_4c99a8a05d64" name="Layer" type="QString"/>
+            <Option value="sousbassin_versant" name="LayerName" type="QString"/>
+            <Option value="ogr" name="LayerProviderName" type="QString"/>
+            <Option value="C:/00_giraud_victor/96_application_metier/03_schema_directeur/02_traitement/test/test/test/test/data.gpkg|layername=sousbassin_versant" name="LayerSource" type="QString"/>
+            <Option value="1" name="NofColumns" type="int"/>
+            <Option value="false" name="OrderByDescending" type="bool"/>
+            <Option value="false" name="OrderByField" type="bool"/>
+            <Option value="fid" name="OrderByFieldName" type="QString"/>
+            <Option value="true" name="OrderByKey" type="bool"/>
+            <Option value="false" name="OrderByValue" type="bool"/>
+            <Option value="false" name="UseCompleter" type="bool"/>
+            <Option value="nom" name="Value" type="QString"/>
+          </Option>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="nom_rue">
       <editWidget type="TextEdit">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option value="false" name="IsMultiline" type="bool"/>
+            <Option value="false" name="UseHtml" type="bool"/>
+          </Option>
         </config>
       </editWidget>
     </field>
@@ -1326,28 +1467,40 @@
     <field configurationFlags="NoFlag" name="commune">
       <editWidget type="TextEdit">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option value="false" name="IsMultiline" type="bool"/>
+            <Option value="false" name="UseHtml" type="bool"/>
+          </Option>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="source">
       <editWidget type="TextEdit">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option value="false" name="IsMultiline" type="bool"/>
+            <Option value="false" name="UseHtml" type="bool"/>
+          </Option>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="gestionnaire">
       <editWidget type="TextEdit">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option value="false" name="IsMultiline" type="bool"/>
+            <Option value="false" name="UseHtml" type="bool"/>
+          </Option>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="code_exutoire">
-      <editWidget type="Range">
+      <editWidget type="TextEdit">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option value="false" name="IsMultiline" type="bool"/>
+            <Option value="false" name="UseHtml" type="bool"/>
+          </Option>
         </config>
       </editWidget>
     </field>
@@ -1368,20 +1521,20 @@
     <alias field="fe" name="Cote fil d'eau" index="12"/>
     <alias field="profondeur" name="Profondeur Radier (cm)" index="13"/>
     <alias field="have_anomalie" name="Présence d'une anomalie ?" index="14"/>
-    <alias field="anomalie_type_id" name="" index="15"/>
+    <alias field="anomalie_type_id" name="Type d'anomalie" index="15"/>
     <alias field="hauteur_depot" name="Hauteur de dépot (cm)" index="16"/>
     <alias field="commentaire" name="Commentaire" index="17"/>
     <alias field="created_at" name="Date de création" index="18"/>
     <alias field="photo" name="Photo" index="19"/>
-    <alias field="bv_id" name="" index="20"/>
-    <alias field="ssbv_id" name="" index="21"/>
-    <alias field="nom_rue" name="" index="22"/>
-    <alias field="code_ouvrage" name="" index="23"/>
-    <alias field="code_equipement" name="" index="24"/>
-    <alias field="commune" name="" index="25"/>
-    <alias field="source" name="" index="26"/>
-    <alias field="gestionnaire" name="" index="27"/>
-    <alias field="code_exutoire" name="" index="28"/>
+    <alias field="bv_id" name="Bassin versant" index="20"/>
+    <alias field="ssbv_id" name="Sous bassin versant" index="21"/>
+    <alias field="nom_rue" name="Nom rue" index="22"/>
+    <alias field="code_ouvrage" name="Code ouvrage" index="23"/>
+    <alias field="code_equipement" name="Code équipement" index="24"/>
+    <alias field="commune" name="Commune" index="25"/>
+    <alias field="source" name="Source" index="26"/>
+    <alias field="gestionnaire" name="Gestionnaire" index="27"/>
+    <alias field="code_exutoire" name="Code Exutoire" index="28"/>
   </aliases>
   <splitPolicies>
     <policy policy="DefaultValue" field="fid"/>
@@ -1404,8 +1557,15 @@
     <policy policy="DefaultValue" field="commentaire"/>
     <policy policy="DefaultValue" field="created_at"/>
     <policy policy="DefaultValue" field="photo"/>
+    <policy policy="DefaultValue" field="bv_id"/>
+    <policy policy="DefaultValue" field="ssbv_id"/>
+    <policy policy="DefaultValue" field="nom_rue"/>
     <policy policy="DefaultValue" field="code_ouvrage"/>
     <policy policy="DefaultValue" field="code_equipement"/>
+    <policy policy="DefaultValue" field="commune"/>
+    <policy policy="DefaultValue" field="source"/>
+    <policy policy="DefaultValue" field="gestionnaire"/>
+    <policy policy="DefaultValue" field="code_exutoire"/>
   </splitPolicies>
   <defaults>
     <default applyOnUpdate="0" field="fid" expression=""/>
@@ -1574,7 +1734,7 @@ def my_form_open(dialog, layer, feature):
       <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
         <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
       </labelStyle>
-      <attributeEditorField showLabel="1" horizontalStretch="0" name="fid" verticalStretch="0" index="0">
+      <attributeEditorField showLabel="1" horizontalStretch="0" name="code" verticalStretch="0" index="1">
         <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
           <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
         </labelStyle>
@@ -1598,6 +1758,11 @@ def my_form_open(dialog, layer, feature):
         <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
           <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
         </labelStyle>
+        <attributeEditorField showLabel="1" horizontalStretch="0" name="code_ouvrage" verticalStretch="0" index="23">
+          <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+            <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+          </labelStyle>
+        </attributeEditorField>
         <attributeEditorField showLabel="1" horizontalStretch="0" name="ouvrage_ponctuel_type_id" verticalStretch="0" index="8">
           <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
             <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
@@ -1635,16 +1800,6 @@ def my_form_open(dialog, layer, feature):
         </labelStyle>
       </attributeEditorField>
     </attributeEditorContainer>
-    <attributeEditorContainer showLabel="1" horizontalStretch="0" collapsed="0" visibilityExpressionEnabled="1" columnCount="1" collapsedExpressionEnabled="0" name="Équipement" groupBox="0" collapsedExpression="" visibilityExpression="&quot;is_equipement&quot;" type="Tab" verticalStretch="0">
-      <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-        <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
-      </labelStyle>
-      <attributeEditorField showLabel="1" horizontalStretch="0" name="equipement_type_id" verticalStretch="0" index="7">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
-        </labelStyle>
-      </attributeEditorField>
-    </attributeEditorContainer>
     <attributeEditorContainer showLabel="1" horizontalStretch="0" collapsed="0" visibilityExpressionEnabled="0" columnCount="1" collapsedExpressionEnabled="0" name="Topologie" groupBox="0" collapsedExpression="" visibilityExpression="" type="Tab" verticalStretch="0">
       <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
         <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
@@ -1665,6 +1820,63 @@ def my_form_open(dialog, layer, feature):
         </labelStyle>
       </attributeEditorField>
     </attributeEditorContainer>
+    <attributeEditorContainer showLabel="1" horizontalStretch="0" collapsed="0" visibilityExpressionEnabled="0" columnCount="1" collapsedExpressionEnabled="0" name="Reseau" groupBox="0" collapsedExpression="" visibilityExpression="" type="Tab" verticalStretch="0">
+      <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+        <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+      </labelStyle>
+      <attributeEditorRelation relationWidgetTypeId="relation_editor" forceSuppressFormPopup="0" showLabel="1" horizontalStretch="0" nmRelationId="" name="reseau_cc0_regard_amont_id_regard_020_fid" label="Réseau Sortant" relation="reseau_cc0_regard_amont_id_regard_020_fid" verticalStretch="0">
+        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+          <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+        </labelStyle>
+        <editor_configuration type="Map">
+          <Option value="false" name="allow_add_child_feature_with_no_geometry" type="bool"/>
+          <Option value="ZoomToChildFeature" name="buttons" type="QString"/>
+          <Option name="filter_expression" type="invalid"/>
+          <Option value="true" name="show_first_feature" type="bool"/>
+        </editor_configuration>
+      </attributeEditorRelation>
+      <attributeEditorRelation relationWidgetTypeId="relation_editor" forceSuppressFormPopup="0" showLabel="1" horizontalStretch="0" nmRelationId="" name="reseau_cc0_regard_aval_id_regard_020_fid" label="Réseau Entrant" relation="reseau_cc0_regard_aval_id_regard_020_fid" verticalStretch="0">
+        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+          <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+        </labelStyle>
+        <editor_configuration type="Map">
+          <Option value="false" name="allow_add_child_feature_with_no_geometry" type="bool"/>
+          <Option value="ZoomToChildFeature" name="buttons" type="QString"/>
+          <Option name="filter_expression" type="invalid"/>
+          <Option value="true" name="show_first_feature" type="bool"/>
+        </editor_configuration>
+      </attributeEditorRelation>
+    </attributeEditorContainer>
+    <attributeEditorContainer showLabel="1" horizontalStretch="0" collapsed="0" visibilityExpressionEnabled="0" columnCount="1" collapsedExpressionEnabled="0" name="Exutoire" groupBox="0" collapsedExpression="" visibilityExpression="" type="Tab" verticalStretch="0">
+      <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+        <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+      </labelStyle>
+      <attributeEditorField showLabel="1" horizontalStretch="0" name="code_exutoire" verticalStretch="0" index="28">
+        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+          <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+        </labelStyle>
+      </attributeEditorField>
+      <attributeEditorField showLabel="1" horizontalStretch="0" name="masse_eau" verticalStretch="0" index="5">
+        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+          <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+        </labelStyle>
+      </attributeEditorField>
+    </attributeEditorContainer>
+    <attributeEditorContainer showLabel="1" horizontalStretch="0" collapsed="0" visibilityExpressionEnabled="1" columnCount="1" collapsedExpressionEnabled="0" name="Équipement" groupBox="0" collapsedExpression="" visibilityExpression="&quot;is_equipement&quot;" type="Tab" verticalStretch="0">
+      <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+        <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+      </labelStyle>
+      <attributeEditorField showLabel="1" horizontalStretch="0" name="code_equipement" verticalStretch="0" index="24">
+        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+          <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+        </labelStyle>
+      </attributeEditorField>
+      <attributeEditorField showLabel="1" horizontalStretch="0" name="equipement_type_id" verticalStretch="0" index="7">
+        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+          <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+        </labelStyle>
+      </attributeEditorField>
+    </attributeEditorContainer>
     <attributeEditorContainer showLabel="1" horizontalStretch="0" collapsed="0" visibilityExpressionEnabled="1" columnCount="1" collapsedExpressionEnabled="0" name="Anomalie" groupBox="0" collapsedExpression="" visibilityExpression="&quot;have_anomalie&quot;" type="Tab" verticalStretch="0">
       <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
         <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
@@ -1680,10 +1892,45 @@ def my_form_open(dialog, layer, feature):
         </labelStyle>
       </attributeEditorField>
     </attributeEditorContainer>
+    <attributeEditorContainer showLabel="1" horizontalStretch="0" collapsed="0" visibilityExpressionEnabled="0" columnCount="1" collapsedExpressionEnabled="0" name="BV et SSBV" groupBox="0" collapsedExpression="" visibilityExpression="" type="Tab" verticalStretch="0">
+      <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+        <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+      </labelStyle>
+      <attributeEditorField showLabel="1" horizontalStretch="0" name="bv_id" verticalStretch="0" index="20">
+        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+          <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+        </labelStyle>
+      </attributeEditorField>
+      <attributeEditorField showLabel="1" horizontalStretch="0" name="ssbv_id" verticalStretch="0" index="21">
+        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+          <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+        </labelStyle>
+      </attributeEditorField>
+    </attributeEditorContainer>
+    <attributeEditorContainer showLabel="1" horizontalStretch="0" collapsed="0" visibilityExpressionEnabled="0" columnCount="1" collapsedExpressionEnabled="0" name="Localisation" groupBox="0" collapsedExpression="" visibilityExpression="" type="Tab" verticalStretch="0">
+      <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+        <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+      </labelStyle>
+      <attributeEditorField showLabel="1" horizontalStretch="0" name="nom_rue" verticalStretch="0" index="22">
+        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+          <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+        </labelStyle>
+      </attributeEditorField>
+      <attributeEditorField showLabel="1" horizontalStretch="0" name="commune" verticalStretch="0" index="25">
+        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+          <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+        </labelStyle>
+      </attributeEditorField>
+    </attributeEditorContainer>
     <attributeEditorContainer showLabel="1" horizontalStretch="0" collapsed="0" visibilityExpressionEnabled="0" columnCount="1" collapsedExpressionEnabled="0" name="Autre" groupBox="0" collapsedExpression="" visibilityExpression="" type="Tab" verticalStretch="0">
       <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
         <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
       </labelStyle>
+      <attributeEditorField showLabel="1" horizontalStretch="0" name="gestionnaire" verticalStretch="0" index="27">
+        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+          <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+        </labelStyle>
+      </attributeEditorField>
       <attributeEditorField showLabel="1" horizontalStretch="0" name="commentaire" verticalStretch="0" index="17">
         <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
           <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
@@ -1695,6 +1942,11 @@ def my_form_open(dialog, layer, feature):
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" horizontalStretch="0" name="created_at" verticalStretch="0" index="18">
+        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
+          <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
+        </labelStyle>
+      </attributeEditorField>
+      <attributeEditorField showLabel="1" horizontalStretch="0" name="source" verticalStretch="0" index="26">
         <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
           <labelFont style="" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" underline="0" bold="0"/>
         </labelStyle>
@@ -1798,7 +2050,14 @@ def my_form_open(dialog, layer, feature):
     <field name="tn" reuseLastValue="0"/>
   </reuseLastValue>
   <dataDefinedFieldProperties/>
-  <widgets/>
+  <widgets>
+    <widget name="reseau_cc0_regard_amont_id_regard_020_fid">
+      <config type="Map">
+        <Option value="false" name="force-suppress-popup" type="bool"/>
+        <Option value="" name="nm-rel" type="QString"/>
+      </config>
+    </widget>
+  </widgets>
   <previewExpression>COALESCE( "have_anomalie", '&lt;NULL>' )</previewExpression>
   <mapTip enabled="1"></mapTip>
   <layerGeometryType>0</layerGeometryType>
