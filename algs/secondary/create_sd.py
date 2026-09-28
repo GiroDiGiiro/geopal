@@ -220,6 +220,9 @@ def create_sd(project_name: str, project_path: str | Path, db_name: str, schema_
     if not export_layers_to_gpkg([def_layer], destination):
         return False, "[Error] Erreur lors de l'export des couches de définition en gpkg"
 
+    # La couche PostGIS ne sert plus : on la retire du projet
+    QgsProject.instance().removeMapLayer(def_layer.id())
+
     # import des couches depuis le gpkg copié
     layers = load_layers_from_gpkg(destination, LAYERS_NAMES)
 
@@ -281,7 +284,7 @@ def create_sd(project_name: str, project_path: str | Path, db_name: str, schema_
     move_layers_to_group(['regard', 'reseau', 'ouvrage_polygonal'], 'Acquisition', True)
     move_layers_to_group(['surface_raccordee', 'sousbassin_versant', 'bassin_versant', ], 'Traitement', True)
     move_layers_to_group(['GoogleSat'], 'BaseMap', True)
-    move_layers_to_group(['diametre_par_materiau'], 'Table de Définition', True)
+    move_layers_to_group(['diametre_par_materiau'], 'Table de Definition', True)
 
     # Mettre les options d'accrochage pour une bonne topologie
     my_snap_config = QgsSnappingConfig()

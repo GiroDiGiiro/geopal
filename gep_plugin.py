@@ -2,13 +2,11 @@
 
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from gep_sd.algs.GenerateCode import GenerateCode
-from gep_sd.algs.PostCanoeToGep import PostCanoeToGep
-from gep_sd.algs.GetAndVerifCanalisastion import GetAndVerifCanalisation
-# from gep_sd.algs.TerrainToBureau import TerrainToBureau
-from gep_sd.algs.CreateSD import CreateSD
-from gep_sd.algs.GetStreetAndTown import GetStreetAndTown
-from gep_sd.form.ui import ressources_rc
+from gep_sd.form.GenerateCode import GenerateCode
+from gep_sd.form.PostCanoeToGep import PostCanoeToGep
+from gep_sd.form.GetAndVerifCanalisastion import GetAndVerifCanalisation
+from gep_sd.form.CreateSD import CreateSD
+from gep_sd.form.GetStreetAndTown import GetStreetAndTown
 
 
 # from 'PluginName'.form.ui import ressources_rc
