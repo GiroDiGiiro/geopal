@@ -3,6 +3,7 @@
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from gep_sd.form.AddGestionnaireToEntities import AddGestionnaireToEntities
+from gep_sd.form.AddSourceToEntities import AddSourceToEntities
 from gep_sd.form.GenerateCode import GenerateCode
 from gep_sd.form.PostCanoeToGep import PostCanoeToGep
 from gep_sd.form.GetAndVerifCanalisastion import GetAndVerifCanalisation
@@ -43,9 +44,14 @@ class GepSDPlugin:
         self.get_street_and_town.triggered.connect(self.on_click_get_street_and_town)
 
         # Ajouter le nom des gestionnaires aux entitées
-        self.add_gestionnaire_to_entities = QAction(QIcon(":/img/img/icon.svg"), u"Ajouter le gestionnaires aux entititées du projets",
+        self.add_gestionnaire_to_entities = QAction(QIcon(":/img/img/icon.svg"), u"Ajouter le gestionnaires aux entitées du projets",
                                                   self.interface.mainWindow())
         self.add_gestionnaire_to_entities.triggered.connect(self.on_click_add_gestionnaire_to_entities)
+
+        # Ajouter le nom de la source aux entitées
+        self.add_source_to_entities = QAction(QIcon(":/img/img/icon.svg"), u"Ajouter le sources aux entitées du projets",
+                                                  self.interface.mainWindow())
+        self.add_source_to_entities.triggered.connect(self.on_click_add_source_to_entities)
 
         # Traitement à effectuer après le résultat de canoe
         self.post_canoe = QAction(QIcon(":/img/img/post_canoe.svg"), u"Post Canoe -> Couche GEP",
@@ -62,6 +68,7 @@ class GepSDPlugin:
         self.menu.addAction(self.get_and_verif_canalisation)
         self.menu.addAction(self.get_street_and_town)
         self.menu.addAction(self.add_gestionnaire_to_entities)
+        self.menu.addAction(self.add_source_to_entities)
         self.menu.addAction(self.post_canoe)
         # Ajouter les autres actions ou sous menu ici
         self.interface.pluginMenu().addMenu(self.menu)
@@ -116,6 +123,14 @@ class GepSDPlugin:
     def on_click_add_gestionnaire_to_entities(self):
 
         dlg = AddGestionnaireToEntities(self.interface)
+        dlg.show()
+        result = dlg.exec_()
+        if result:
+            pass
+
+    def on_click_add_source_to_entities(self):
+
+        dlg = AddSourceToEntities(self.interface)
         dlg.show()
         result = dlg.exec_()
         if result:
