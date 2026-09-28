@@ -57,7 +57,7 @@ def update_layer_attributes(layer, updates, **kwargs) -> bool:
                 attr[idx] = value
             changes[fid] = attr
 
-        print(f'updates : {changes}')
+        print(f' layer : {layer.name()} -> updates : {changes}')
 
     #  Cas 2 : {"champ": fonction(feature) }
     elif all(isinstance(k, str) and callable(v) for k, v in updates.items()):

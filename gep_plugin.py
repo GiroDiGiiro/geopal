@@ -2,6 +2,7 @@
 
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+from gep_sd.form.AddGestionnaireToEntities import AddGestionnaireToEntities
 from gep_sd.form.GenerateCode import GenerateCode
 from gep_sd.form.PostCanoeToGep import PostCanoeToGep
 from gep_sd.form.GetAndVerifCanalisastion import GetAndVerifCanalisation
@@ -17,20 +18,36 @@ class GepSDPlugin:
 
     def initGui(self):
         # Création des actions
+        # Créer un projet
         self.create_sd = QAction(QIcon(":/img/img/icon.svg"), u"Créer un Schéma Directeur", self.interface.mainWindow())
         self.create_sd.triggered.connect(self.on_click_create_sd)
+
+        # Passer de la tablette vers le bureau
         self.terrain_to_bureau = QAction(QIcon(":/img/img/icon.svg"), u"Tablette Vers Bureau",
                                          self.interface.mainWindow())
         self.terrain_to_bureau.triggered.connect(self.on_click_terrain_to_bureau)
+
+        # générer les codes d'identification
         self.generate_code = QAction(QIcon(":/img/img/icon.svg"), u"Générer les Codes d'identifications",
                                      self.interface.mainWindow())
         self.generate_code.triggered.connect(self.on_generate_code)
+
+        # Vérifier les canalisations et associer les regards
         self.get_and_verif_canalisation = QAction(QIcon(":/img/img/icon.svg"), u"Vérifier les canalisations",
                                                   self.interface.mainWindow())
         self.get_and_verif_canalisation.triggered.connect(self.on_click_get_and_verif_canalisation)
+
+        # Ajouter le nom des rues et le code insee
         self.get_street_and_town = QAction(QIcon(":/img/img/icon.svg"), u"Récupérer le nom des rues et des communes",
                                                   self.interface.mainWindow())
         self.get_street_and_town.triggered.connect(self.on_click_get_street_and_town)
+
+        # Ajouter le nom des gestionnaires aux entitées
+        self.add_gestionnaire_to_entities = QAction(QIcon(":/img/img/icon.svg"), u"Ajouter le gestionnaires aux entititées du projets",
+                                                  self.interface.mainWindow())
+        self.add_gestionnaire_to_entities.triggered.connect(self.on_click_add_gestionnaire_to_entities)
+
+        # Traitement à effectuer après le résultat de canoe
         self.post_canoe = QAction(QIcon(":/img/img/post_canoe.svg"), u"Post Canoe -> Couche GEP",
                                   self.interface.mainWindow())
         self.post_canoe.triggered.connect(self.on_click_post_canoe)
@@ -44,6 +61,7 @@ class GepSDPlugin:
         self.menu.addAction(self.generate_code)
         self.menu.addAction(self.get_and_verif_canalisation)
         self.menu.addAction(self.get_street_and_town)
+        self.menu.addAction(self.add_gestionnaire_to_entities)
         self.menu.addAction(self.post_canoe)
         # Ajouter les autres actions ou sous menu ici
         self.interface.pluginMenu().addMenu(self.menu)
@@ -90,6 +108,14 @@ class GepSDPlugin:
 
     def on_click_get_street_and_town(self):
         dlg = GetStreetAndTown(self.interface)
+        dlg.show()
+        result = dlg.exec_()
+        if result:
+            pass
+
+    def on_click_add_gestionnaire_to_entities(self):
+
+        dlg = AddGestionnaireToEntities(self.interface)
         dlg.show()
         result = dlg.exec_()
         if result:
