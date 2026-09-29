@@ -23,9 +23,6 @@ from gep_sd.utils.get_layers_extend import get_layers_extent
 from gep_sd.utils.load_wfs import load_wfs_layer
 from gep_sd.utils.update_layer_attribute import update_layer_attributes
 
-# Résultat produit par run() : un dict {fid: {champ: valeur}} par couche/thème
-LayerUpdates = Dict[int, Dict[str, str]]
-TaskResult = Tuple[LayerUpdates, LayerUpdates, LayerUpdates, LayerUpdates, LayerUpdates, LayerUpdates]
 
 
 class GetStreetAndTownTask(QgsTask):
@@ -233,7 +230,7 @@ class GetStreetAndTownTask(QgsTask):
         features_dict: Dict[int, QgsFeature],
         spatial_index: QgsSpatialIndex,
         rue_by_id: Dict[int, QgsFeature],
-    ) -> LayerUpdates:
+    ) -> Dict[int, Dict[str, str]]:
         """
         Calcule le nom de rue le plus proche pour chaque point.
 
@@ -242,7 +239,7 @@ class GetStreetAndTownTask(QgsTask):
         :param rue_by_id: Dictionnaire des tronçons de route, par fid.
         :return: ``{fid: {champ_rue: nom}}``.
         """
-        result: LayerUpdates = {}
+        result: Dict[int, Dict[str, str]] = {}
         total = len(features_dict)
         for i, (idx, f) in enumerate(features_dict.items(), start=1):
             if self.isCanceled():
@@ -264,7 +261,7 @@ class GetStreetAndTownTask(QgsTask):
         features_dict: Dict[int, QgsFeature],
         spatial_index: QgsSpatialIndex,
         rue_by_id: Dict[int, QgsFeature],
-    ) -> LayerUpdates:
+    ) -> Dict[int, Dict[str, str]]:
         """
         Calcule le nom de rue à chaque extrémité de chaque ligne (second
         champ rempli uniquement si l'extrémité diffère du départ).
@@ -274,7 +271,7 @@ class GetStreetAndTownTask(QgsTask):
         :param rue_by_id: Dictionnaire des tronçons de route, par fid.
         :return: ``{fid: {champ_rue: nom, [champ_rue2: nom]}}``.
         """
-        result: LayerUpdates = {}
+        result: Dict[int, Dict[str, str]] = {}
         total = len(features_dict)
         for i, (idx, f) in enumerate(features_dict.items(), start=1):
             if self.isCanceled():
@@ -317,7 +314,7 @@ class GetStreetAndTownTask(QgsTask):
         features_dict: Dict[int, QgsFeature],
         spatial_index: QgsSpatialIndex,
         rue_by_id: Dict[int, QgsFeature],
-    ) -> LayerUpdates:
+    ) -> Dict[int, Dict[str, str]]:
         """
         Calcule le nom de rue le plus proche du centroïde de chaque polygone.
 
@@ -326,7 +323,7 @@ class GetStreetAndTownTask(QgsTask):
         :param rue_by_id: Dictionnaire des tronçons de route, par fid.
         :return: ``{fid: {champ_rue: nom}}``.
         """
-        result: LayerUpdates = {}
+        result: Dict[int, Dict[str, str]] = {}
         total = len(features_dict)
         for i, (idx, f) in enumerate(features_dict.items(), start=1):
             if self.isCanceled():
@@ -350,7 +347,7 @@ class GetStreetAndTownTask(QgsTask):
         features_dict: Dict[int, QgsFeature],
         spatial_index: QgsSpatialIndex,
         communes_by_id: Dict[int, QgsFeature],
-    ) -> LayerUpdates:
+    ) -> Dict[int, Dict[str, str]]:
         """
         Détermine la commune contenant chaque point.
 
@@ -359,7 +356,7 @@ class GetStreetAndTownTask(QgsTask):
         :param communes_by_id: Dictionnaire des communes, par fid.
         :return: ``{fid: {champ_commune: code_insee}}``.
         """
-        result: LayerUpdates = {}
+        result: Dict[int, Dict[str, str]] = {}
         total = len(features_dict)
         for i, (idx, f) in enumerate(features_dict.items(), start=1):
             if self.isCanceled():
@@ -398,7 +395,7 @@ class GetStreetAndTownTask(QgsTask):
         features_dict: Dict[int, QgsFeature],
         spatial_index: QgsSpatialIndex,
         communes_by_id: Dict[int, QgsFeature],
-    ) -> LayerUpdates:
+    ) -> Dict[int, Dict[str, str]]:
         """
         Détermine, pour chaque ligne, la commune avec laquelle elle
         partage la plus grande longueur d'intersection.
@@ -408,7 +405,7 @@ class GetStreetAndTownTask(QgsTask):
         :param communes_by_id: Dictionnaire des communes, par fid.
         :return: ``{fid: {champ_commune: code_insee}}``.
         """
-        result: LayerUpdates = {}
+        result: Dict[int, Dict[str, str]] = {}
         total = len(features_dict)
         for i, (idx, f) in enumerate(features_dict.items(), start=1):
             if self.isCanceled():
@@ -452,7 +449,7 @@ class GetStreetAndTownTask(QgsTask):
         features_dict: Dict[int, QgsFeature],
         spatial_index: QgsSpatialIndex,
         communes_by_id: Dict[int, QgsFeature],
-    ) -> LayerUpdates:
+    ) -> Dict[int, Dict[str, str]]:
         """
         Détermine, pour chaque polygone, la commune avec laquelle il
         partage la plus grande surface d'intersection.
@@ -462,7 +459,7 @@ class GetStreetAndTownTask(QgsTask):
         :param communes_by_id: Dictionnaire des communes, par fid.
         :return: ``{fid: {champ_commune: code_insee}}``.
         """
-        result: LayerUpdates = {}
+        result: Dict[int, Dict[str, str]] = {}
         total = len(features_dict)
         for i, (idx, f) in enumerate(features_dict.items(), start=1):
             if self.isCanceled():
@@ -512,12 +509,12 @@ class GetStreetAndTownTask(QgsTask):
         :return: ``True`` si les mises à jour ont été calculées avec
             succès, ``False`` en cas d'échec ou d'annulation.
         """
-        self.result_commune_point: LayerUpdates = {}
-        self.result_commune_line: LayerUpdates = {}
-        self.result_commune_polygon: LayerUpdates = {}
-        self.result_rue_point: LayerUpdates = {}
-        self.result_rue_line: LayerUpdates = {}
-        self.result_rue_polygon: LayerUpdates = {}
+        self.result_commune_point: Dict[int, Dict[str, str]] = {}
+        self.result_commune_line: Dict[int, Dict[str, str]] = {}
+        self.result_commune_polygon: Dict[int, Dict[str, str]] = {}
+        self.result_rue_point: Dict[int, Dict[str, str]] = {}
+        self.result_rue_line: Dict[int, Dict[str, str]] = {}
+        self.result_rue_polygon: Dict[int, Dict[str, str]] = {}
         uri_commune = (
             "pageSize='5000' "
             "pagingEnabled='enabled' "
