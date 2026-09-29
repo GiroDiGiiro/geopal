@@ -95,7 +95,15 @@ class Ui_add_source_form(object):
         self.label_3.setText(_translate("add_source_form", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Ajouter la Source aux entitées du projet</span></p></body></html>"))
         self.label.setText(_translate("add_source_form", "Nom du gestionnaire"))
         self.le_source_field.setText(_translate("add_source_form", "source"))
-        self.label_2.setText(_translate("add_source_form", "Nom du champ \"source\""))
+        self.label_2.setText(_translate("add_source_form", "<html>\n"
+"<head/>\n"
+"<body>\n"
+"<p style=\"margin-bottom: 2px;\">Nom du champ \"source\"</p>\n"
+"<p style=\"margin-top: 0;\">\n"
+"<span style=\"font-size:7pt; font-style:italic;\">(dans les autres couches)</span>\n"
+"</p>\n"
+"</body>\n"
+"</html>"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("add_source_form", "Choisir les couches à traiter"))
         item = self.tableWidget.horizontalHeaderItem(1)

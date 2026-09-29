@@ -22,12 +22,13 @@ class ProgressDialog(QDialog):
         "debug": "#848484",
     }
 
-    def __init__(self, task: QgsTask, parent=None) -> None:
+    def __init__(self, task: QgsTask, parent=None, **kwargs) -> None:
         """
         :param task: La ``QgsTask`` à suivre.
         :param parent: Widget parent.
         """
         super().__init__(parent)
+        show_subprogressbar = kwargs.get("show_subprogressbar", False)
         self.setWindowTitle("Traitement en cours")
 
         self.bar = QProgressBar(self)
@@ -35,14 +36,20 @@ class ProgressDialog(QDialog):
 
         self.tb_logs = QTextBrowser(self)
 
+        self.subbar = QProgressBar(self)
+        self.subbar.setRange(0, 100)
+
         layout = QVBoxLayout(self)
         layout.addWidget(self.tb_logs)
         layout.addWidget(self.bar)
+        if show_subprogressbar:
+            layout.addWidget(self.subbar)
 
         self.task = task
         self.task.log.connect(self.add_log)
         self.task.progress.connect(self.bar.setValue)
-        self.tb_logs.append(f'coucou')
+        if show_subprogressbar:
+            self.task.subprogress.connect(self.subbar.setValue)
 
     def add_log(self, level: str, message: str) -> None:
         """

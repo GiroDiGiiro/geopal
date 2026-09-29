@@ -32,7 +32,7 @@
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <spacer name="verticalSpacer_3">
@@ -88,7 +88,15 @@
          <item row="1" column="0">
           <widget class="QLabel" name="label_2">
            <property name="text">
-            <string>Nom du champ &quot;gestionnaire&quot;</string>
+            <string>&lt;html&gt;
+&lt;head/&gt;
+&lt;body&gt;
+&lt;p style=&quot;margin-bottom: 2px;&quot;&gt;Nom du champ &quot;gestionnaire&quot;&lt;/p&gt;
+&lt;p style=&quot;margin-top: 0;&quot;&gt;
+&lt;span style=&quot;font-size:7pt; font-style:italic;&quot;&gt;(dans les autres couches)&lt;/span&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</string>
            </property>
           </widget>
          </item>

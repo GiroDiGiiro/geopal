@@ -59,6 +59,7 @@ class GetStreetAndTownTask(QgsTask):
 
     log = pyqtSignal(str, str)
     progress = pyqtSignal(int)
+    subprogress = pyqtSignal(int)
 
     def __init__(
         self,
@@ -103,6 +104,17 @@ class GetStreetAndTownTask(QgsTask):
         if total <= 0:
             return
         self.progress.emit(int((current / total) * 100))
+
+    def _emit_subprogress(self, current: int, total: int) -> None:
+        """
+        Émet ``progress`` avec un pourcentage entre 0 et 100.
+
+        :param current: Nombre d'éléments déjà traités (1-indexé).
+        :param total: Nombre total d'éléments à traiter.
+        """
+        if total <= 0:
+            return
+        self.subprogress.emit(int((current / total) * 100))
 
     # ---------- chargement ----------
     def load_wfs(self, uri: str, layer_name: str, add_to_legend: bool = False) -> Optional[QgsVectorLayer]:
@@ -528,45 +540,61 @@ class GetStreetAndTownTask(QgsTask):
         )
 
         self.layer_commune = self.load_wfs(uri_commune, "commune", False)
+        self._emit_subprogress(1,16)
         self.layer_rue = self.load_wfs(uri_rue, "rue", False)
+        self._emit_subprogress(2, 16)
         if self.layer_commune is None or self.layer_rue is None:
             self.log.emit("error", "Impossible de charger les couches WFS, traitement annulé")
             return False
 
         point_features_dict = self.build_features_dict(self.point_layer)
+        self._emit_subprogress(3, 16)
         line_features_dict = self.build_features_dict(self.line_layer)
+        self._emit_subprogress(4, 16)
         polygon_features_dict = self.build_features_dict(self.polygon_layer)
+        self._emit_subprogress(5, 16)
         if self.isCanceled():
             return False
 
         extent = get_layers_extent([self.point_layer, self.line_layer, self.polygon_layer])
+        self._emit_subprogress(6, 16)
 
         commune_features_dict = self.build_features_dict(self.layer_commune, extent)
+        self._emit_subprogress(7, 16)
         rue_features_dict = self.build_features_dict(self.layer_rue, extent)
+        self._emit_subprogress(8, 16)
         if commune_features_dict is None or rue_features_dict is None:
             self.log.emit("error", "Aucune feature commune/rue dans l'emprise, traitement annulé")
             return False
 
         commune_spatial_index = self.build_spatial_index(self.layer_commune, extent)
+        self._emit_subprogress(9, 16)
         rue_spatial_index = self.build_spatial_index(self.layer_rue, extent)
+        self._emit_subprogress(10, 16)
         if commune_spatial_index is None or rue_spatial_index is None or self.isCanceled():
             return False
 
         self.result_commune_point = self.commune_point_layer(
             point_features_dict or {}, commune_spatial_index, commune_features_dict
         )
+        self._emit_subprogress(11, 16)
         self.result_commune_line = self.commune_line_layer(
             line_features_dict or {}, commune_spatial_index, commune_features_dict
         )
+        self._emit_subprogress(12, 16)
         self.result_commune_polygon = self.commune_polygon_layer(
             polygon_features_dict or {}, commune_spatial_index, commune_features_dict
         )
+        self._emit_subprogress(13, 16)
 
         self.result_rue_point = self.rue_point_layer(point_features_dict or {}, rue_spatial_index, rue_features_dict)
+        self._emit_subprogress(14, 16)
         self.result_rue_line = self.rue_line_layer(line_features_dict or {}, rue_spatial_index, rue_features_dict)
+        self._emit_subprogress(15, 16)
         self.result_rue_polygon = self.rue_polygon_layer(
             polygon_features_dict or {}, rue_spatial_index, rue_features_dict
         )
+        self._emit_subprogress(16, 16)
 
         return True
 

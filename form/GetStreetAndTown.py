@@ -29,17 +29,20 @@ class GetStreetAndTown(QDialog, Ui_get_name_street_and_town):
         self.le_route_url.setText(WFS_ROUTES_URL)
         self.le_commune_url.setText(WFS_COMMUNES_URL)
 
-        self._populate_layer_cb(self.cb_point_layer, 0)
-        self._populate_layer_cb(self.cb_line_layer, 1)
-        self._populate_layer_cb(self.cb_polygone_layer, 2)
+        self._populate_layer_cb(self.cb_point_layer, 0, 'regard')
+        self._populate_layer_cb(self.cb_line_layer, 1,'reseau')
+        self._populate_layer_cb(self.cb_polygone_layer, 2,'ouvrage_polygonal')
         self._populate_secondary_cb()
 
     # ---------- couches ----------
-    def _populate_layer_cb(self, combo, geom_type: int) -> None:
+    def _populate_layer_cb(self, combo, geom_type: int, default :str) -> None:
         combo.clear()
         for layer in QgsProject.instance().mapLayers().values():
             if isinstance(layer, QgsVectorLayer) and layer.geometryType() == geom_type:
                 combo.addItem(layer.name(), layer.id())
+        idx = combo.findText(default)
+        if idx != -1:
+            combo.setCurrentIndex(idx)
 
     def _get_layer(self, combo) -> Optional[QgsVectorLayer]:
         layer_id = combo.currentData()
@@ -90,7 +93,7 @@ class GetStreetAndTown(QDialog, Ui_get_name_street_and_town):
                                          field_name_rue, field_name_rue2, field_name_commune,
                                          url_rue, url_commune)
         self.interface.gep_sd_task = task  # référence forte persistante
-        self.interface.gep_sd_progress = ProgressDialog(task=task, parent=self.interface.mainWindow())
+        self.interface.gep_sd_progress = ProgressDialog(task=task, parent=self.interface.mainWindow(), show_subprogressbar=True)
         QgsApplication.taskManager().addTask(task)
         self.interface.gep_sd_progress.show()
         self.close()

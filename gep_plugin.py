@@ -77,7 +77,6 @@ class GepSDPlugin:
         self.toolbar = self.interface.addToolBar(u"GepSDPlugin")  # Ajouté Le nom du plugin
         self.toolbar.setObjectName("Toolbar_GepSDPlugin")  # Ajouté Le nom du plugin
         self.toolbar.addAction(self.create_sd)
-        self.toolbar.addAction(self.terrain_to_bureau)
         self.toolbar.addAction(self.post_canoe)
         # Ajouter les autres actions ici
 
