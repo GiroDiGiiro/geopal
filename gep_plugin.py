@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import *
 from gep_sd.form.AddBvToEntities import AddBvToEntities
 from gep_sd.form.AddGestionnaireToEntities import AddGestionnaireToEntities
 from gep_sd.form.AddSourceToEntities import AddSourceToEntities
+from gep_sd.form.AddSsbvToEntities import AddSsbvToEntities
 from gep_sd.form.CreateSD import CreateSD
 from gep_sd.form.GenerateCode import GenerateCode
 from gep_sd.form.GetAndVerifCanalisastion import GetAndVerifCanalisation
@@ -41,8 +42,13 @@ class GepSDPlugin:
 
         # Associer les Bassins Versant
         self.add_bv_to_entities = QAction(QIcon(":/img/img/icon.svg"), u"Associer les Bassins Versant aux entitées",
-                                          self.interface.mainWindow())
+                                            self.interface.mainWindow())
         self.add_bv_to_entities.triggered.connect(self.on_click_add_bv_to_entities)
+
+        # Associer les Sous Bassins Versant
+        self.add_ssbv_to_entities = QAction(QIcon(":/img/img/icon.svg"), u"Associer les Sous Bassins Versant aux entitées",
+                                            self.interface.mainWindow())
+        self.add_ssbv_to_entities.triggered.connect(self.on_click_add_ssbv_to_entities)
 
         # Ajouter le nom des rues et le code insee
         self.get_street_and_town = QAction(QIcon(":/img/img/icon.svg"), u"Récupérer le nom des rues et des communes",
@@ -74,6 +80,7 @@ class GepSDPlugin:
         self.menu.addAction(self.terrain_to_bureau)
         self.menu.addAction(self.generate_code)
         self.menu.addAction(self.add_bv_to_entities)
+        self.menu.addAction(self.add_ssbv_to_entities)
         self.menu.addAction(self.get_and_verif_canalisation)
         self.menu.addAction(self.get_street_and_town)
         self.menu.addAction(self.add_gestionnaire_to_entities)
@@ -123,6 +130,13 @@ class GepSDPlugin:
 
     def on_click_add_bv_to_entities(self):
         dlg = AddBvToEntities(self.interface)
+        dlg.show()
+        result = dlg.exec_()
+        if result:
+            pass
+
+    def on_click_add_ssbv_to_entities(self):
+        dlg = AddSsbvToEntities(self.interface)
         dlg.show()
         result = dlg.exec_()
         if result:
