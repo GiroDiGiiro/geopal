@@ -10,13 +10,7 @@ SCHEMA_NAME = 'gep_ref'
 
 class GenerateCode(QDialog, Ui_generate_code):
 
-    def __init__(self, interface, parent: Optional[QDialog] = None) -> None:
-        QDialog.__init__(self, parent)
-        self.setupUi(self)
-        self.interface = interface
 
-        self.finish_ui()
-        self.connect_signals()
 
     def finish_ui(self) -> None:
         """Termine la construction de l'UI."""
@@ -34,20 +28,20 @@ class GenerateCode(QDialog, Ui_generate_code):
         """Peuple les combobox avec les couches du projet."""
         # ponctuel
         self.cb_point_layer.clear()
-        line_layers = []
+        point_layer = []
 
         for layer in QgsProject.instance().mapLayers().values():
             if not isinstance(layer, QgsVectorLayer):
                 continue
             if layer.geometryType() == 0:
                 self.cb_point_layer.addItem(layer.name(), layer.id())
-                line_layers.append(layer)
+                point_layer.append(layer)
 
-        idx = self.cb_polygon_layer.findText('regard')
+        idx = self.cb_point_layer.findText('regard')
         if idx != -1:
-            self.cb_polygon_layer.setCurrentIndex(idx)
+            self.cb_point_layer.setCurrentIndex(idx)
 
-        if not line_layers:
+        if not point_layer:
             self.cb_point_layer.addItem("")
 
         # line
@@ -61,29 +55,29 @@ class GenerateCode(QDialog, Ui_generate_code):
                 self.cb_line_layer.addItem(layer.name(), layer.id())
                 line_layers.append(layer)
 
-        idx = self.cb_polygon_layer.findText('reseau')
+        idx = self.cb_line_layer.findText('reseau')
         if idx != -1:
-            self.cb_polygon_layer.setCurrentIndex(idx)
+            self.cb_line_layer.setCurrentIndex(idx)
 
         if not line_layers:
             self.cb_line_layer.addItem("")
 
         # polygon
         self.cb_polygon_layer.clear()
-        line_layers = []
+        polygon_layers = []
 
         for layer in QgsProject.instance().mapLayers().values():
             if not isinstance(layer, QgsVectorLayer):
                 continue
             if layer.geometryType() == 2:
                 self.cb_polygon_layer.addItem(layer.name(), layer.id())
-                line_layers.append(layer)
+                polygon_layers.append(layer)
 
         idx = self.cb_polygon_layer.findText('ouvrage_polygonal')
         if idx != -1:
             self.cb_polygon_layer.setCurrentIndex(idx)
 
-        if not line_layers:
+        if not polygon_layers:
             self.cb_polygon_layer.addItem("")
 
     def _on_ok(self) -> None:
