@@ -43,6 +43,10 @@ class GenerateCode(QDialog, Ui_generate_code):
                 self.cb_point_layer.addItem(layer.name(), layer.id())
                 line_layers.append(layer)
 
+        idx = self.cb_polygon_layer.findText('regard')
+        if idx != -1:
+            self.cb_polygon_layer.setCurrentIndex(idx)
+
         if not line_layers:
             self.cb_point_layer.addItem("")
 
@@ -57,6 +61,10 @@ class GenerateCode(QDialog, Ui_generate_code):
                 self.cb_line_layer.addItem(layer.name(), layer.id())
                 line_layers.append(layer)
 
+        idx = self.cb_polygon_layer.findText('reseau')
+        if idx != -1:
+            self.cb_polygon_layer.setCurrentIndex(idx)
+
         if not line_layers:
             self.cb_line_layer.addItem("")
 
@@ -70,6 +78,10 @@ class GenerateCode(QDialog, Ui_generate_code):
             if layer.geometryType() == 2:
                 self.cb_polygon_layer.addItem(layer.name(), layer.id())
                 line_layers.append(layer)
+
+        idx = self.cb_polygon_layer.findText('ouvrage_polygonal')
+        if idx != -1:
+            self.cb_polygon_layer.setCurrentIndex(idx)
 
         if not line_layers:
             self.cb_polygon_layer.addItem("")
