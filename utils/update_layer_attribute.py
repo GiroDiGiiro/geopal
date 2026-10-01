@@ -1,4 +1,4 @@
-from qgis.core import QgsFeatureRequest, edit
+from qgis.core import QgsFeatureRequest, edit, QgsField
 
 
 def update_layer_attributes(layer, updates, **kwargs) -> bool:
@@ -80,7 +80,11 @@ def update_layer_attributes(layer, updates, **kwargs) -> bool:
         for fid, change in updates.items():
             attr = {}
             for field, value in change.items():
-                idx = fields.indexFromName(field)
+                if isinstance(field, str):
+                    idx = fields.indexFromName(field)
+                else:
+                    idx = field
+                attr[idx] = value
                 attr[idx] = value
             changes[fid] = attr
 

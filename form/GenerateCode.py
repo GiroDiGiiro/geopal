@@ -11,6 +11,13 @@ SCHEMA_NAME = 'gep_ref'
 class GenerateCode(QDialog, Ui_generate_code):
 
 
+    def __init__(self, interface, parent: Optional[QDialog] = None) -> None:
+        QDialog.__init__(self, parent)
+        self.setupUi(self)
+        self.interface = interface
+
+        self.finish_ui()
+        self.connect_signals()
 
     def finish_ui(self) -> None:
         """Termine la construction de l'UI."""

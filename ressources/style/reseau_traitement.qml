@@ -1,18 +1,18 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis version="3.44.9-Solothurn" simplifyDrawingHints="1" maxScale="0" autoRefreshTime="0" simplifyAlgorithm="0" symbologyReferenceScale="-1" simplifyMaxScale="1" simplifyLocal="1" simplifyDrawingTol="1" autoRefreshMode="Disabled" labelsEnabled="0" readOnly="0" minScale="100000000" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0">
+<qgis simplifyMaxScale="1" simplifyDrawingHints="1" labelsEnabled="0" minScale="100000000" styleCategories="AllStyleCategories" maxScale="0" version="3.44.9-Solothurn" autoRefreshTime="0" simplifyAlgorithm="0" symbologyReferenceScale="-1" hasScaleBasedVisibilityFlag="0" autoRefreshMode="Disabled" simplifyDrawingTol="1" simplifyLocal="1" readOnly="0">
   <flags>
     <Identifiable>1</Identifiable>
     <Removable>1</Removable>
     <Searchable>1</Searchable>
     <Private>0</Private>
   </flags>
-  <temporal fixedDuration="0" startField="created_at" endField="" mode="0" accumulate="0" enabled="0" startExpression="" limitMode="0" durationField="fid" endExpression="" durationUnit="min">
+  <temporal mode="0" endField="" limitMode="0" fixedDuration="0" enabled="0" durationField="fid" durationUnit="min" startField="created_at" startExpression="" endExpression="" accumulate="0">
     <fixedRange>
       <start></start>
       <end></end>
     </fixedRange>
   </temporal>
-  <elevation extrusion="0" clamping="Absolute" symbology="Line" showMarkerSymbolInSurfacePlots="0" zscale="1" respectLayerSymbol="1" binding="Centroid" zoffset="0" customToleranceEnabled="1" extrusionEnabled="0" type="IndividualFeatures">
+  <elevation respectLayerSymbol="1" zscale="1" extrusion="0" binding="Centroid" symbology="Line" type="IndividualFeatures" clamping="Absolute" zoffset="0" extrusionEnabled="0" customToleranceEnabled="1" showMarkerSymbolInSurfacePlots="0">
     <data-defined-properties>
       <Option type="Map">
         <Option name="name" value="" type="QString"/>
@@ -21,7 +21,7 @@
       </Option>
     </data-defined-properties>
     <profileLineSymbol>
-      <symbol name="" force_rhr="0" alpha="1" clip_to_extent="1" type="line" frame_rate="10" is_animated="0">
+      <symbol alpha="1" name="" force_rhr="0" type="line" is_animated="0" clip_to_extent="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option name="name" value="" type="QString"/>
@@ -29,7 +29,7 @@
             <Option name="type" value="collection" type="QString"/>
           </Option>
         </data_defined_properties>
-        <layer id="{7fbe1be4-d1f2-4207-9746-8c1b4df91730}" class="SimpleLine" locked="0" enabled="1" pass="0">
+        <layer class="SimpleLine" enabled="1" id="{7fbe1be4-d1f2-4207-9746-8c1b4df91730}" pass="0" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -70,7 +70,7 @@
       </symbol>
     </profileLineSymbol>
     <profileFillSymbol>
-      <symbol name="" force_rhr="0" alpha="1" clip_to_extent="1" type="fill" frame_rate="10" is_animated="0">
+      <symbol alpha="1" name="" force_rhr="0" type="fill" is_animated="0" clip_to_extent="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option name="name" value="" type="QString"/>
@@ -78,7 +78,7 @@
             <Option name="type" value="collection" type="QString"/>
           </Option>
         </data_defined_properties>
-        <layer id="{2c7c9531-463b-47a6-b7da-abb41a95543f}" class="SimpleFill" locked="0" enabled="1" pass="0">
+        <layer class="SimpleFill" enabled="1" id="{2c7c9531-463b-47a6-b7da-abb41a95543f}" pass="0" locked="0">
           <Option type="Map">
             <Option name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
             <Option name="color" value="125,139,143,255,rgb:0.4901961,0.545098,0.5607843,1" type="QString"/>
@@ -103,7 +103,7 @@
       </symbol>
     </profileFillSymbol>
     <profileMarkerSymbol>
-      <symbol name="" force_rhr="0" alpha="1" clip_to_extent="1" type="marker" frame_rate="10" is_animated="0">
+      <symbol alpha="1" name="" force_rhr="0" type="marker" is_animated="0" clip_to_extent="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option name="name" value="" type="QString"/>
@@ -111,7 +111,7 @@
             <Option name="type" value="collection" type="QString"/>
           </Option>
         </data_defined_properties>
-        <layer id="{80f8ef34-2783-4aef-b57f-5cb021ce8c89}" class="SimpleMarker" locked="0" enabled="1" pass="0">
+        <layer class="SimpleMarker" enabled="1" id="{80f8ef34-2783-4aef-b57f-5cb021ce8c89}" pass="0" locked="0">
           <Option type="Map">
             <Option name="angle" value="0" type="QString"/>
             <Option name="cap_style" value="square" type="QString"/>
@@ -144,23 +144,23 @@
       </symbol>
     </profileMarkerSymbol>
   </elevation>
-  <renderer-v2 enableorderby="0" forceraster="0" referencescale="-1" symbollevels="0" type="RuleRenderer">
+  <renderer-v2 referencescale="-1" symbollevels="0" enableorderby="0" type="RuleRenderer" forceraster="0">
     <rules key="{e39af856-474b-4787-8403-9bad27206f02}">
-      <rule filter=" &quot;reseau_type_id&quot; != 4" label="Réseau pluvial existsant" key="{1802a487-41ce-4f60-a11d-71a1119ef03d}">
-        <rule filter=" &quot;reseau_type_id&quot; = '1' and  &quot;refoulement&quot; is false" symbol="0" label="Canalisation (Gravitaire)" key="{654814ad-e3c0-44eb-b3a7-11dc889ba549}"/>
-        <rule filter=" &quot;reseau_type_id&quot; = '1' and  &quot;refoulement&quot; is true" symbol="1" label="Canalisation (En pression)" key="{27184b07-acf0-4de8-aa8f-03a65e4478da}"/>
-        <rule filter=" &quot;reseau_type_id&quot; = 2" symbol="2" label="caniveau" key="{dd5f0c39-d2e9-42a8-81be-1b197d6dfa23}"/>
-        <rule filter=" &quot;reseau_type_id&quot; = 3" symbol="3" label="Fossé" key="{bb6f1d2e-1f16-4df4-8bbb-9c1898f71783}"/>
+      <rule key="{1802a487-41ce-4f60-a11d-71a1119ef03d}" label="Réseau pluvial existsant" filter=" &quot;reseau_type_id&quot; != 4">
+        <rule symbol="0" key="{654814ad-e3c0-44eb-b3a7-11dc889ba549}" label="Canalisation (Gravitaire)" filter=" &quot;reseau_type_id&quot; = '1' and  &quot;refoulement&quot; is false"/>
+        <rule symbol="1" key="{27184b07-acf0-4de8-aa8f-03a65e4478da}" label="Canalisation (En pression)" filter=" &quot;reseau_type_id&quot; = '1' and  &quot;refoulement&quot; is true"/>
+        <rule symbol="2" key="{dd5f0c39-d2e9-42a8-81be-1b197d6dfa23}" label="caniveau" filter=" &quot;reseau_type_id&quot; = 2"/>
+        <rule symbol="3" key="{bb6f1d2e-1f16-4df4-8bbb-9c1898f71783}" label="Fossé" filter=" &quot;reseau_type_id&quot; = 3"/>
       </rule>
-      <rule filter=" &quot;reseau_type_id&quot; = 4" label="Ouvrage" key="{e585e027-5d23-4d78-8aad-2a31438f8585}">
-        <rule filter=" &quot;ouvrage_lineaire_type_id&quot; =1" symbol="4" label="Bassin Tampon Enterré" key="{cd0381db-b101-4e1f-849c-41b95f1c77f9}"/>
-        <rule filter=" &quot;ouvrage_lineaire_type_id&quot; = 2" symbol="5" label="Noue" key="{3fde9d42-2524-4974-9e59-5b6d25b448db}"/>
-        <rule filter=" &quot;ouvrage_lineaire_type_id&quot; =3" symbol="6" label="Tranchée drainante" key="{1e645b48-4449-4bb9-8683-58e0a87cc08f}"/>
+      <rule key="{e585e027-5d23-4d78-8aad-2a31438f8585}" label="Ouvrage" filter=" &quot;reseau_type_id&quot; = 4">
+        <rule symbol="4" key="{cd0381db-b101-4e1f-849c-41b95f1c77f9}" label="Bassin Tampon Enterré" filter=" &quot;ouvrage_lineaire_type_id&quot; =1"/>
+        <rule symbol="5" key="{3fde9d42-2524-4974-9e59-5b6d25b448db}" label="Noue" filter=" &quot;ouvrage_lineaire_type_id&quot; = 2"/>
+        <rule symbol="6" key="{1e645b48-4449-4bb9-8683-58e0a87cc08f}" label="Tranchée drainante" filter=" &quot;ouvrage_lineaire_type_id&quot; =3"/>
       </rule>
-      <rule filter="&quot;have_anomalie&quot; is true" symbol="7" label="Anomalie" key="{34d00841-975b-4953-9d97-7331f7145ca1}"/>
+      <rule symbol="7" key="{34d00841-975b-4953-9d97-7331f7145ca1}" label="Anomalie" filter="&quot;have_anomalie&quot; is true"/>
     </rules>
     <symbols>
-      <symbol name="0" force_rhr="0" alpha="1" clip_to_extent="1" type="line" frame_rate="10" is_animated="0">
+      <symbol alpha="1" name="0" force_rhr="0" type="line" is_animated="0" clip_to_extent="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option name="name" value="" type="QString"/>
@@ -168,7 +168,7 @@
             <Option name="type" value="collection" type="QString"/>
           </Option>
         </data_defined_properties>
-        <layer id="{8031f565-ebe0-4c76-970a-27a84cc64614}" class="SimpleLine" locked="0" enabled="1" pass="10">
+        <layer class="SimpleLine" enabled="1" id="{8031f565-ebe0-4c76-970a-27a84cc64614}" pass="10" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="round" type="QString"/>
@@ -206,7 +206,7 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer id="{9519d98a-840f-4584-8b16-60ed9ebee15f}" class="MarkerLine" locked="0" enabled="1" pass="20">
+        <layer class="MarkerLine" enabled="1" id="{9519d98a-840f-4584-8b16-60ed9ebee15f}" pass="20" locked="0">
           <Option type="Map">
             <Option name="average_angle_length" value="4" type="QString"/>
             <Option name="average_angle_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
@@ -232,7 +232,7 @@
               <Option name="type" value="collection" type="QString"/>
             </Option>
           </data_defined_properties>
-          <symbol name="@0@1" force_rhr="0" alpha="1" clip_to_extent="1" type="marker" frame_rate="10" is_animated="0">
+          <symbol alpha="1" name="@0@1" force_rhr="0" type="marker" is_animated="0" clip_to_extent="1" frame_rate="10">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" value="" type="QString"/>
@@ -240,7 +240,7 @@
                 <Option name="type" value="collection" type="QString"/>
               </Option>
             </data_defined_properties>
-            <layer id="{0b3f6f37-6bb6-4af6-afd3-e243e4892ece}" class="SimpleMarker" locked="0" enabled="1" pass="0">
+            <layer class="SimpleMarker" enabled="1" id="{0b3f6f37-6bb6-4af6-afd3-e243e4892ece}" pass="0" locked="0">
               <Option type="Map">
                 <Option name="angle" value="0" type="QString"/>
                 <Option name="cap_style" value="square" type="QString"/>
@@ -273,7 +273,7 @@
           </symbol>
         </layer>
       </symbol>
-      <symbol name="1" force_rhr="0" alpha="1" clip_to_extent="1" type="line" frame_rate="10" is_animated="0">
+      <symbol alpha="1" name="1" force_rhr="0" type="line" is_animated="0" clip_to_extent="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option name="name" value="" type="QString"/>
@@ -281,7 +281,7 @@
             <Option name="type" value="collection" type="QString"/>
           </Option>
         </data_defined_properties>
-        <layer id="{6e892651-7beb-4100-9df5-3c97cbe93bbd}" class="SimpleLine" locked="0" enabled="1" pass="10">
+        <layer class="SimpleLine" enabled="1" id="{6e892651-7beb-4100-9df5-3c97cbe93bbd}" pass="10" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -319,7 +319,7 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer id="{368849e8-f242-4464-9fe1-1ca9e3bf0092}" class="MarkerLine" locked="0" enabled="1" pass="20">
+        <layer class="MarkerLine" enabled="1" id="{368849e8-f242-4464-9fe1-1ca9e3bf0092}" pass="20" locked="0">
           <Option type="Map">
             <Option name="average_angle_length" value="4" type="QString"/>
             <Option name="average_angle_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
@@ -345,7 +345,7 @@
               <Option name="type" value="collection" type="QString"/>
             </Option>
           </data_defined_properties>
-          <symbol name="@1@1" force_rhr="0" alpha="1" clip_to_extent="1" type="marker" frame_rate="10" is_animated="0">
+          <symbol alpha="1" name="@1@1" force_rhr="0" type="marker" is_animated="0" clip_to_extent="1" frame_rate="10">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" value="" type="QString"/>
@@ -353,7 +353,7 @@
                 <Option name="type" value="collection" type="QString"/>
               </Option>
             </data_defined_properties>
-            <layer id="{8b03b8ab-73f1-4cee-a15d-f2ad7f628e1b}" class="SimpleMarker" locked="0" enabled="1" pass="0">
+            <layer class="SimpleMarker" enabled="1" id="{8b03b8ab-73f1-4cee-a15d-f2ad7f628e1b}" pass="0" locked="0">
               <Option type="Map">
                 <Option name="angle" value="0" type="QString"/>
                 <Option name="cap_style" value="square" type="QString"/>
@@ -386,7 +386,7 @@
           </symbol>
         </layer>
       </symbol>
-      <symbol name="2" force_rhr="0" alpha="1" clip_to_extent="1" type="line" frame_rate="10" is_animated="0">
+      <symbol alpha="1" name="2" force_rhr="0" type="line" is_animated="0" clip_to_extent="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option name="name" value="" type="QString"/>
@@ -394,7 +394,7 @@
             <Option name="type" value="collection" type="QString"/>
           </Option>
         </data_defined_properties>
-        <layer id="{8031f565-ebe0-4c76-970a-27a84cc64614}" class="SimpleLine" locked="0" enabled="1" pass="10">
+        <layer class="SimpleLine" enabled="1" id="{8031f565-ebe0-4c76-970a-27a84cc64614}" pass="10" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="round" type="QString"/>
@@ -432,7 +432,7 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer id="{9519d98a-840f-4584-8b16-60ed9ebee15f}" class="MarkerLine" locked="0" enabled="1" pass="20">
+        <layer class="MarkerLine" enabled="1" id="{9519d98a-840f-4584-8b16-60ed9ebee15f}" pass="20" locked="0">
           <Option type="Map">
             <Option name="average_angle_length" value="4" type="QString"/>
             <Option name="average_angle_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
@@ -458,7 +458,7 @@
               <Option name="type" value="collection" type="QString"/>
             </Option>
           </data_defined_properties>
-          <symbol name="@2@1" force_rhr="0" alpha="1" clip_to_extent="1" type="marker" frame_rate="10" is_animated="0">
+          <symbol alpha="1" name="@2@1" force_rhr="0" type="marker" is_animated="0" clip_to_extent="1" frame_rate="10">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" value="" type="QString"/>
@@ -466,7 +466,7 @@
                 <Option name="type" value="collection" type="QString"/>
               </Option>
             </data_defined_properties>
-            <layer id="{0b3f6f37-6bb6-4af6-afd3-e243e4892ece}" class="SimpleMarker" locked="0" enabled="1" pass="0">
+            <layer class="SimpleMarker" enabled="1" id="{0b3f6f37-6bb6-4af6-afd3-e243e4892ece}" pass="0" locked="0">
               <Option type="Map">
                 <Option name="angle" value="0" type="QString"/>
                 <Option name="cap_style" value="square" type="QString"/>
@@ -499,7 +499,7 @@
           </symbol>
         </layer>
       </symbol>
-      <symbol name="3" force_rhr="0" alpha="1" clip_to_extent="1" type="line" frame_rate="10" is_animated="0">
+      <symbol alpha="1" name="3" force_rhr="0" type="line" is_animated="0" clip_to_extent="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option name="name" value="" type="QString"/>
@@ -507,7 +507,7 @@
             <Option name="type" value="collection" type="QString"/>
           </Option>
         </data_defined_properties>
-        <layer id="{f87ce730-599f-49de-bfc8-4c15fce546b7}" class="SimpleLine" locked="0" enabled="1" pass="10">
+        <layer class="SimpleLine" enabled="1" id="{f87ce730-599f-49de-bfc8-4c15fce546b7}" pass="10" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -545,7 +545,7 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer id="{acce2f24-a30c-4a4f-9840-478614ff8d3f}" class="MarkerLine" locked="0" enabled="1" pass="20">
+        <layer class="MarkerLine" enabled="1" id="{acce2f24-a30c-4a4f-9840-478614ff8d3f}" pass="20" locked="0">
           <Option type="Map">
             <Option name="average_angle_length" value="4" type="QString"/>
             <Option name="average_angle_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
@@ -571,7 +571,7 @@
               <Option name="type" value="collection" type="QString"/>
             </Option>
           </data_defined_properties>
-          <symbol name="@3@1" force_rhr="0" alpha="1" clip_to_extent="1" type="marker" frame_rate="10" is_animated="0">
+          <symbol alpha="1" name="@3@1" force_rhr="0" type="marker" is_animated="0" clip_to_extent="1" frame_rate="10">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" value="" type="QString"/>
@@ -579,7 +579,7 @@
                 <Option name="type" value="collection" type="QString"/>
               </Option>
             </data_defined_properties>
-            <layer id="{c1cf6a68-9e65-44b1-8428-3390d38161e1}" class="SimpleMarker" locked="0" enabled="1" pass="0">
+            <layer class="SimpleMarker" enabled="1" id="{c1cf6a68-9e65-44b1-8428-3390d38161e1}" pass="0" locked="0">
               <Option type="Map">
                 <Option name="angle" value="0" type="QString"/>
                 <Option name="cap_style" value="square" type="QString"/>
@@ -612,7 +612,7 @@
           </symbol>
         </layer>
       </symbol>
-      <symbol name="4" force_rhr="0" alpha="1" clip_to_extent="1" type="line" frame_rate="10" is_animated="0">
+      <symbol alpha="1" name="4" force_rhr="0" type="line" is_animated="0" clip_to_extent="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option name="name" value="" type="QString"/>
@@ -620,7 +620,7 @@
             <Option name="type" value="collection" type="QString"/>
           </Option>
         </data_defined_properties>
-        <layer id="{272a5366-4d46-407c-8164-5d795fc817f6}" class="SimpleLine" locked="0" enabled="1" pass="0">
+        <layer class="SimpleLine" enabled="1" id="{272a5366-4d46-407c-8164-5d795fc817f6}" pass="0" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -658,7 +658,7 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer id="{1dd4cc82-34f7-4f55-be9b-dc5c4996ebf1}" class="SimpleLine" locked="0" enabled="1" pass="0">
+        <layer class="SimpleLine" enabled="1" id="{1dd4cc82-34f7-4f55-be9b-dc5c4996ebf1}" pass="0" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -696,7 +696,7 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer id="{0b4ab67b-862e-477c-bf29-4b03f0e78775}" class="SimpleLine" locked="0" enabled="1" pass="10">
+        <layer class="SimpleLine" enabled="1" id="{0b4ab67b-862e-477c-bf29-4b03f0e78775}" pass="10" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -734,7 +734,7 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer id="{d5548f72-5f56-4141-917a-ead56efcbc2a}" class="MarkerLine" locked="0" enabled="1" pass="20">
+        <layer class="MarkerLine" enabled="1" id="{d5548f72-5f56-4141-917a-ead56efcbc2a}" pass="20" locked="0">
           <Option type="Map">
             <Option name="average_angle_length" value="4" type="QString"/>
             <Option name="average_angle_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
@@ -760,7 +760,7 @@
               <Option name="type" value="collection" type="QString"/>
             </Option>
           </data_defined_properties>
-          <symbol name="@4@3" force_rhr="0" alpha="1" clip_to_extent="1" type="marker" frame_rate="10" is_animated="0">
+          <symbol alpha="1" name="@4@3" force_rhr="0" type="marker" is_animated="0" clip_to_extent="1" frame_rate="10">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" value="" type="QString"/>
@@ -768,7 +768,7 @@
                 <Option name="type" value="collection" type="QString"/>
               </Option>
             </data_defined_properties>
-            <layer id="{6323b2aa-f6a1-45fe-82d8-aa08742d0878}" class="SimpleMarker" locked="0" enabled="1" pass="0">
+            <layer class="SimpleMarker" enabled="1" id="{6323b2aa-f6a1-45fe-82d8-aa08742d0878}" pass="0" locked="0">
               <Option type="Map">
                 <Option name="angle" value="0" type="QString"/>
                 <Option name="cap_style" value="square" type="QString"/>
@@ -801,7 +801,7 @@
           </symbol>
         </layer>
       </symbol>
-      <symbol name="5" force_rhr="0" alpha="1" clip_to_extent="1" type="line" frame_rate="10" is_animated="0">
+      <symbol alpha="1" name="5" force_rhr="0" type="line" is_animated="0" clip_to_extent="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option name="name" value="" type="QString"/>
@@ -809,7 +809,7 @@
             <Option name="type" value="collection" type="QString"/>
           </Option>
         </data_defined_properties>
-        <layer id="{272a5366-4d46-407c-8164-5d795fc817f6}" class="SimpleLine" locked="0" enabled="1" pass="0">
+        <layer class="SimpleLine" enabled="1" id="{272a5366-4d46-407c-8164-5d795fc817f6}" pass="0" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -847,7 +847,7 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer id="{280ca263-0cdb-4e9f-a439-574b149f4124}" class="SimpleLine" locked="0" enabled="1" pass="0">
+        <layer class="SimpleLine" enabled="1" id="{280ca263-0cdb-4e9f-a439-574b149f4124}" pass="0" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -885,7 +885,7 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer id="{0b4ab67b-862e-477c-bf29-4b03f0e78775}" class="SimpleLine" locked="0" enabled="1" pass="10">
+        <layer class="SimpleLine" enabled="1" id="{0b4ab67b-862e-477c-bf29-4b03f0e78775}" pass="10" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -923,7 +923,7 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer id="{d5548f72-5f56-4141-917a-ead56efcbc2a}" class="MarkerLine" locked="0" enabled="1" pass="20">
+        <layer class="MarkerLine" enabled="1" id="{d5548f72-5f56-4141-917a-ead56efcbc2a}" pass="20" locked="0">
           <Option type="Map">
             <Option name="average_angle_length" value="4" type="QString"/>
             <Option name="average_angle_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
@@ -949,7 +949,7 @@
               <Option name="type" value="collection" type="QString"/>
             </Option>
           </data_defined_properties>
-          <symbol name="@5@3" force_rhr="0" alpha="1" clip_to_extent="1" type="marker" frame_rate="10" is_animated="0">
+          <symbol alpha="1" name="@5@3" force_rhr="0" type="marker" is_animated="0" clip_to_extent="1" frame_rate="10">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" value="" type="QString"/>
@@ -957,7 +957,7 @@
                 <Option name="type" value="collection" type="QString"/>
               </Option>
             </data_defined_properties>
-            <layer id="{6323b2aa-f6a1-45fe-82d8-aa08742d0878}" class="SimpleMarker" locked="0" enabled="1" pass="0">
+            <layer class="SimpleMarker" enabled="1" id="{6323b2aa-f6a1-45fe-82d8-aa08742d0878}" pass="0" locked="0">
               <Option type="Map">
                 <Option name="angle" value="0" type="QString"/>
                 <Option name="cap_style" value="square" type="QString"/>
@@ -990,7 +990,7 @@
           </symbol>
         </layer>
       </symbol>
-      <symbol name="6" force_rhr="0" alpha="1" clip_to_extent="1" type="line" frame_rate="10" is_animated="0">
+      <symbol alpha="1" name="6" force_rhr="0" type="line" is_animated="0" clip_to_extent="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option name="name" value="" type="QString"/>
@@ -998,7 +998,7 @@
             <Option name="type" value="collection" type="QString"/>
           </Option>
         </data_defined_properties>
-        <layer id="{272a5366-4d46-407c-8164-5d795fc817f6}" class="SimpleLine" locked="0" enabled="1" pass="0">
+        <layer class="SimpleLine" enabled="1" id="{272a5366-4d46-407c-8164-5d795fc817f6}" pass="0" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -1036,7 +1036,7 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer id="{4a41dd4a-9c78-4dae-8c3f-b3a4f5fe2420}" class="SimpleLine" locked="0" enabled="1" pass="0">
+        <layer class="SimpleLine" enabled="1" id="{4a41dd4a-9c78-4dae-8c3f-b3a4f5fe2420}" pass="0" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -1074,7 +1074,7 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer id="{0b4ab67b-862e-477c-bf29-4b03f0e78775}" class="SimpleLine" locked="0" enabled="1" pass="10">
+        <layer class="SimpleLine" enabled="1" id="{0b4ab67b-862e-477c-bf29-4b03f0e78775}" pass="10" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -1112,7 +1112,7 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer id="{d5548f72-5f56-4141-917a-ead56efcbc2a}" class="MarkerLine" locked="0" enabled="1" pass="20">
+        <layer class="MarkerLine" enabled="1" id="{d5548f72-5f56-4141-917a-ead56efcbc2a}" pass="20" locked="0">
           <Option type="Map">
             <Option name="average_angle_length" value="4" type="QString"/>
             <Option name="average_angle_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
@@ -1138,7 +1138,7 @@
               <Option name="type" value="collection" type="QString"/>
             </Option>
           </data_defined_properties>
-          <symbol name="@6@3" force_rhr="0" alpha="1" clip_to_extent="1" type="marker" frame_rate="10" is_animated="0">
+          <symbol alpha="1" name="@6@3" force_rhr="0" type="marker" is_animated="0" clip_to_extent="1" frame_rate="10">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" value="" type="QString"/>
@@ -1146,7 +1146,7 @@
                 <Option name="type" value="collection" type="QString"/>
               </Option>
             </data_defined_properties>
-            <layer id="{6323b2aa-f6a1-45fe-82d8-aa08742d0878}" class="SimpleMarker" locked="0" enabled="1" pass="0">
+            <layer class="SimpleMarker" enabled="1" id="{6323b2aa-f6a1-45fe-82d8-aa08742d0878}" pass="0" locked="0">
               <Option type="Map">
                 <Option name="angle" value="0" type="QString"/>
                 <Option name="cap_style" value="square" type="QString"/>
@@ -1179,7 +1179,7 @@
           </symbol>
         </layer>
       </symbol>
-      <symbol name="7" force_rhr="0" alpha="1" clip_to_extent="1" type="line" frame_rate="10" is_animated="0">
+      <symbol alpha="1" name="7" force_rhr="0" type="line" is_animated="0" clip_to_extent="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option name="name" value="" type="QString"/>
@@ -1187,7 +1187,7 @@
             <Option name="type" value="collection" type="QString"/>
           </Option>
         </data_defined_properties>
-        <layer id="{2d178700-7402-4c5f-8f9f-1f0a6130362c}" class="SimpleLine" locked="0" enabled="1" pass="5">
+        <layer class="SimpleLine" enabled="1" id="{2d178700-7402-4c5f-8f9f-1f0a6130362c}" pass="5" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -1225,7 +1225,7 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer id="{753aeca7-5cc4-48da-bfc1-75732224f587}" class="SimpleLine" locked="0" enabled="1" pass="5">
+        <layer class="SimpleLine" enabled="1" id="{753aeca7-5cc4-48da-bfc1-75732224f587}" pass="5" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -1276,7 +1276,7 @@
   <selection mode="Default">
     <selectionColor invalid="1"/>
     <selectionSymbol>
-      <symbol name="" force_rhr="0" alpha="1" clip_to_extent="1" type="line" frame_rate="10" is_animated="0">
+      <symbol alpha="1" name="" force_rhr="0" type="line" is_animated="0" clip_to_extent="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option name="name" value="" type="QString"/>
@@ -1284,7 +1284,7 @@
             <Option name="type" value="collection" type="QString"/>
           </Option>
         </data_defined_properties>
-        <layer id="{d4d47488-bec1-493a-b54c-0d5ea2a0af27}" class="SimpleLine" locked="0" enabled="1" pass="0">
+        <layer class="SimpleLine" enabled="1" id="{d4d47488-bec1-493a-b54c-0d5ea2a0af27}" pass="0" locked="0">
           <Option type="Map">
             <Option name="align_dash_pattern" value="0" type="QString"/>
             <Option name="capstyle" value="square" type="QString"/>
@@ -1356,12 +1356,12 @@
     <activeChecks/>
     <checkConfiguration/>
   </geometryOptions>
-  <legend showLabelLegend="0" type="default-vector"/>
+  <legend type="default-vector" showLabelLegend="0"/>
   <referencedLayers>
-    <relation name="regard_amont_reseau" id="reseau_cc0_regard_amont_id_regard_020_fid" dataSource="./data.gpkg|layername=regard" referencingLayer="reseau_ad158a2f_8cb0_43ba_8a81_90d46699f759" strength="Association" layerName="regard" layerId="regard_503fd4fa_dcf7_4299_9ff9_889b6b8f8329" providerKey="ogr" referencedLayer="regard_503fd4fa_dcf7_4299_9ff9_889b6b8f8329">
+    <relation name="regard_amont_reseau" strength="Association" layerId="regard_e56c2aef_d7db_412a_ba5b_4cc4e6a0d4e5" id="reseau_cc0_regard_amont_id_regard_020_fid" layerName="regard" providerKey="ogr" referencingLayer="reseau_ab678013_4735_440c_bf9c_20fb9dcfa1a0" referencedLayer="regard_e56c2aef_d7db_412a_ba5b_4cc4e6a0d4e5" dataSource="./data.gpkg|layername=regard">
       <fieldRef referencingField="regard_amont_id" referencedField="fid"/>
     </relation>
-    <relation name="regard_aval_reseau" id="reseau_cc0_regard_aval_id_regard_020_fid" dataSource="./data.gpkg|layername=regard" referencingLayer="reseau_ad158a2f_8cb0_43ba_8a81_90d46699f759" strength="Association" layerName="regard" layerId="regard_503fd4fa_dcf7_4299_9ff9_889b6b8f8329" providerKey="ogr" referencedLayer="regard_503fd4fa_dcf7_4299_9ff9_889b6b8f8329">
+    <relation name="regard_aval_reseau" strength="Association" layerId="regard_e56c2aef_d7db_412a_ba5b_4cc4e6a0d4e5" id="reseau_cc0_regard_aval_id_regard_020_fid" layerName="regard" providerKey="ogr" referencingLayer="reseau_ab678013_4735_440c_bf9c_20fb9dcfa1a0" referencedLayer="regard_e56c2aef_d7db_412a_ba5b_4cc4e6a0d4e5" dataSource="./data.gpkg|layername=regard">
       <fieldRef referencingField="regard_aval_id" referencedField="fid"/>
     </relation>
   </referencedLayers>
@@ -1780,57 +1780,29 @@
       </editWidget>
     </field>
     <field name="bv_id" configurationFlags="NoFlag">
-      <editWidget type="ValueRelation">
+      <editWidget type="Range">
         <config>
           <Option type="Map">
-            <Option name="AllowMulti" value="false" type="bool"/>
             <Option name="AllowNull" value="true" type="bool"/>
-            <Option name="CompleterMatchFlags" value="2" type="int"/>
-            <Option name="Description" value="" type="QString"/>
-            <Option name="DisplayGroupName" value="false" type="bool"/>
-            <Option name="FilterExpression" value="" type="QString"/>
-            <Option name="Group" value="" type="QString"/>
-            <Option name="Key" value="fid" type="QString"/>
-            <Option name="Layer" value="bassin_versant_6ed31974_528c_41a2_96cb_5af807af5844" type="QString"/>
-            <Option name="LayerName" value="bassin_versant" type="QString"/>
-            <Option name="LayerProviderName" value="ogr" type="QString"/>
-            <Option name="LayerSource" value="C:/00_giraud_victor/96_application_metier/03_schema_directeur/02_traitement/test/test/test/test/data.gpkg|layername=bassin_versant" type="QString"/>
-            <Option name="NofColumns" value="1" type="int"/>
-            <Option name="OrderByDescending" value="false" type="bool"/>
-            <Option name="OrderByField" value="false" type="bool"/>
-            <Option name="OrderByFieldName" value="fid" type="QString"/>
-            <Option name="OrderByKey" value="true" type="bool"/>
-            <Option name="OrderByValue" value="false" type="bool"/>
-            <Option name="UseCompleter" value="false" type="bool"/>
-            <Option name="Value" value="nom" type="QString"/>
+            <Option name="Max" value="2147483647" type="int"/>
+            <Option name="Min" value="-2147483648" type="int"/>
+            <Option name="Precision" value="0" type="int"/>
+            <Option name="Step" value="1" type="int"/>
+            <Option name="Style" value="SpinBox" type="QString"/>
           </Option>
         </config>
       </editWidget>
     </field>
     <field name="ssbv_id" configurationFlags="NoFlag">
-      <editWidget type="ValueRelation">
+      <editWidget type="Range">
         <config>
           <Option type="Map">
-            <Option name="AllowMulti" value="false" type="bool"/>
             <Option name="AllowNull" value="true" type="bool"/>
-            <Option name="CompleterMatchFlags" value="2" type="int"/>
-            <Option name="Description" value="" type="QString"/>
-            <Option name="DisplayGroupName" value="false" type="bool"/>
-            <Option name="FilterExpression" value="" type="QString"/>
-            <Option name="Group" value="" type="QString"/>
-            <Option name="Key" value="fid" type="QString"/>
-            <Option name="Layer" value="sousbassin_versant_95bfe8dc_b77b_400b_9766_4c99a8a05d64" type="QString"/>
-            <Option name="LayerName" value="sousbassin_versant" type="QString"/>
-            <Option name="LayerProviderName" value="ogr" type="QString"/>
-            <Option name="LayerSource" value="C:/00_giraud_victor/96_application_metier/03_schema_directeur/02_traitement/test/test/test/test/data.gpkg|layername=sousbassin_versant" type="QString"/>
-            <Option name="NofColumns" value="1" type="int"/>
-            <Option name="OrderByDescending" value="false" type="bool"/>
-            <Option name="OrderByField" value="false" type="bool"/>
-            <Option name="OrderByFieldName" value="fid" type="QString"/>
-            <Option name="OrderByKey" value="true" type="bool"/>
-            <Option name="OrderByValue" value="false" type="bool"/>
-            <Option name="UseCompleter" value="false" type="bool"/>
-            <Option name="Value" value="nom" type="QString"/>
+            <Option name="Max" value="2147483647" type="int"/>
+            <Option name="Min" value="-2147483648" type="int"/>
+            <Option name="Precision" value="0" type="int"/>
+            <Option name="Step" value="1" type="int"/>
+            <Option name="Style" value="SpinBox" type="QString"/>
           </Option>
         </config>
       </editWidget>
@@ -1931,121 +1903,121 @@
     </field>
   </fieldConfiguration>
   <aliases>
-    <alias index="0" name="" field="fid"/>
-    <alias index="1" name="Code" field="code"/>
-    <alias index="2" name="Type de réseau" field="reseau_type_id"/>
-    <alias index="3" name="Es ce un ouvrage ?" field="is_ouvrage"/>
-    <alias index="4" name="Type d'ouvrage linéaire" field="ouvrage_lineaire_type_id"/>
-    <alias index="5" name="Volume utile" field="volume_utile"/>
-    <alias index="6" name="Es ce un exutoire ?" field="is_exutoire"/>
-    <alias index="7" name="Refoulement ?" field="refoulement"/>
-    <alias index="8" name="Forme géométrique" field="forme_geometrique_id"/>
-    <alias index="9" name="Diamètre de la canalisation (mm)" field="diametre"/>
-    <alias index="10" name="Largeur Haute (m)" field="largeur_haute"/>
-    <alias index="11" name="Profondeur (m)" field="profondeur"/>
-    <alias index="12" name="Largeur Basse (m)" field="largeur_basse"/>
-    <alias index="13" name="Matériau" field="materiau_lineaire_id"/>
-    <alias index="14" name="Amont - Code du regard" field="regard_amont_id"/>
-    <alias index="15" name="Aval - Code du regard" field="regard_aval_id"/>
-    <alias index="16" name="Présence d'anomalie ?" field="have_anomalie"/>
-    <alias index="17" name="Type d'anomalie linéaire" field="anomalie_lineaire_type_id"/>
-    <alias index="18" name="Hauteur de dépot (cm)" field="hauteur_depot"/>
-    <alias index="19" name="Amont - Profondeur du fil d'eau (cm)" field="profondeur_fe_amont"/>
-    <alias index="20" name="Aval - Profondeur du fil d'eau (cm)" field="profondeur_fe_aval"/>
-    <alias index="21" name="Amont - Cote du fil d'eau" field="fe_amont"/>
-    <alias index="22" name="Aval - Cote du fil d'eau" field="fe_aval"/>
-    <alias index="23" name="Commentaire" field="commentaire"/>
-    <alias index="24" name="Photo" field="photo"/>
-    <alias index="25" name="Créé le " field="created_at"/>
-    <alias index="26" name="Bassin versant" field="bv_id"/>
-    <alias index="27" name="Sous bassin versant" field="ssbv_id"/>
-    <alias index="28" name="Nom Rue 1" field="nom_rue"/>
-    <alias index="29" name="Code Ouvrage" field="code_ouvrage"/>
-    <alias index="30" name="Code Exutoire" field="code_exutoire"/>
-    <alias index="31" name="Pente (%)" field="pente"/>
-    <alias index="32" name="Colmatage (%)" field="taux_colmatage"/>
-    <alias index="33" name="Commune" field="commune"/>
-    <alias index="34" name="gestionnaire" field="gestionnaire"/>
-    <alias index="35" name="Source" field="sources"/>
-    <alias index="36" name="Nom Rue 2" field="nom_rue2"/>
+    <alias name="" field="fid" index="0"/>
+    <alias name="Code" field="code" index="1"/>
+    <alias name="Type de réseau" field="reseau_type_id" index="2"/>
+    <alias name="Es ce un ouvrage ?" field="is_ouvrage" index="3"/>
+    <alias name="Type d'ouvrage linéaire" field="ouvrage_lineaire_type_id" index="4"/>
+    <alias name="Volume utile" field="volume_utile" index="5"/>
+    <alias name="Es ce un exutoire ?" field="is_exutoire" index="6"/>
+    <alias name="Refoulement ?" field="refoulement" index="7"/>
+    <alias name="Forme géométrique" field="forme_geometrique_id" index="8"/>
+    <alias name="Diamètre de la canalisation (mm)" field="diametre" index="9"/>
+    <alias name="Largeur Haute (m)" field="largeur_haute" index="10"/>
+    <alias name="Profondeur (m)" field="profondeur" index="11"/>
+    <alias name="Largeur Basse (m)" field="largeur_basse" index="12"/>
+    <alias name="Matériau" field="materiau_lineaire_id" index="13"/>
+    <alias name="Amont - Code du regard" field="regard_amont_id" index="14"/>
+    <alias name="Aval - Code du regard" field="regard_aval_id" index="15"/>
+    <alias name="Présence d'anomalie ?" field="have_anomalie" index="16"/>
+    <alias name="Type d'anomalie linéaire" field="anomalie_lineaire_type_id" index="17"/>
+    <alias name="Hauteur de dépot (cm)" field="hauteur_depot" index="18"/>
+    <alias name="Amont - Profondeur du fil d'eau (cm)" field="profondeur_fe_amont" index="19"/>
+    <alias name="Aval - Profondeur du fil d'eau (cm)" field="profondeur_fe_aval" index="20"/>
+    <alias name="Amont - Cote du fil d'eau" field="fe_amont" index="21"/>
+    <alias name="Aval - Cote du fil d'eau" field="fe_aval" index="22"/>
+    <alias name="Commentaire" field="commentaire" index="23"/>
+    <alias name="Photo" field="photo" index="24"/>
+    <alias name="Créé le " field="created_at" index="25"/>
+    <alias name="Bassin versant" field="bv_id" index="26"/>
+    <alias name="Sous bassin versant" field="ssbv_id" index="27"/>
+    <alias name="Nom Rue 1" field="nom_rue" index="28"/>
+    <alias name="Code Ouvrage" field="code_ouvrage" index="29"/>
+    <alias name="Code Exutoire" field="code_exutoire" index="30"/>
+    <alias name="Pente (%)" field="pente" index="31"/>
+    <alias name="Colmatage (%)" field="taux_colmatage" index="32"/>
+    <alias name="Commune" field="commune" index="33"/>
+    <alias name="gestionnaire" field="gestionnaire" index="34"/>
+    <alias name="Source" field="sources" index="35"/>
+    <alias name="Nom Rue 2" field="nom_rue2" index="36"/>
   </aliases>
   <defaults>
-    <default expression="" field="fid" applyOnUpdate="0"/>
-    <default expression="" field="code" applyOnUpdate="0"/>
-    <default expression="" field="reseau_type_id" applyOnUpdate="0"/>
-    <default expression="" field="is_ouvrage" applyOnUpdate="0"/>
-    <default expression="" field="ouvrage_lineaire_type_id" applyOnUpdate="0"/>
-    <default expression="" field="volume_utile" applyOnUpdate="0"/>
-    <default expression="False" field="is_exutoire" applyOnUpdate="0"/>
-    <default expression="False" field="refoulement" applyOnUpdate="0"/>
-    <default expression="" field="forme_geometrique_id" applyOnUpdate="0"/>
-    <default expression="" field="diametre" applyOnUpdate="0"/>
-    <default expression="" field="largeur_haute" applyOnUpdate="0"/>
-    <default expression="" field="profondeur" applyOnUpdate="0"/>
-    <default expression="" field="largeur_basse" applyOnUpdate="0"/>
-    <default expression="" field="materiau_lineaire_id" applyOnUpdate="0"/>
-    <default expression="with_variable(&#xa;  'geom_debut',&#xa;  start_point(@geometry),&#xa;  array_get(&#xa;    aggregate(&#xa;      layer:='regard',&#xa;      aggregate:='array_agg',&#xa;      expression:=&quot;fid&quot;,&#xa;      filter:=intersects($geometry, @geom_debut)&#xa;    ),&#xa;    0&#xa;  )&#xa;)" field="regard_amont_id" applyOnUpdate="1"/>
-    <default expression="with_variable(&#xa;  'geom_fin',&#xa;  end_point(@geometry),&#xa;  array_get(&#xa;    aggregate(&#xa;      layer:='regard',&#xa;      aggregate:='array_agg',&#xa;      expression:=&quot;fid&quot;,&#xa;      filter:=intersects($geometry, @geom_fin)&#xa;    ),&#xa;    0&#xa;  )&#xa;)" field="regard_aval_id" applyOnUpdate="1"/>
-    <default expression="False" field="have_anomalie" applyOnUpdate="0"/>
-    <default expression="" field="anomalie_lineaire_type_id" applyOnUpdate="0"/>
-    <default expression="" field="hauteur_depot" applyOnUpdate="0"/>
-    <default expression="" field="profondeur_fe_amont" applyOnUpdate="0"/>
-    <default expression="" field="profondeur_fe_aval" applyOnUpdate="0"/>
-    <default expression="round( z(   start_point( @geometry)) - (&quot;profondeur_fe_amont&quot;*0.01),3)" field="fe_amont" applyOnUpdate="1"/>
-    <default expression="round( z(   end_point( @geometry)) - (&quot;profondeur_fe_aval&quot;*0.01),3)" field="fe_aval" applyOnUpdate="1"/>
-    <default expression="" field="commentaire" applyOnUpdate="0"/>
-    <default expression="" field="photo" applyOnUpdate="0"/>
-    <default expression="  format_date(  now(),'yyyy-MM-dd')" field="created_at" applyOnUpdate="0"/>
-    <default expression="" field="bv_id" applyOnUpdate="0"/>
-    <default expression="" field="ssbv_id" applyOnUpdate="0"/>
-    <default expression="" field="nom_rue" applyOnUpdate="0"/>
-    <default expression="" field="code_ouvrage" applyOnUpdate="0"/>
-    <default expression="" field="code_exutoire" applyOnUpdate="0"/>
-    <default expression="&#xd;&#xa;(&quot;fe_aval&quot; - &quot;fe_amont&quot;)&#xd;&#xa;/&#xd;&#xa;sqrt(&#xd;&#xa;  (x(end_point($geometry)) - x(start_point($geometry))) ^ 2&#xd;&#xa;  +&#xd;&#xa;  (y(end_point($geometry)) - y(start_point($geometry))) ^ 2&#xd;&#xa;)&#xd;&#xa;* 100" field="pente" applyOnUpdate="1"/>
-    <default expression="&#xd;&#xa; &#xd;&#xa;CASE&#xd;&#xa;&#x9;WHEN&#xd;&#xa;&#x9;&#x9;&quot;reseau_type_id&quot; =1 and &#xd;&#xa;&#x9;&#x9;&quot;forme_geometrique_id&quot; != 2 and &#xd;&#xa;&#x9;&#x9;&quot;forme_geometrique_id&quot; is not Null&#xd;&#xa;&#x9;THEN&#xd;&#xa;&#x9;&#x9;&quot;hauteur_depot&quot; / &quot;diametre&quot; *100&#xd;&#xa;&#x9;ELSE&#xd;&#xa;&#x9;&#x9;&quot;hauteur_depot&quot; / &quot;profondeur&quot;&#xd;&#xa;END" field="taux_colmatage" applyOnUpdate="1"/>
-    <default expression="" field="commune" applyOnUpdate="0"/>
-    <default expression="" field="gestionnaire" applyOnUpdate="0"/>
-    <default expression="" field="sources" applyOnUpdate="0"/>
-    <default expression="" field="nom_rue2" applyOnUpdate="0"/>
+    <default field="fid" expression="" applyOnUpdate="0"/>
+    <default field="code" expression="" applyOnUpdate="0"/>
+    <default field="reseau_type_id" expression="" applyOnUpdate="0"/>
+    <default field="is_ouvrage" expression="" applyOnUpdate="0"/>
+    <default field="ouvrage_lineaire_type_id" expression="" applyOnUpdate="0"/>
+    <default field="volume_utile" expression="" applyOnUpdate="0"/>
+    <default field="is_exutoire" expression="False" applyOnUpdate="0"/>
+    <default field="refoulement" expression="False" applyOnUpdate="0"/>
+    <default field="forme_geometrique_id" expression="" applyOnUpdate="0"/>
+    <default field="diametre" expression="" applyOnUpdate="0"/>
+    <default field="largeur_haute" expression="" applyOnUpdate="0"/>
+    <default field="profondeur" expression="" applyOnUpdate="0"/>
+    <default field="largeur_basse" expression="" applyOnUpdate="0"/>
+    <default field="materiau_lineaire_id" expression="" applyOnUpdate="0"/>
+    <default field="regard_amont_id" expression="with_variable(&#xa;  'geom_debut',&#xa;  start_point(@geometry),&#xa;  array_get(&#xa;    aggregate(&#xa;      layer:='regard',&#xa;      aggregate:='array_agg',&#xa;      expression:=&quot;fid&quot;,&#xa;      filter:=intersects($geometry, @geom_debut)&#xa;    ),&#xa;    0&#xa;  )&#xa;)" applyOnUpdate="1"/>
+    <default field="regard_aval_id" expression="with_variable(&#xa;  'geom_fin',&#xa;  end_point(@geometry),&#xa;  array_get(&#xa;    aggregate(&#xa;      layer:='regard',&#xa;      aggregate:='array_agg',&#xa;      expression:=&quot;fid&quot;,&#xa;      filter:=intersects($geometry, @geom_fin)&#xa;    ),&#xa;    0&#xa;  )&#xa;)" applyOnUpdate="1"/>
+    <default field="have_anomalie" expression="False" applyOnUpdate="0"/>
+    <default field="anomalie_lineaire_type_id" expression="" applyOnUpdate="0"/>
+    <default field="hauteur_depot" expression="" applyOnUpdate="0"/>
+    <default field="profondeur_fe_amont" expression="" applyOnUpdate="0"/>
+    <default field="profondeur_fe_aval" expression="" applyOnUpdate="0"/>
+    <default field="fe_amont" expression="round( z(   start_point( @geometry)) - (&quot;profondeur_fe_amont&quot;*0.01),3)" applyOnUpdate="1"/>
+    <default field="fe_aval" expression="round( z(   end_point( @geometry)) - (&quot;profondeur_fe_aval&quot;*0.01),3)" applyOnUpdate="1"/>
+    <default field="commentaire" expression="" applyOnUpdate="0"/>
+    <default field="photo" expression="" applyOnUpdate="0"/>
+    <default field="created_at" expression="  format_date(  now(),'yyyy-MM-dd')" applyOnUpdate="0"/>
+    <default field="bv_id" expression="" applyOnUpdate="0"/>
+    <default field="ssbv_id" expression="" applyOnUpdate="0"/>
+    <default field="nom_rue" expression="" applyOnUpdate="0"/>
+    <default field="code_ouvrage" expression="" applyOnUpdate="0"/>
+    <default field="code_exutoire" expression="" applyOnUpdate="0"/>
+    <default field="pente" expression="&#xd;&#xa;(&quot;fe_aval&quot; - &quot;fe_amont&quot;)&#xd;&#xa;/&#xd;&#xa;sqrt(&#xd;&#xa;  (x(end_point($geometry)) - x(start_point($geometry))) ^ 2&#xd;&#xa;  +&#xd;&#xa;  (y(end_point($geometry)) - y(start_point($geometry))) ^ 2&#xd;&#xa;)&#xd;&#xa;* 100" applyOnUpdate="1"/>
+    <default field="taux_colmatage" expression="&#xd;&#xa; &#xd;&#xa;CASE&#xd;&#xa;&#x9;WHEN&#xd;&#xa;&#x9;&#x9;&quot;reseau_type_id&quot; =1 and &#xd;&#xa;&#x9;&#x9;&quot;forme_geometrique_id&quot; != 2 and &#xd;&#xa;&#x9;&#x9;&quot;forme_geometrique_id&quot; is not Null&#xd;&#xa;&#x9;THEN&#xd;&#xa;&#x9;&#x9;&quot;hauteur_depot&quot; / &quot;diametre&quot; *100&#xd;&#xa;&#x9;ELSE&#xd;&#xa;&#x9;&#x9;&quot;hauteur_depot&quot; / &quot;profondeur&quot;&#xd;&#xa;END" applyOnUpdate="1"/>
+    <default field="commune" expression="" applyOnUpdate="0"/>
+    <default field="gestionnaire" expression="" applyOnUpdate="0"/>
+    <default field="sources" expression="" applyOnUpdate="0"/>
+    <default field="nom_rue2" expression="" applyOnUpdate="0"/>
   </defaults>
   <constraints>
-    <constraint exp_strength="0" constraints="3" unique_strength="1" notnull_strength="1" field="fid"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="code"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="reseau_type_id"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="is_ouvrage"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="ouvrage_lineaire_type_id"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="volume_utile"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="is_exutoire"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="refoulement"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="forme_geometrique_id"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="diametre"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="largeur_haute"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="profondeur"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="largeur_basse"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="materiau_lineaire_id"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="regard_amont_id"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="regard_aval_id"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="have_anomalie"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="anomalie_lineaire_type_id"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="hauteur_depot"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="profondeur_fe_amont"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="profondeur_fe_aval"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="fe_amont"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="fe_aval"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="commentaire"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="photo"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="created_at"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="bv_id"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="ssbv_id"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="nom_rue"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="code_ouvrage"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="code_exutoire"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="pente"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="taux_colmatage"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="commune"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="gestionnaire"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="sources"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" notnull_strength="0" field="nom_rue2"/>
+    <constraint notnull_strength="1" unique_strength="1" exp_strength="0" constraints="3" field="fid"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="code"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="reseau_type_id"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="is_ouvrage"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="ouvrage_lineaire_type_id"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="volume_utile"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="is_exutoire"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="refoulement"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="forme_geometrique_id"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="diametre"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="largeur_haute"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="profondeur"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="largeur_basse"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="materiau_lineaire_id"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="regard_amont_id"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="regard_aval_id"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="have_anomalie"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="anomalie_lineaire_type_id"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="hauteur_depot"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="profondeur_fe_amont"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="profondeur_fe_aval"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="fe_amont"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="fe_aval"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="commentaire"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="photo"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="created_at"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="bv_id"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="ssbv_id"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="nom_rue"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="code_ouvrage"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="code_exutoire"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="pente"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="taux_colmatage"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="commune"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="gestionnaire"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="sources"/>
+    <constraint notnull_strength="0" unique_strength="0" exp_strength="0" constraints="0" field="nom_rue2"/>
   </constraints>
   <constraintExpressions>
     <constraint exp="" field="fid" desc=""/>
@@ -2089,52 +2061,52 @@
   <expressionfields/>
   <attributeactions>
     <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
-    <actionsetting name="reverse vertices" action="import math&#xd;&#xa;&#xd;&#xa;# Récupération de la couche par son ID&#xd;&#xa;layer_id = '[% @layer_id %]'&#xd;&#xa;layer = QgsProject.instance().mapLayer(layer_id)&#xd;&#xa;&#xd;&#xa;fid = [%$id%]&#xd;&#xa;&#xd;&#xa;f = layer.getFeature(fid)&#xd;&#xa;geom = f.geometry()&#xd;&#xa;vertices = list(reversed(list(geom.vertices())))&#xd;&#xa;&#xd;&#xa;new_geom = QgsGeometry.fromPolyline(vertices)&#xd;&#xa;dz = f[&quot;fe_aval&quot;] - f[&quot;fe_amont&quot;]&#xd;&#xa;dx = vertices[-1].x() - vertices[0].x()&#xd;&#xa;dy = vertices[-1].y() - vertices[0].y()&#xd;&#xa;longueur = math.hypot(dx, dy)&#xd;&#xa;pente = dz / longueur * 100 if longueur else 0&#xd;&#xa;&#xd;&#xa;# Échange des regards et profondeurs&#xd;&#xa;prof_av = f['profondeur_fe_aval']&#xd;&#xa;prof_am = f['profondeur_fe_amont']&#xd;&#xa;&#xd;&#xa;noeud_av = f['regard_aval_id']&#xd;&#xa;noeud_am = f['regard_amont_id']&#xd;&#xa;&#xd;&#xa;f['regard_aval_id'] = noeud_am&#xd;&#xa;f['regard_amont_id']= noeud_av&#xd;&#xa;&#xd;&#xa;f['profondeur_fe_aval'] = prof_am&#xd;&#xa;f['profondeur_fe_amont'] = prof_av&#xd;&#xa;&#xd;&#xa;# Récupération de l'ID &quot;contre-pente&quot; depuis la ValueMap&#xd;&#xa;idx = layer.fields().lookupField('anomalie_lineaire_type_id')&#xd;&#xa;raw_map = layer.editorWidgetSetup(idx).config()['map']&#xd;&#xa;value_map = {k: v for d in raw_map for k, v in d.items()} if isinstance(raw_map, list) else raw_map&#xd;&#xa;contre_pente_id = value_map['contre-pente']&#xd;&#xa;&#xd;&#xa;f['pente'] = pente&#xd;&#xa;f['have_anomalie'] = pente > 0&#xd;&#xa;if pente > 0:&#xd;&#xa;    f['anomalie_lineaire_type_id'] = contre_pente_id&#xd;&#xa;&#xd;&#xa;layer.startEditing()&#xd;&#xa;layer.updateFeature(f)&#xd;&#xa;layer.changeGeometry(fid, new_geom)&#xd;&#xa;&#xd;&#xa;if 'form' in globals() and not sip.isdeleted(form):&#xd;&#xa;    form.setFeature(layer.getFeature(fid))&#xd;&#xa;" id="{0e10379d-c3a2-43be-a642-61b2bf9ea557}" capture="0" notificationMessage="" icon="" shortTitle="Inverse la direction de l'entité" type="1" isEnabledOnlyWhenEditable="1">
-      <actionScope id="Canvas"/>
+    <actionsetting icon="" name="reverse vertices" id="{0e10379d-c3a2-43be-a642-61b2bf9ea557}" action="import math&#xd;&#xa;&#xd;&#xa;# Récupération de la couche par son ID&#xd;&#xa;layer_id = '[% @layer_id %]'&#xd;&#xa;layer = QgsProject.instance().mapLayer(layer_id)&#xd;&#xa;&#xd;&#xa;fid = [%$id%]&#xd;&#xa;&#xd;&#xa;f = layer.getFeature(fid)&#xd;&#xa;geom = f.geometry()&#xd;&#xa;vertices = list(reversed(list(geom.vertices())))&#xd;&#xa;&#xd;&#xa;new_geom = QgsGeometry.fromPolyline(vertices)&#xd;&#xa;dz = f[&quot;fe_aval&quot;] - f[&quot;fe_amont&quot;]&#xd;&#xa;dx = vertices[-1].x() - vertices[0].x()&#xd;&#xa;dy = vertices[-1].y() - vertices[0].y()&#xd;&#xa;longueur = math.hypot(dx, dy)&#xd;&#xa;pente = dz / longueur * 100 if longueur else 0&#xd;&#xa;&#xd;&#xa;# Échange des regards et profondeurs&#xd;&#xa;prof_av = f['profondeur_fe_aval']&#xd;&#xa;prof_am = f['profondeur_fe_amont']&#xd;&#xa;&#xd;&#xa;noeud_av = f['regard_aval_id']&#xd;&#xa;noeud_am = f['regard_amont_id']&#xd;&#xa;&#xd;&#xa;f['regard_aval_id'] = noeud_am&#xd;&#xa;f['regard_amont_id']= noeud_av&#xd;&#xa;&#xd;&#xa;f['profondeur_fe_aval'] = prof_am&#xd;&#xa;f['profondeur_fe_amont'] = prof_av&#xd;&#xa;&#xd;&#xa;# Récupération de l'ID &quot;contre-pente&quot; depuis la ValueMap&#xd;&#xa;idx = layer.fields().lookupField('anomalie_lineaire_type_id')&#xd;&#xa;raw_map = layer.editorWidgetSetup(idx).config()['map']&#xd;&#xa;value_map = {k: v for d in raw_map for k, v in d.items()} if isinstance(raw_map, list) else raw_map&#xd;&#xa;contre_pente_id = value_map['contre-pente']&#xd;&#xa;&#xd;&#xa;f['pente'] = pente&#xd;&#xa;f['have_anomalie'] = pente > 0&#xd;&#xa;if pente > 0:&#xd;&#xa;    f['anomalie_lineaire_type_id'] = contre_pente_id&#xd;&#xa;&#xd;&#xa;layer.startEditing()&#xd;&#xa;layer.updateFeature(f)&#xd;&#xa;layer.changeGeometry(fid, new_geom)&#xd;&#xa;&#xd;&#xa;if 'form' in globals() and not sip.isdeleted(form):&#xd;&#xa;    form.setFeature(layer.getFeature(fid))&#xd;&#xa;" isEnabledOnlyWhenEditable="1" type="1" shortTitle="Inverse la direction de l'entité" notificationMessage="" capture="0">
       <actionScope id="Form"/>
+      <actionScope id="Canvas"/>
       <actionScope id="Feature"/>
     </actionsetting>
   </attributeactions>
-  <attributetableconfig sortExpression="" actionWidgetStyle="dropDown" sortOrder="0">
+  <attributetableconfig sortExpression="" sortOrder="0" actionWidgetStyle="dropDown">
     <columns>
-      <column name="fid" width="-1" hidden="0" type="field"/>
-      <column name="code" width="-1" hidden="0" type="field"/>
-      <column name="reseau_type_id" width="-1" hidden="0" type="field"/>
-      <column name="ouvrage_lineaire_type_id" width="-1" hidden="0" type="field"/>
-      <column name="volume_utile" width="-1" hidden="0" type="field"/>
-      <column name="is_exutoire" width="-1" hidden="0" type="field"/>
-      <column name="refoulement" width="-1" hidden="0" type="field"/>
-      <column name="forme_geometrique_id" width="-1" hidden="0" type="field"/>
-      <column name="diametre" width="-1" hidden="0" type="field"/>
-      <column name="largeur_haute" width="-1" hidden="0" type="field"/>
-      <column name="profondeur" width="-1" hidden="0" type="field"/>
-      <column name="largeur_basse" width="-1" hidden="0" type="field"/>
-      <column name="materiau_lineaire_id" width="-1" hidden="0" type="field"/>
-      <column name="regard_amont_id" width="185" hidden="0" type="field"/>
-      <column name="regard_aval_id" width="210" hidden="0" type="field"/>
-      <column name="have_anomalie" width="-1" hidden="0" type="field"/>
-      <column name="anomalie_lineaire_type_id" width="-1" hidden="0" type="field"/>
-      <column name="hauteur_depot" width="-1" hidden="0" type="field"/>
-      <column name="profondeur_fe_amont" width="-1" hidden="0" type="field"/>
-      <column name="profondeur_fe_aval" width="-1" hidden="0" type="field"/>
-      <column name="fe_amont" width="-1" hidden="0" type="field"/>
-      <column name="fe_aval" width="-1" hidden="0" type="field"/>
-      <column name="commentaire" width="-1" hidden="0" type="field"/>
-      <column name="photo" width="-1" hidden="0" type="field"/>
-      <column name="created_at" width="-1" hidden="0" type="field"/>
-      <column name="bv_id" width="-1" hidden="0" type="field"/>
-      <column name="ssbv_id" width="-1" hidden="0" type="field"/>
-      <column name="code_ouvrage" width="-1" hidden="0" type="field"/>
-      <column name="code_exutoire" width="-1" hidden="0" type="field"/>
-      <column name="pente" width="-1" hidden="0" type="field"/>
-      <column name="taux_colmatage" width="-1" hidden="0" type="field"/>
-      <column name="commune" width="-1" hidden="0" type="field"/>
-      <column name="gestionnaire" width="-1" hidden="0" type="field"/>
-      <column name="sources" width="-1" hidden="0" type="field"/>
-      <column name="is_ouvrage" width="-1" hidden="0" type="field"/>
-      <column name="nom_rue" width="-1" hidden="0" type="field"/>
-      <column name="nom_rue2" width="-1" hidden="0" type="field"/>
-      <column width="-1" hidden="1" type="actions"/>
+      <column name="fid" width="-1" type="field" hidden="0"/>
+      <column name="code" width="-1" type="field" hidden="0"/>
+      <column name="reseau_type_id" width="-1" type="field" hidden="0"/>
+      <column name="ouvrage_lineaire_type_id" width="-1" type="field" hidden="0"/>
+      <column name="volume_utile" width="-1" type="field" hidden="0"/>
+      <column name="is_exutoire" width="-1" type="field" hidden="0"/>
+      <column name="refoulement" width="-1" type="field" hidden="0"/>
+      <column name="forme_geometrique_id" width="-1" type="field" hidden="0"/>
+      <column name="diametre" width="-1" type="field" hidden="0"/>
+      <column name="largeur_haute" width="-1" type="field" hidden="0"/>
+      <column name="profondeur" width="-1" type="field" hidden="0"/>
+      <column name="largeur_basse" width="-1" type="field" hidden="0"/>
+      <column name="materiau_lineaire_id" width="-1" type="field" hidden="0"/>
+      <column name="regard_amont_id" width="185" type="field" hidden="0"/>
+      <column name="regard_aval_id" width="210" type="field" hidden="0"/>
+      <column name="have_anomalie" width="-1" type="field" hidden="0"/>
+      <column name="anomalie_lineaire_type_id" width="-1" type="field" hidden="0"/>
+      <column name="hauteur_depot" width="-1" type="field" hidden="0"/>
+      <column name="profondeur_fe_amont" width="-1" type="field" hidden="0"/>
+      <column name="profondeur_fe_aval" width="-1" type="field" hidden="0"/>
+      <column name="fe_amont" width="-1" type="field" hidden="0"/>
+      <column name="fe_aval" width="-1" type="field" hidden="0"/>
+      <column name="commentaire" width="-1" type="field" hidden="0"/>
+      <column name="photo" width="-1" type="field" hidden="0"/>
+      <column name="created_at" width="-1" type="field" hidden="0"/>
+      <column name="bv_id" width="-1" type="field" hidden="0"/>
+      <column name="ssbv_id" width="-1" type="field" hidden="0"/>
+      <column name="code_ouvrage" width="-1" type="field" hidden="0"/>
+      <column name="code_exutoire" width="-1" type="field" hidden="0"/>
+      <column name="pente" width="-1" type="field" hidden="0"/>
+      <column name="taux_colmatage" width="-1" type="field" hidden="0"/>
+      <column name="commune" width="-1" type="field" hidden="0"/>
+      <column name="gestionnaire" width="-1" type="field" hidden="0"/>
+      <column name="sources" width="-1" type="field" hidden="0"/>
+      <column name="is_ouvrage" width="-1" type="field" hidden="0"/>
+      <column name="nom_rue" width="-1" type="field" hidden="0"/>
+      <column name="nom_rue2" width="-1" type="field" hidden="0"/>
+      <column width="-1" type="actions" hidden="1"/>
     </columns>
   </attributetableconfig>
   <conditionalstyles>
@@ -2166,300 +2138,300 @@ def my_form_open(dialog, layer, feature):
   <featformsuppress>0</featformsuppress>
   <editorlayout>tablayout</editorlayout>
   <attributeEditorForm>
-    <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-      <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+    <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+      <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
     </labelStyle>
-    <attributeEditorContainer columnCount="1" showLabel="1" name="Identité" horizontalStretch="0" groupBox="0" collapsed="0" visibilityExpression="" visibilityExpressionEnabled="0" collapsedExpression="" type="Tab" verticalStretch="0" collapsedExpressionEnabled="0">
-      <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-        <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+    <attributeEditorContainer groupBox="0" collapsed="0" collapsedExpression="" name="Identité" verticalStretch="0" collapsedExpressionEnabled="0" visibilityExpressionEnabled="0" columnCount="1" type="Tab" showLabel="1" horizontalStretch="0" visibilityExpression="">
+      <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+        <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
       </labelStyle>
-      <attributeEditorField showLabel="1" name="code" horizontalStretch="0" index="1" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="code" verticalStretch="0" showLabel="1" index="1" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="reseau_type_id" horizontalStretch="0" index="2" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="reseau_type_id" verticalStretch="0" showLabel="1" index="2" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="pente" horizontalStretch="0" index="31" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="pente" verticalStretch="0" showLabel="1" index="31" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="is_exutoire" horizontalStretch="0" index="6" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="is_exutoire" verticalStretch="0" showLabel="1" index="6" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="have_anomalie" horizontalStretch="0" index="16" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="have_anomalie" verticalStretch="0" showLabel="1" index="16" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorContainer columnCount="1" showLabel="1" name="Ouvrage de gestion" horizontalStretch="0" groupBox="1" collapsed="0" visibilityExpression="if(&quot;reseau_type_id&quot; = 4, true, false)" visibilityExpressionEnabled="1" collapsedExpression="" type="GroupBox" verticalStretch="0" collapsedExpressionEnabled="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorContainer groupBox="1" collapsed="0" collapsedExpression="" name="Ouvrage de gestion" verticalStretch="0" collapsedExpressionEnabled="0" visibilityExpressionEnabled="1" columnCount="1" type="GroupBox" showLabel="1" horizontalStretch="0" visibilityExpression="if(&quot;reseau_type_id&quot; = 4, true, false)">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
-        <attributeEditorField showLabel="1" name="code_ouvrage" horizontalStretch="0" index="29" verticalStretch="0">
-          <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-            <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+        <attributeEditorField name="code_ouvrage" verticalStretch="0" showLabel="1" index="29" horizontalStretch="0">
+          <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+            <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
           </labelStyle>
         </attributeEditorField>
-        <attributeEditorField showLabel="1" name="ouvrage_lineaire_type_id" horizontalStretch="0" index="4" verticalStretch="0">
-          <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-            <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+        <attributeEditorField name="ouvrage_lineaire_type_id" verticalStretch="0" showLabel="1" index="4" horizontalStretch="0">
+          <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+            <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
           </labelStyle>
         </attributeEditorField>
       </attributeEditorContainer>
     </attributeEditorContainer>
-    <attributeEditorContainer columnCount="1" showLabel="1" name="Spécificité physique" horizontalStretch="0" groupBox="0" collapsed="0" visibilityExpression="" visibilityExpressionEnabled="0" collapsedExpression="" type="Tab" verticalStretch="0" collapsedExpressionEnabled="0">
-      <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-        <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+    <attributeEditorContainer groupBox="0" collapsed="0" collapsedExpression="" name="Spécificité physique" verticalStretch="0" collapsedExpressionEnabled="0" visibilityExpressionEnabled="0" columnCount="1" type="Tab" showLabel="1" horizontalStretch="0" visibilityExpression="">
+      <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+        <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
       </labelStyle>
-      <attributeEditorField showLabel="1" name="forme_geometrique_id" horizontalStretch="0" index="8" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="forme_geometrique_id" verticalStretch="0" showLabel="1" index="8" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="materiau_lineaire_id" horizontalStretch="0" index="13" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="materiau_lineaire_id" verticalStretch="0" showLabel="1" index="13" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorContainer columnCount="1" showLabel="1" name="Dimmension (canalisation)" horizontalStretch="0" groupBox="1" collapsed="0" visibilityExpression=" &quot;reseau_type_id&quot; =1 and &quot;forme_geometrique_id&quot; != 2 and &quot;forme_geometrique_id&quot; is not Null" visibilityExpressionEnabled="1" collapsedExpression="" type="GroupBox" verticalStretch="0" collapsedExpressionEnabled="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorContainer groupBox="1" collapsed="0" collapsedExpression="" name="Dimmension (canalisation)" verticalStretch="0" collapsedExpressionEnabled="0" visibilityExpressionEnabled="1" columnCount="1" type="GroupBox" showLabel="1" horizontalStretch="0" visibilityExpression=" &quot;reseau_type_id&quot; =1 and &quot;forme_geometrique_id&quot; != 2 and &quot;forme_geometrique_id&quot; is not Null">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
-        <attributeEditorField showLabel="1" name="diametre" horizontalStretch="0" index="9" verticalStretch="0">
-          <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-            <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+        <attributeEditorField name="diametre" verticalStretch="0" showLabel="1" index="9" horizontalStretch="0">
+          <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+            <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
           </labelStyle>
         </attributeEditorField>
-        <attributeEditorField showLabel="1" name="refoulement" horizontalStretch="0" index="7" verticalStretch="0">
-          <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-            <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+        <attributeEditorField name="refoulement" verticalStretch="0" showLabel="1" index="7" horizontalStretch="0">
+          <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+            <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
           </labelStyle>
         </attributeEditorField>
       </attributeEditorContainer>
-      <attributeEditorContainer columnCount="1" showLabel="1" name="Dimension (fossé)" horizontalStretch="0" groupBox="1" collapsed="0" visibilityExpression=" &quot;reseau_type_id&quot; =3" visibilityExpressionEnabled="1" collapsedExpression="" type="GroupBox" verticalStretch="0" collapsedExpressionEnabled="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorContainer groupBox="1" collapsed="0" collapsedExpression="" name="Dimension (fossé)" verticalStretch="0" collapsedExpressionEnabled="0" visibilityExpressionEnabled="1" columnCount="1" type="GroupBox" showLabel="1" horizontalStretch="0" visibilityExpression=" &quot;reseau_type_id&quot; =3">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
-        <attributeEditorField showLabel="1" name="largeur_haute" horizontalStretch="0" index="10" verticalStretch="0">
-          <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-            <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+        <attributeEditorField name="largeur_haute" verticalStretch="0" showLabel="1" index="10" horizontalStretch="0">
+          <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+            <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
           </labelStyle>
         </attributeEditorField>
-        <attributeEditorField showLabel="1" name="profondeur" horizontalStretch="0" index="11" verticalStretch="0">
-          <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-            <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+        <attributeEditorField name="profondeur" verticalStretch="0" showLabel="1" index="11" horizontalStretch="0">
+          <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+            <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
           </labelStyle>
         </attributeEditorField>
-        <attributeEditorField showLabel="1" name="largeur_basse" horizontalStretch="0" index="12" verticalStretch="0">
-          <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-            <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+        <attributeEditorField name="largeur_basse" verticalStretch="0" showLabel="1" index="12" horizontalStretch="0">
+          <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+            <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
           </labelStyle>
         </attributeEditorField>
       </attributeEditorContainer>
-      <attributeEditorContainer columnCount="1" showLabel="1" name="Dimmension (cadre)" horizontalStretch="0" groupBox="1" collapsed="0" visibilityExpression="&quot;forme_geometrique_id&quot; = 2 " visibilityExpressionEnabled="1" collapsedExpression="" type="GroupBox" verticalStretch="0" collapsedExpressionEnabled="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorContainer groupBox="1" collapsed="0" collapsedExpression="" name="Dimmension (cadre)" verticalStretch="0" collapsedExpressionEnabled="0" visibilityExpressionEnabled="1" columnCount="1" type="GroupBox" showLabel="1" horizontalStretch="0" visibilityExpression="&quot;forme_geometrique_id&quot; = 2 ">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
-        <attributeEditorField showLabel="1" name="largeur_haute" horizontalStretch="0" index="10" verticalStretch="0">
-          <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-            <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+        <attributeEditorField name="largeur_haute" verticalStretch="0" showLabel="1" index="10" horizontalStretch="0">
+          <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+            <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
           </labelStyle>
         </attributeEditorField>
-        <attributeEditorField showLabel="1" name="profondeur" horizontalStretch="0" index="11" verticalStretch="0">
-          <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-            <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+        <attributeEditorField name="profondeur" verticalStretch="0" showLabel="1" index="11" horizontalStretch="0">
+          <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+            <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
           </labelStyle>
         </attributeEditorField>
       </attributeEditorContainer>
     </attributeEditorContainer>
-    <attributeEditorContainer columnCount="1" showLabel="1" name="Topologie" horizontalStretch="0" groupBox="0" collapsed="0" visibilityExpression="" visibilityExpressionEnabled="0" collapsedExpression="" type="Tab" verticalStretch="0" collapsedExpressionEnabled="0">
-      <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-        <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+    <attributeEditorContainer groupBox="0" collapsed="0" collapsedExpression="" name="Topologie" verticalStretch="0" collapsedExpressionEnabled="0" visibilityExpressionEnabled="0" columnCount="1" type="Tab" showLabel="1" horizontalStretch="0" visibilityExpression="">
+      <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+        <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
       </labelStyle>
-      <attributeEditorField showLabel="1" name="regard_amont_id" horizontalStretch="0" index="14" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="regard_amont_id" verticalStretch="0" showLabel="1" index="14" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="profondeur_fe_amont" horizontalStretch="0" index="19" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="profondeur_fe_amont" verticalStretch="0" showLabel="1" index="19" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="fe_amont" horizontalStretch="0" index="21" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="fe_amont" verticalStretch="0" showLabel="1" index="21" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorContainer columnCount="1" showLabel="0" name="" horizontalStretch="0" groupBox="0" collapsed="0" visibilityExpression="" visibilityExpressionEnabled="0" collapsedExpression="" type="Row" verticalStretch="1" collapsedExpressionEnabled="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorContainer groupBox="0" collapsed="0" collapsedExpression="" name="" verticalStretch="1" collapsedExpressionEnabled="0" visibilityExpressionEnabled="0" columnCount="1" type="Row" showLabel="0" horizontalStretch="0" visibilityExpression="">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorContainer>
-      <attributeEditorField showLabel="1" name="regard_aval_id" horizontalStretch="0" index="15" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="regard_aval_id" verticalStretch="0" showLabel="1" index="15" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="profondeur_fe_aval" horizontalStretch="0" index="20" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="profondeur_fe_aval" verticalStretch="0" showLabel="1" index="20" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="fe_aval" horizontalStretch="0" index="22" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="fe_aval" verticalStretch="0" showLabel="1" index="22" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorAction showLabel="1" name="{0e10379d-c3a2-43be-a642-61b2bf9ea557}" horizontalStretch="0" ActionUUID="{0e10379d-c3a2-43be-a642-61b2bf9ea557}" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorAction ActionUUID="{0e10379d-c3a2-43be-a642-61b2bf9ea557}" name="{0e10379d-c3a2-43be-a642-61b2bf9ea557}" verticalStretch="0" showLabel="1" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorAction>
     </attributeEditorContainer>
-    <attributeEditorContainer columnCount="1" showLabel="1" name="Exutoire" horizontalStretch="0" groupBox="0" collapsed="0" visibilityExpression="" visibilityExpressionEnabled="0" collapsedExpression="" type="Tab" verticalStretch="0" collapsedExpressionEnabled="0">
-      <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-        <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+    <attributeEditorContainer groupBox="0" collapsed="0" collapsedExpression="" name="Exutoire" verticalStretch="0" collapsedExpressionEnabled="0" visibilityExpressionEnabled="0" columnCount="1" type="Tab" showLabel="1" horizontalStretch="0" visibilityExpression="">
+      <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+        <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
       </labelStyle>
-      <attributeEditorField showLabel="1" name="code_exutoire" horizontalStretch="0" index="30" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="code_exutoire" verticalStretch="0" showLabel="1" index="30" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
     </attributeEditorContainer>
-    <attributeEditorContainer columnCount="1" showLabel="1" name="Anomalie" horizontalStretch="0" groupBox="0" collapsed="0" visibilityExpression="&quot;have_anomalie&quot;" visibilityExpressionEnabled="1" collapsedExpression="" type="Tab" verticalStretch="0" collapsedExpressionEnabled="0">
-      <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-        <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+    <attributeEditorContainer groupBox="0" collapsed="0" collapsedExpression="" name="Anomalie" verticalStretch="0" collapsedExpressionEnabled="0" visibilityExpressionEnabled="1" columnCount="1" type="Tab" showLabel="1" horizontalStretch="0" visibilityExpression="&quot;have_anomalie&quot;">
+      <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+        <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
       </labelStyle>
-      <attributeEditorField showLabel="1" name="anomalie_lineaire_type_id" horizontalStretch="0" index="17" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="anomalie_lineaire_type_id" verticalStretch="0" showLabel="1" index="17" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="hauteur_depot" horizontalStretch="0" index="18" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="hauteur_depot" verticalStretch="0" showLabel="1" index="18" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="taux_colmatage" horizontalStretch="0" index="32" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="taux_colmatage" verticalStretch="0" showLabel="1" index="32" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
     </attributeEditorContainer>
-    <attributeEditorContainer columnCount="1" showLabel="1" name="BV et SSBV" horizontalStretch="0" groupBox="0" collapsed="0" visibilityExpression="" visibilityExpressionEnabled="0" collapsedExpression="" type="Tab" verticalStretch="0" collapsedExpressionEnabled="0">
-      <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-        <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+    <attributeEditorContainer groupBox="0" collapsed="0" collapsedExpression="" name="BV et SSBV" verticalStretch="0" collapsedExpressionEnabled="0" visibilityExpressionEnabled="0" columnCount="1" type="Tab" showLabel="1" horizontalStretch="0" visibilityExpression="">
+      <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+        <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
       </labelStyle>
-      <attributeEditorField showLabel="1" name="bv_id" horizontalStretch="0" index="26" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="bv_id" verticalStretch="0" showLabel="1" index="26" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="ssbv_id" horizontalStretch="0" index="27" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="ssbv_id" verticalStretch="0" showLabel="1" index="27" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
     </attributeEditorContainer>
-    <attributeEditorContainer columnCount="1" showLabel="1" name="Localisation" horizontalStretch="0" groupBox="0" collapsed="0" visibilityExpression="" visibilityExpressionEnabled="0" collapsedExpression="" type="Tab" verticalStretch="0" collapsedExpressionEnabled="0">
-      <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-        <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+    <attributeEditorContainer groupBox="0" collapsed="0" collapsedExpression="" name="Localisation" verticalStretch="0" collapsedExpressionEnabled="0" visibilityExpressionEnabled="0" columnCount="1" type="Tab" showLabel="1" horizontalStretch="0" visibilityExpression="">
+      <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+        <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
       </labelStyle>
-      <attributeEditorField showLabel="1" name="nom_rue" horizontalStretch="0" index="28" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="nom_rue" verticalStretch="0" showLabel="1" index="28" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="nom_rue2" horizontalStretch="0" index="36" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="nom_rue2" verticalStretch="0" showLabel="1" index="36" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="commune" horizontalStretch="0" index="33" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="commune" verticalStretch="0" showLabel="1" index="33" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
     </attributeEditorContainer>
-    <attributeEditorContainer columnCount="1" showLabel="1" name="Autre" horizontalStretch="0" groupBox="0" collapsed="0" visibilityExpression="" visibilityExpressionEnabled="0" collapsedExpression="" type="Tab" verticalStretch="0" collapsedExpressionEnabled="0">
-      <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-        <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+    <attributeEditorContainer groupBox="0" collapsed="0" collapsedExpression="" name="Autre" verticalStretch="0" collapsedExpressionEnabled="0" visibilityExpressionEnabled="0" columnCount="1" type="Tab" showLabel="1" horizontalStretch="0" visibilityExpression="">
+      <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+        <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
       </labelStyle>
-      <attributeEditorField showLabel="1" name="gestionnaire" horizontalStretch="0" index="34" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="gestionnaire" verticalStretch="0" showLabel="1" index="34" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="commentaire" horizontalStretch="0" index="23" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="commentaire" verticalStretch="0" showLabel="1" index="23" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="photo" horizontalStretch="0" index="24" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="photo" verticalStretch="0" showLabel="1" index="24" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="created_at" horizontalStretch="0" index="25" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="created_at" verticalStretch="0" showLabel="1" index="25" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
-      <attributeEditorField showLabel="1" name="sources" horizontalStretch="0" index="35" verticalStretch="0">
-        <labelStyle overrideLabelFont="0" labelColor="" overrideLabelColor="0">
-          <labelFont style="" bold="0" italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" strikethrough="0" underline="0"/>
+      <attributeEditorField name="sources" verticalStretch="0" showLabel="1" index="35" horizontalStretch="0">
+        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="">
+          <labelFont italic="0" description="MS Shell Dlg 2,8.3,-1,5,50,0,0,0,0,0" bold="0" style="" strikethrough="0" underline="0"/>
         </labelStyle>
       </attributeEditorField>
     </attributeEditorContainer>
   </attributeEditorForm>
   <editable>
-    <field editable="1" name="anomalie_lineaire_type_id"/>
-    <field editable="1" name="bv_id"/>
-    <field editable="0" name="code"/>
-    <field editable="1" name="code_exutoire"/>
-    <field editable="1" name="code_ouvrage"/>
-    <field editable="1" name="commentaire"/>
-    <field editable="1" name="commune"/>
-    <field editable="0" name="created_at"/>
-    <field editable="1" name="diametre"/>
-    <field editable="0" name="fe_amont"/>
-    <field editable="1" name="fe_aval"/>
-    <field editable="0" name="fid"/>
-    <field editable="1" name="forme_geometrique_id"/>
-    <field editable="1" name="gestionnaire"/>
-    <field editable="1" name="hauteur_depot"/>
-    <field editable="1" name="have_anomalie"/>
-    <field editable="1" name="is_exutoire"/>
-    <field editable="1" name="is_ouvrage"/>
-    <field editable="1" name="largeur_basse"/>
-    <field editable="1" name="largeur_haute"/>
-    <field editable="1" name="materiau_lineaire_id"/>
-    <field editable="1" name="nom_rue"/>
-    <field editable="1" name="nom_rue2"/>
-    <field editable="1" name="ouvrage_lineaire_type_id"/>
-    <field editable="1" name="pente"/>
-    <field editable="1" name="photo"/>
-    <field editable="1" name="profondeur"/>
-    <field editable="1" name="profondeur_fe_amont"/>
-    <field editable="1" name="profondeur_fe_aval"/>
-    <field editable="1" name="refoulement"/>
-    <field editable="0" name="regard_amont_id"/>
-    <field editable="0" name="regard_aval_id"/>
-    <field editable="1" name="reseau_type_id"/>
-    <field editable="1" name="rue"/>
-    <field editable="1" name="rue2"/>
-    <field editable="1" name="sources"/>
-    <field editable="1" name="ssbv_id"/>
-    <field editable="1" name="taux_colmatage"/>
-    <field editable="1" name="volume_utile"/>
+    <field name="anomalie_lineaire_type_id" editable="1"/>
+    <field name="bv_id" editable="1"/>
+    <field name="code" editable="0"/>
+    <field name="code_exutoire" editable="1"/>
+    <field name="code_ouvrage" editable="1"/>
+    <field name="commentaire" editable="1"/>
+    <field name="commune" editable="1"/>
+    <field name="created_at" editable="0"/>
+    <field name="diametre" editable="1"/>
+    <field name="fe_amont" editable="0"/>
+    <field name="fe_aval" editable="1"/>
+    <field name="fid" editable="0"/>
+    <field name="forme_geometrique_id" editable="1"/>
+    <field name="gestionnaire" editable="1"/>
+    <field name="hauteur_depot" editable="1"/>
+    <field name="have_anomalie" editable="1"/>
+    <field name="is_exutoire" editable="1"/>
+    <field name="is_ouvrage" editable="1"/>
+    <field name="largeur_basse" editable="1"/>
+    <field name="largeur_haute" editable="1"/>
+    <field name="materiau_lineaire_id" editable="1"/>
+    <field name="nom_rue" editable="1"/>
+    <field name="nom_rue2" editable="1"/>
+    <field name="ouvrage_lineaire_type_id" editable="1"/>
+    <field name="pente" editable="1"/>
+    <field name="photo" editable="1"/>
+    <field name="profondeur" editable="1"/>
+    <field name="profondeur_fe_amont" editable="1"/>
+    <field name="profondeur_fe_aval" editable="1"/>
+    <field name="refoulement" editable="1"/>
+    <field name="regard_amont_id" editable="0"/>
+    <field name="regard_aval_id" editable="0"/>
+    <field name="reseau_type_id" editable="1"/>
+    <field name="rue" editable="1"/>
+    <field name="rue2" editable="1"/>
+    <field name="sources" editable="1"/>
+    <field name="ssbv_id" editable="1"/>
+    <field name="taux_colmatage" editable="1"/>
+    <field name="volume_utile" editable="1"/>
   </editable>
   <labelOnTop>
     <field name="anomalie_lineaire_type_id" labelOnTop="0"/>

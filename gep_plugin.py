@@ -2,6 +2,7 @@
 
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+from gep_sd.form.GenerateSsbvName import GenerateSsbvName
 from gep_sd.form.AddBvToEntities import AddBvToEntities
 from gep_sd.form.AddGestionnaireToEntities import AddGestionnaireToEntities
 from gep_sd.form.AddSourceToEntities import AddSourceToEntities
@@ -39,6 +40,12 @@ class GepSDPlugin:
         self.get_and_verif_canalisation = QAction(QIcon(":/img/img/icon.svg"), u"Vérifier les canalisations",
                                                   self.interface.mainWindow())
         self.get_and_verif_canalisation.triggered.connect(self.on_click_get_and_verif_canalisation)
+
+        # Généré les nom des SSBV
+        self.generate_ssbv_name = QAction(QIcon(":/img/img/icon.svg"), u"Générer les noms des sous bassins versant",
+                                            self.interface.mainWindow())
+        self.generate_ssbv_name.triggered.connect(self.on_click_generate_ssbv_name)
+
 
         # Associer les Bassins Versant
         self.add_bv_to_entities = QAction(QIcon(":/img/img/icon.svg"), u"Associer les Bassins Versant aux entitées",
@@ -79,6 +86,7 @@ class GepSDPlugin:
         self.menu.addAction(self.create_sd)
         self.menu.addAction(self.terrain_to_bureau)
         self.menu.addAction(self.generate_code)
+        self.menu.addAction(self.generate_ssbv_name)
         self.menu.addAction(self.add_bv_to_entities)
         self.menu.addAction(self.add_ssbv_to_entities)
         self.menu.addAction(self.get_and_verif_canalisation)
@@ -128,12 +136,20 @@ class GepSDPlugin:
         if result:
             pass
 
+    def on_click_generate_ssbv_name(self):
+        dlg = GenerateSsbvName(self.interface)
+        dlg.show()
+        result = dlg.exec_()
+        if result:
+            pass
+
     def on_click_add_bv_to_entities(self):
         dlg = AddBvToEntities(self.interface)
         dlg.show()
         result = dlg.exec_()
         if result:
             pass
+
 
     def on_click_add_ssbv_to_entities(self):
         dlg = AddSsbvToEntities(self.interface)
