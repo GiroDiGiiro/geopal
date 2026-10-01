@@ -11,4 +11,4 @@ def add_gestionnaire_to_entities(name_gestionnaire: str, name_gestionnaire_field
         succes = update_layer_attributes(layer=layer, updates={name_gestionnaire_field:name_gestionnaire},selected_only=selected_only)
         if not succes:
             return False, f"Erreur lors de l'ajout du gestionnaire de la couche {layer.name()} (nom du champs : {name_gestionnaire_field})"
-    return True,''
+    return True,f'Gestionnaire : {name_gestionnaire}, ajouté avec succès'

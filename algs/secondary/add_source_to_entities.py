@@ -11,4 +11,4 @@ def add_source_to_entities(name_source: str, name_source_field:str, info : Dict[
         succes = update_layer_attributes(layer=layer, updates={name_source_field:name_source},selected_only=selected_only)
         if not succes:
             return False, f"Erreur lors de l'ajout du source de la couche {layer.name()} (nom du champs : {name_source_field})"
-    return True,''
+    return True,f'Source : {name_source}, ajouté avec succès'
